@@ -17,6 +17,3 @@ I detta projekt ska en hemsida skapas för ett frisörföretag
 [Utvecklingsmiljöstandard](https://docs.google.com/document/d/1GZWlghX-j47cD8yNAAIj7s1mAKinmGaFx8jLktwkkUo/edit?usp=sharing)
 
 [DoD / Definition of Done](https://docs.google.com/document/d/1vAVoLG2gqG10fKKBfhncsP1Yi0CG5ap28cbXmeb1bU8/edit?usp=sharing)
-
-
-
