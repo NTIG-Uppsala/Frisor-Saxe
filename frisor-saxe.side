@@ -15,7 +15,7 @@
       "value": ""
     }, {
       "id": "66a9f8e0-e1a7-450f-b6f2-20e4ecb280c2",
-      "comment": "hitta text",
+      "comment": "hitta rubrik",
       "command": "assertText",
       "target": "css=header",
       "targets": [
@@ -26,16 +26,72 @@
       "value": "Frisör Saxé"
     }, {
       "id": "679d89cd-4e80-4c54-90ef-cf6064d57601",
-      "comment": "verifiera text",
+      "comment": "verifiera rubrik",
       "command": "verifyText",
       "target": "css=header",
       "targets": [],
       "value": "Frisör Saxé"
     }, {
-      "id": "8a2aa8b0-25d1-4b50-a0fe-6dc304f74a4e",
-      "comment": "hitta bilder",
-      "command": "//assertElementPresent",
-      "target": "//img",
+      "id": "2726bd6f-ef98-4f9f-a66e-b24c375dfceb",
+      "comment": "Hitta telefonnummer",
+      "command": "assertText",
+      "target": "css=body",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7be8a77f-404e-4992-b081-5c254a484c06",
+      "comment": "Verifiera telefonnummer",
+      "command": "verifyText",
+      "target": "css=body",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "19bf38ce-e7cf-4543-b7ec-c7d5fc85fff1",
+      "comment": "Hitta E-post",
+      "command": "assertText",
+      "target": "css=body",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e267347f-2ae3-4931-b566-20f99156d96a",
+      "comment": "Verifiera E-post",
+      "command": "verifyText",
+      "target": "css=body",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e2fdd903-5ca5-4586-b7c6-531f8a160af7",
+      "comment": "Hitta Öppettider",
+      "command": "assertText",
+      "target": "css=body",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8bc3d009-ab66-47be-bc09-3a88367de4d8",
+      "comment": "Verifiera Öppettider",
+      "command": "verifyText",
+      "target": "css=body",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a4e96757-4458-4679-9439-eb8a52543f9a",
+      "comment": "Hitta adress",
+      "command": "assertText",
+      "target": "css=body",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d69fde1c-f697-4e9c-ba7f-5450d332d984",
+      "comment": "Verifiera adress",
+      "command": "verifyText",
+      "target": "css=body",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0b566825-7224-4186-a74f-de706e218b4c",
+      "comment": "gå igenom menyer",
+      "command": "//clickAt",
+      "target": "",
       "targets": [],
       "value": ""
     }, {
@@ -46,10 +102,10 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "0b566825-7224-4186-a74f-de706e218b4c",
-      "comment": "gå igenom menyer",
-      "command": "//clickAt",
-      "target": "",
+      "id": "8a2aa8b0-25d1-4b50-a0fe-6dc304f74a4e",
+      "comment": "hitta bilder",
+      "command": "//assertElementPresent",
+      "target": "//img",
       "targets": [],
       "value": ""
     }, {
