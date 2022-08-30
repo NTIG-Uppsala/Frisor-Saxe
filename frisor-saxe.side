@@ -1,0 +1,67 @@
+{
+  "id": "8782d55a-9096-40fa-aed4-8526981e06d5",
+  "version": "2.0",
+  "name": "frisor-saxe",
+  "url": "https://ntig-uppsala.github.io/Frisor-Saxe/",
+  "tests": [{
+    "id": "0709de50-6b99-479f-be36-8110f5a18dff",
+    "name": "test för hemsida",
+    "commands": [{
+      "id": "858d34ad-307e-4d80-a0ac-6cae47d40dc2",
+      "comment": "test för att se om den kommer in på sidan",
+      "command": "open",
+      "target": "https://ntig-uppsala.github.io/Frisor-Saxe/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8a2aa8b0-25d1-4b50-a0fe-6dc304f74a4e",
+      "comment": "hitta bilder",
+      "command": "assertElementPresent",
+      "target": "//img",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "66a9f8e0-e1a7-450f-b6f2-20e4ecb280c2",
+      "comment": "hitta text",
+      "command": "assertText",
+      "target": "css=body",
+      "targets": [
+        ["css=body", "css:finder"],
+        ["xpath=//body", "xpath:position"],
+        ["xpath=//body[contains(.,'pepe')]", "xpath:innerText"]
+      ],
+      "value": "pepe"
+    }, {
+      "id": "405ba6e2-4aa0-4220-ba3d-50aaaf55cd1b",
+      "comment": "scripts",
+      "command": "//runScript",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0b566825-7224-4186-a74f-de706e218b4c",
+      "comment": "gå igenom menyer",
+      "command": "//clickAt",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d228cec9-2985-4021-a9f2-4df8721d6c5c",
+      "comment": "klicka på länkar",
+      "command": "//clickAt",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "7fd1ddea-bcbd-462e-892d-63ff01d7d3d7",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["0709de50-6b99-479f-be36-8110f5a18dff"]
+  }],
+  "urls": ["https://ntig-uppsala.github.io/Frisor-Saxe/"],
+  "plugins": []
+}
