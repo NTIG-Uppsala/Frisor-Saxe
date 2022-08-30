@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: grey;
+    background-color: white;
 }
 
 header {
@@ -15,8 +15,7 @@ header {
     font-size: 100px;
 }
 
-.Öppet {
-    text-align: center;
+.open {
     display: flex;
     justify-content: center;
     color: black;
