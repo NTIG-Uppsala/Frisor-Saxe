@@ -5,3 +5,18 @@ header {
     font-weight: bold;
     font-size: 100px;
 }
+
+.Öppet {
+    text-align: center;
+    margin-right: 250px;
+    color: black;
+}
+ 
+h1 {
+    font-family: "Arial";
+    font-weight: bold;
+}
+
+h2 {
+    font-family: "Times New Roman";
+}
