@@ -8,8 +8,10 @@ header {
 
 .Öppet {
     text-align: center;
-    margin-right: 250px;
+    display: flex;
+    justify-content: center;
     color: black;
+    width: 100%;
 }
  
 h1 {
