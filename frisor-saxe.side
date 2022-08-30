@@ -110,8 +110,15 @@
       "value": ""
     }, {
       "id": "d228cec9-2985-4021-a9f2-4df8721d6c5c",
-      "comment": "klicka på länkar",
-      "command": "//clickAt",
+      "comment": "Klicka på facebook",
+      "command": "clickAt",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "be598486-6eec-4f08-825f-57b88344df7f",
+      "comment": "Klicka på instagram",
+      "command": "click",
       "target": "",
       "targets": [],
       "value": ""
