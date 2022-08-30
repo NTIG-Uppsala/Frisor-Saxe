@@ -17,17 +17,21 @@ header {
 
 .open {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     color: black;
-    width: 100%;
+    width: 50%;
+    margin-left: 25.5%;
 }
  
 h1 {
     font-family: "Arial";
     font-weight: bold;
-    margin-right: 250px;
 }
 
 h2 {
     font-family: "Times New Roman";
+}
+
+.adress {
+    margin-bottom: 1000px;
 }
