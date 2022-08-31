@@ -83,24 +83,24 @@
     }, {
       "id": "d228cec9-2985-4021-a9f2-4df8721d6c5c",
       "comment": "Klicka på facebook",
-      "command": "//click",
-      "target": "",
+      "command": "click",
+      "target": "id=facebook",
       "targets": [],
-      "value": ""
+      "value": "https://facebook.com/ntiuppsala"
     }, {
       "id": "be598486-6eec-4f08-825f-57b88344df7f",
       "comment": "Klicka på instagram",
-      "command": "//click",
-      "target": "",
+      "command": "click",
+      "target": "id=instagram",
       "targets": [],
-      "value": ""
+      "value": "https://instagram.com/ntiuppsala"
     }, {
       "id": "61906404-868c-4cb2-b175-01a2c0b846ac",
       "comment": "Klicka på twitter",
-      "command": "//clickAt",
-      "target": "",
+      "command": "clickAt",
+      "target": "id=instagram",
       "targets": [],
-      "value": ""
+      "value": "https://twitter.com/ntiuppsala"
     }, {
       "id": "0b566825-7224-4186-a74f-de706e218b4c",
       "comment": "gå igenom menyer",
