@@ -32,48 +32,6 @@
       "targets": [],
       "value": "Frisör Saxé"
     }, {
-      "id": "cb79cd63-7170-48e8-b410-0bb3135cfb98",
-      "comment": "Hitta telefonnummer titel",
-      "command": "//assertText",
-      "target": "css=.tele-mail > h2",
-      "targets": [],
-      "value": "0630-555-555"
-    }, {
-      "id": "ce961516-5552-41f5-a130-e90cfb93bc78",
-      "comment": "Verifiera telefonnummer titel",
-      "command": "//assertText",
-      "target": "css=.tele-mail > h2",
-      "targets": [],
-      "value": "0630-555-555"
-    }, {
-      "id": "2726bd6f-ef98-4f9f-a66e-b24c375dfceb",
-      "comment": "Hitta telefonnummer",
-      "command": "//assertText",
-      "target": "css=.tele-mail > h2",
-      "targets": [],
-      "value": "0630-555-555"
-    }, {
-      "id": "7be8a77f-404e-4992-b081-5c254a484c06",
-      "comment": "Verifiera telefonnummer",
-      "command": "//verifyText",
-      "target": "css=.tele-mail > h2",
-      "targets": [],
-      "value": "0630-555-555"
-    }, {
-      "id": "19bf38ce-e7cf-4543-b7ec-c7d5fc85fff1",
-      "comment": "Hitta E-post",
-      "command": "//assertText",
-      "target": "css=body",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "e267347f-2ae3-4931-b566-20f99156d96a",
-      "comment": "Verifiera E-post",
-      "command": "//verifyText",
-      "target": "css=body",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "d16c3a40-393d-4b4d-b40e-13c30c3992db",
       "comment": "Hitta Öppettider titel",
       "command": "assertText",
@@ -157,6 +115,62 @@
         ["xpath=//div[2]/h2", "xpath:position"]
       ],
       "value": "Fjällgatan 32H\\n981 39, Kiruna"
+    }, {
+      "id": "cb79cd63-7170-48e8-b410-0bb3135cfb98",
+      "comment": "Hitta telefonnummer titel",
+      "command": "assertText",
+      "target": "css=.tele-mail > h1",
+      "targets": [],
+      "value": "Telefonnummer"
+    }, {
+      "id": "ce961516-5552-41f5-a130-e90cfb93bc78",
+      "comment": "Verifiera telefonnummer titel",
+      "command": "assertText",
+      "target": "css=.tele-mail > h1",
+      "targets": [],
+      "value": "Telefonnummer"
+    }, {
+      "id": "2726bd6f-ef98-4f9f-a66e-b24c375dfceb",
+      "comment": "Hitta telefonnummer",
+      "command": "assertText",
+      "target": "css=.tele-mail > h2",
+      "targets": [],
+      "value": "0630-555-555"
+    }, {
+      "id": "7be8a77f-404e-4992-b081-5c254a484c06",
+      "comment": "Verifiera telefonnummer",
+      "command": "verifyText",
+      "target": "css=.tele-mail > h2",
+      "targets": [],
+      "value": "0630-555-555"
+    }, {
+      "id": "720e6d63-9ba3-4e19-b66f-eae9dce9a57a",
+      "comment": "Hitta E-post titel",
+      "command": "assertText",
+      "target": "css=div:nth-child(2) > h1",
+      "targets": [],
+      "value": "E-post"
+    }, {
+      "id": "d5c56bf0-e33f-41ab-8be9-639dcbacf4b4",
+      "comment": "Verifiera E-post titel",
+      "command": "verifyText",
+      "target": "css=div:nth-child(2) > h1",
+      "targets": [],
+      "value": "E-post"
+    }, {
+      "id": "19bf38ce-e7cf-4543-b7ec-c7d5fc85fff1",
+      "comment": "Hitta E-post",
+      "command": "assertText",
+      "target": "css=div:nth-child(2) > h2",
+      "targets": [],
+      "value": "info@ntig-uppsala.github.io"
+    }, {
+      "id": "e267347f-2ae3-4931-b566-20f99156d96a",
+      "comment": "Verifiera E-post",
+      "command": "verifyText",
+      "target": "css=div:nth-child(2) > h2",
+      "targets": [],
+      "value": "info@ntig-uppsala.github.io"
     }, {
       "id": "0b566825-7224-4186-a74f-de706e218b4c",
       "comment": "gå igenom menyer",
