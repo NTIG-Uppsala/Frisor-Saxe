@@ -16,37 +16,15 @@
     }, {
       "id": "66a9f8e0-e1a7-450f-b6f2-20e4ecb280c2",
       "comment": "hitta rubrik",
-      "command": "assertText",
-      "target": "css=header",
-      "targets": [
-        ["css=body", "css:finder"],
-        ["xpath=//body", "xpath:position"],
-        ["xpath=//body[contains(.,'pepe')]", "xpath:innerText"]
-      ],
-      "value": "Frisör Saxé"
-    }, {
-      "id": "679d89cd-4e80-4c54-90ef-cf6064d57601",
-      "comment": "verifiera rubrik",
-      "command": "verifyText",
-      "target": "css=header",
+      "command": "assertElementPresent",
+      "target": "css=body",
       "targets": [],
       "value": "Frisör Saxé"
     }, {
       "id": "d16c3a40-393d-4b4d-b40e-13c30c3992db",
       "comment": "Hitta Öppettider titel",
-      "command": "assertText",
-      "target": "css=div:nth-child(1) > h1",
-      "targets": [
-        ["css=div:nth-child(1) > h1", "css:finder"],
-        ["xpath=//h1", "xpath:position"],
-        ["xpath=//h1[contains(.,'Öppettider')]", "xpath:innerText"]
-      ],
-      "value": "Öppettider"
-    }, {
-      "id": "b4eea8aa-451d-4267-a0d8-189fdcd0a1c1",
-      "comment": "Verifiera Öppettider titel",
-      "command": "verifyText",
-      "target": "css=div:nth-child(1) > h1",
+      "command": "assertElementPresent",
+      "target": "css=body",
       "targets": [
         ["css=div:nth-child(1) > h1", "css:finder"],
         ["xpath=//h1", "xpath:position"],
@@ -56,119 +34,50 @@
     }, {
       "id": "e2fdd903-5ca5-4586-b7c6-531f8a160af7",
       "comment": "Hitta Öppettider",
-      "command": "assertText",
-      "target": "css=div:nth-child(1) > h2",
-      "targets": [
-        ["css=div:nth-child(1) > h2", "css:finder"],
-        ["xpath=//h2", "xpath:position"]
-      ],
-      "value": "Mån-Fre: 10-16\\nLördag: 12-15\\nSöndag: Stängt!"
-    }, {
-      "id": "8bc3d009-ab66-47be-bc09-3a88367de4d8",
-      "comment": "Verifiera Öppettider",
-      "command": "verifyText",
-      "target": "css=div:nth-child(1) > h2",
-      "targets": [
-        ["css=div:nth-child(1) > h2", "css:finder"],
-        ["xpath=//h2", "xpath:position"]
-      ],
+      "command": "assertElementPresent",
+      "target": "css=body",
+      "targets": [],
       "value": "Mån-Fre: 10-16\\nLördag: 12-15\\nSöndag: Stängt!"
     }, {
       "id": "97d56791-41fa-4183-bc23-0227ba332059",
       "comment": "Hitta adress titel",
-      "command": "assertText",
-      "target": "css=.open > div:nth-child(2) > h1",
-      "targets": [
-        ["css=.open > div:nth-child(2) > h1", "css:finder"],
-        ["xpath=//div[2]/h1", "xpath:position"],
-        ["xpath=//h1[contains(.,'Adress')]", "xpath:innerText"]
-      ],
-      "value": "Adress"
-    }, {
-      "id": "e8760368-f7b3-42ac-864b-fe399dd623a7",
-      "comment": "Verifiera adress titel",
-      "command": "verifyText",
-      "target": "css=.open > div:nth-child(2) > h1",
-      "targets": [
-        ["css=.adress > h1", "css:finder"],
-        ["xpath=//div[2]/h1", "xpath:position"],
-        ["xpath=//h1[contains(.,'Adress')]", "xpath:innerText"]
-      ],
+      "command": "assertElementPresent",
+      "target": "css=body",
+      "targets": [],
       "value": "Adress"
     }, {
       "id": "a4e96757-4458-4679-9439-eb8a52543f9a",
       "comment": "Hitta adress",
-      "command": "assertText",
-      "target": "css=.open > div:nth-child(2) > h2",
-      "targets": [
-        ["css=.adress > h2", "css:finder"],
-        ["xpath=//div[2]/h2", "xpath:position"]
-      ],
-      "value": "Fjällgatan 32H\\n981 39, Kiruna"
-    }, {
-      "id": "d69fde1c-f697-4e9c-ba7f-5450d332d984",
-      "comment": "Verifiera adress",
-      "command": "verifyText",
-      "target": "css=.open > div:nth-child(2) > h2",
-      "targets": [
-        ["css=.adress > h2", "css:finder"],
-        ["xpath=//div[2]/h2", "xpath:position"]
-      ],
+      "command": "assertElementPresent",
+      "target": "css=body",
+      "targets": [],
       "value": "Fjällgatan 32H\\n981 39, Kiruna"
     }, {
       "id": "cb79cd63-7170-48e8-b410-0bb3135cfb98",
       "comment": "Hitta telefonnummer titel",
-      "command": "assertText",
-      "target": "css=.tele-mail div:nth-child(1) > h1",
+      "command": "assertElementPresent",
+      "target": "css=body",
       "targets": [],
       "value": "Telefonnummer"
     }, {
       "id": "2726bd6f-ef98-4f9f-a66e-b24c375dfceb",
       "comment": "Hitta telefonnummer",
-      "command": "assertText",
-      "target": "css=.tele-mail div:nth-child(1) > h2",
+      "command": "assertElementPresent",
+      "target": "css=body",
       "targets": [],
       "value": "0630-555-555"
-    }, {
-      "id": "ce961516-5552-41f5-a130-e90cfb93bc78",
-      "comment": "Verifiera telefonnummer titel",
-      "command": "verifyText",
-      "target": "css=.tele-mail div:nth-child(1) > h1",
-      "targets": [],
-      "value": "Telefonnummer"
     }, {
       "id": "720e6d63-9ba3-4e19-b66f-eae9dce9a57a",
       "comment": "Hitta E-post titel",
-      "command": "assertText",
-      "target": "css=.tele-mail div:nth-child(2) > h1",
-      "targets": [],
-      "value": "E-post"
-    }, {
-      "id": "7be8a77f-404e-4992-b081-5c254a484c06",
-      "comment": "Verifiera telefonnummer",
-      "command": "verifyText",
-      "target": "css=.tele-mail div:nth-child(1) > h2",
-      "targets": [],
-      "value": "0630-555-555"
-    }, {
-      "id": "d5c56bf0-e33f-41ab-8be9-639dcbacf4b4",
-      "comment": "Verifiera E-post titel",
-      "command": "verifyText",
-      "target": "css=.tele-mail div:nth-child(2) > h1",
+      "command": "assertElementPresent",
+      "target": "css=body",
       "targets": [],
       "value": "E-post"
     }, {
       "id": "19bf38ce-e7cf-4543-b7ec-c7d5fc85fff1",
       "comment": "Hitta E-post",
-      "command": "assertText",
-      "target": "css=.tele-mail div:nth-child(2) > h2",
-      "targets": [],
-      "value": "info@ntig-uppsala.github.io"
-    }, {
-      "id": "e267347f-2ae3-4931-b566-20f99156d96a",
-      "comment": "Verifiera E-post",
-      "command": "verifyText",
-      "target": "css=.tele-mail div:nth-child(2) > h2",
+      "command": "assertElementPresent",
+      "target": "css=body",
       "targets": [],
       "value": "info@ntig-uppsala.github.io"
     }, {
@@ -182,6 +91,13 @@
       "id": "be598486-6eec-4f08-825f-57b88344df7f",
       "comment": "Klicka på instagram",
       "command": "//click",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "61906404-868c-4cb2-b175-01a2c0b846ac",
+      "comment": "Klicka på twitter",
+      "command": "//clickAt",
       "target": "",
       "targets": [],
       "value": ""
