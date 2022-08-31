@@ -63,44 +63,86 @@
       "id": "d16c3a40-393d-4b4d-b40e-13c30c3992db",
       "comment": "Hitta Öppettider titel",
       "command": "assertText",
-      "target": "css=h1",
-      "targets": [],
+      "target": "css=div:nth-child(1) > h1",
+      "targets": [
+        ["css=div:nth-child(1) > h1", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Öppettider')]", "xpath:innerText"]
+      ],
       "value": "Öppettider"
     }, {
       "id": "b4eea8aa-451d-4267-a0d8-189fdcd0a1c1",
       "comment": "Verifiera Öppettider titel",
       "command": "verifyText",
-      "target": "css=h1",
-      "targets": [],
+      "target": "css=div:nth-child(1) > h1",
+      "targets": [
+        ["css=div:nth-child(1) > h1", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Öppettider')]", "xpath:innerText"]
+      ],
       "value": "Öppettider"
     }, {
       "id": "e2fdd903-5ca5-4586-b7c6-531f8a160af7",
       "comment": "Hitta Öppettider",
       "command": "assertText",
-      "target": "css=h2",
-      "targets": [],
+      "target": "css=div:nth-child(1) > h2",
+      "targets": [
+        ["css=div:nth-child(1) > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
       "value": "Mån-Fre: 10-16\\nLördag: 12-15\\nSöndag: Stängt!"
     }, {
       "id": "8bc3d009-ab66-47be-bc09-3a88367de4d8",
       "comment": "Verifiera Öppettider",
       "command": "verifyText",
-      "target": "css=h2",
-      "targets": [],
+      "target": "css=div:nth-child(1) > h2",
+      "targets": [
+        ["css=div:nth-child(1) > h2", "css:finder"],
+        ["xpath=//h2", "xpath:position"]
+      ],
       "value": "Mån-Fre: 10-16\\nLördag: 12-15\\nSöndag: Stängt!"
+    }, {
+      "id": "97d56791-41fa-4183-bc23-0227ba332059",
+      "comment": "Hitta adress titel",
+      "command": "assertText",
+      "target": "css=.adress > h1",
+      "targets": [
+        ["css=.adress > h1", "css:finder"],
+        ["xpath=//div[2]/h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Adress')]", "xpath:innerText"]
+      ],
+      "value": "Adress"
+    }, {
+      "id": "e8760368-f7b3-42ac-864b-fe399dd623a7",
+      "comment": "Verifiera adress titel",
+      "command": "verifyText",
+      "target": "css=.adress > h1",
+      "targets": [
+        ["css=.adress > h1", "css:finder"],
+        ["xpath=//div[2]/h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Adress')]", "xpath:innerText"]
+      ],
+      "value": "Adress"
     }, {
       "id": "a4e96757-4458-4679-9439-eb8a52543f9a",
       "comment": "Hitta adress",
-      "command": "//assertText",
-      "target": "css=body",
-      "targets": [],
-      "value": ""
+      "command": "assertText",
+      "target": "css=.adress > h2",
+      "targets": [
+        ["css=.adress > h2", "css:finder"],
+        ["xpath=//div[2]/h2", "xpath:position"]
+      ],
+      "value": "Fjällgatan 32H\\n981 39, Kiruna"
     }, {
       "id": "d69fde1c-f697-4e9c-ba7f-5450d332d984",
       "comment": "Verifiera adress",
-      "command": "//verifyText",
-      "target": "css=body",
-      "targets": [],
-      "value": ""
+      "command": "verifyText",
+      "target": "css=.adress > h2",
+      "targets": [
+        ["css=.adress > h2", "css:finder"],
+        ["xpath=//div[2]/h2", "xpath:position"]
+      ],
+      "value": "Fjällgatan 32H\\n981 39, Kiruna"
     }, {
       "id": "0b566825-7224-4186-a74f-de706e218b4c",
       "comment": "gå igenom menyer",
