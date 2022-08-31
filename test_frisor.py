@@ -18,7 +18,7 @@ class Tests():
   def teardown_method(self, method):
     self.driver.quit()
   
-  def Tests(self):
+  def test_Tests(self):
     self.driver.get("https://ntig-uppsala.github.io/Frisor-Saxe/")
     elements = self.driver.find_elements(By.CSS_SELECTOR, "body")
     assert len(elements) > 0
