@@ -40,3 +40,11 @@ h2 {
     margin-left: 28.5%;
     margin-top: 1%;
 }
+
+.medier {
+    display: flex;
+    justify-content: center;
+    color: black;
+    width:100%;
+    margin-top: 37%;
+}
