@@ -32,19 +32,33 @@
       "targets": [],
       "value": "Frisör Saxé"
     }, {
+      "id": "cb79cd63-7170-48e8-b410-0bb3135cfb98",
+      "comment": "Hitta telefonnummer titel",
+      "command": "//assertText",
+      "target": "css=.tele-mail > h2",
+      "targets": [],
+      "value": "0630-555-555"
+    }, {
+      "id": "ce961516-5552-41f5-a130-e90cfb93bc78",
+      "comment": "Verifiera telefonnummer titel",
+      "command": "//assertText",
+      "target": "css=.tele-mail > h2",
+      "targets": [],
+      "value": "0630-555-555"
+    }, {
       "id": "2726bd6f-ef98-4f9f-a66e-b24c375dfceb",
       "comment": "Hitta telefonnummer",
       "command": "//assertText",
-      "target": "css=body",
+      "target": "css=.tele-mail > h2",
       "targets": [],
-      "value": ""
+      "value": "0630-555-555"
     }, {
       "id": "7be8a77f-404e-4992-b081-5c254a484c06",
       "comment": "Verifiera telefonnummer",
       "command": "//verifyText",
-      "target": "css=body",
+      "target": "css=.tele-mail > h2",
       "targets": [],
-      "value": ""
+      "value": "0630-555-555"
     }, {
       "id": "19bf38ce-e7cf-4543-b7ec-c7d5fc85fff1",
       "comment": "Hitta E-post",
