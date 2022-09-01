@@ -15,11 +15,11 @@
       "value": ""
     }, {
       "id": "66a9f8e0-e1a7-450f-b6f2-20e4ecb280c2",
-      "comment": "hitta rubrik",
+      "comment": "hitta frisor saxe",
       "command": "assertElementPresent",
       "target": "css=body",
       "targets": [],
-      "value": "Frisör Saxé"
+      "value": ""
     }, {
       "id": "d16c3a40-393d-4b4d-b40e-13c30c3992db",
       "comment": "Hitta Öppettider titel",
@@ -56,7 +56,7 @@
       "id": "cb79cd63-7170-48e8-b410-0bb3135cfb98",
       "comment": "Hitta telefonnummer titel",
       "command": "assertElementPresent",
-      "target": "css=body",
+      "target": "id=tele",
       "targets": [],
       "value": "Telefonnummer"
     }, {
@@ -84,21 +84,26 @@
       "id": "d228cec9-2985-4021-a9f2-4df8721d6c5c",
       "comment": "Klicka på facebook",
       "command": "click",
-      "target": "id=facebook",
-      "targets": [],
+      "target": "css=.fa-facebook",
+      "targets": [
+        ["css=.fa-facebook", "css:finder"],
+        ["xpath=//div[@id='facebook']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://facebook.com/ntiuppsala')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"]
+      ],
       "value": "https://facebook.com/ntiuppsala"
     }, {
       "id": "be598486-6eec-4f08-825f-57b88344df7f",
       "comment": "Klicka på instagram",
       "command": "click",
-      "target": "id=instagram",
+      "target": "css=.fa-instagram",
       "targets": [],
       "value": "https://instagram.com/ntiuppsala"
     }, {
       "id": "61906404-868c-4cb2-b175-01a2c0b846ac",
       "comment": "Klicka på twitter",
       "command": "clickAt",
-      "target": "id=instagram",
+      "target": "css=.fa-twitter",
       "targets": [],
       "value": "https://twitter.com/ntiuppsala"
     }, {

@@ -30,7 +30,7 @@ class Tests():
     assert len(elements) > 0
     elements = self.driver.find_elements(By.CSS_SELECTOR, "body")
     assert len(elements) > 0
-    elements = self.driver.find_elements(By.CSS_SELECTOR, "body")
+    elements = self.driver.find_elements(By.ID, "tele")
     assert len(elements) > 0
     elements = self.driver.find_elements(By.CSS_SELECTOR, "body")
     assert len(elements) > 0
@@ -38,7 +38,7 @@ class Tests():
     assert len(elements) > 0
     elements = self.driver.find_elements(By.CSS_SELECTOR, "body")
     assert len(elements) > 0
-    self.driver.find_element(By.ID, "facebook").click()
-    self.driver.find_element(By.ID, "instagram").click()
-    self.driver.find_element(By.ID, "instagram").click()
+    self.driver.find_element(By.CSS_SELECTOR, ".fa-facebook").click()
+    self.driver.find_element(By.CSS_SELECTOR, ".fa-instagram").click()
+    self.driver.find_element(By.CSS_SELECTOR, ".fa-twitter").click()
   
