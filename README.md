@@ -1,5 +1,7 @@
 # Frisor-Saxe
 
+![Tests](https://github.com/NTIG-Uppsala/Frisor-Saxe/actions/workflows/python-app.yml/badge.svg)
+
 ## Projektet
 
 I detta projekt ska en hemsida skapas för ett frisörföretag

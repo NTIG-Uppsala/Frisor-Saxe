@@ -1,6 +1,5 @@
 # OBS!!! Justera inte variabelnamn då det är en del av modulerna, och kan sluta fungera om ändrade
 
-import unittest
 import pytest
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
@@ -10,6 +9,9 @@ from selenium.webdriver.common.by import By
 
 service = Service(executable_path=ChromeDriverManager().install())
 options = webdriver.ChromeOptions()
+options.add_argument('--headless')
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
 driver = webdriver.Chrome(service=service, options=options)
 
@@ -36,7 +38,7 @@ def test_find_text_on_page(driver): # Kollar att viktigt innehåll finns på hem
 
 def test_click_links_on_page(driver): # Klickar på länkarna för att så om dom öppnar en hemsida
     driver.find_element(By.CSS_SELECTOR, ".fa-facebook").click()
-    driver.find_element(By.CSS_SELECTOR, ".fa-instagdfgram").click()
+    driver.find_element(By.CSS_SELECTOR, ".fa-instagrgdam").click()
     driver.find_element(By.CSS_SELECTOR, ".fa-twitter").click()
 
 test_find_text_on_page(driver)
