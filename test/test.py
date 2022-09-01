@@ -10,6 +10,7 @@ from selenium.webdriver.common.by import By
 
 service = Service(executable_path=ChromeDriverManager().install())
 options = webdriver.ChromeOptions()
+options.add_argument('--remote-debugging-port=9222')
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
 driver = webdriver.Chrome(service=service, options=options)
 
