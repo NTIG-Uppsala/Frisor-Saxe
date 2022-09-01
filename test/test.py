@@ -1,3 +1,4 @@
+# OBS!!! Justera inte variabelnamn då det är en del av modulerna, och kan sluta fungera om ändrade
 
 import unittest
 import pytest
@@ -12,7 +13,7 @@ options = webdriver.ChromeOptions()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
 driver = webdriver.Chrome(service=service, options=options)
 
-def test_find_text_on_page(driver):
+def test_find_text_on_page(driver): # Kollar att viktigt innehåll finns på hemsidan
     driver.get("https://ntig-uppsala.github.io/Frisor-Saxe/")
     pageText = driver.find_element(By.TAG_NAME, "body").text
     controlTexts = [
@@ -33,7 +34,7 @@ def test_find_text_on_page(driver):
     for text in controlTexts:
         assert text in pageText
 
-def test_click_links_on_page(driver):
+def test_click_links_on_page(driver): # Klickar på länkarna för att så om dom öppnar en hemsida
     driver.find_element(By.CSS_SELECTOR, ".fa-facebook").click()
     driver.find_element(By.CSS_SELECTOR, ".fa-instagdfgram").click()
     driver.find_element(By.CSS_SELECTOR, ".fa-twitter").click()
@@ -41,4 +42,4 @@ def test_click_links_on_page(driver):
 test_find_text_on_page(driver)
 test_click_links_on_page(driver)
     
-#driver.quit()
+driver.quit()
