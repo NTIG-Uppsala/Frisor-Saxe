@@ -20,25 +20,15 @@ class Tests():
   
   def test_Tests(self):
     self.driver.get("https://ntig-uppsala.github.io/Frisor-Saxe/")
-    elements = self.driver.find_elements(By.CSS_SELECTOR, "body")
+    assert self.driver.find_element(By.ID, "titel").text == "Frisör Saxé"
+    elements = self.driver.find_elements(By.ID, "opentimes")
     assert len(elements) > 0
-    elements = self.driver.find_elements(By.CSS_SELECTOR, "body")
+    elements = self.driver.find_elements(By.ID, "adress")
     assert len(elements) > 0
-    elements = self.driver.find_elements(By.CSS_SELECTOR, "body")
+    elements = self.driver.find_elements(By.ID, "phonenr")
     assert len(elements) > 0
-    elements = self.driver.find_elements(By.CSS_SELECTOR, "body")
-    assert len(elements) > 0
-    elements = self.driver.find_elements(By.CSS_SELECTOR, "body")
-    assert len(elements) > 0
-    elements = self.driver.find_elements(By.ID, "tele")
-    assert len(elements) > 0
-    elements = self.driver.find_elements(By.CSS_SELECTOR, "body")
-    assert len(elements) > 0
-    elements = self.driver.find_elements(By.CSS_SELECTOR, "body")
-    assert len(elements) > 0
-    elements = self.driver.find_elements(By.CSS_SELECTOR, "body")
+    elements = self.driver.find_elements(By.ID, "email")
     assert len(elements) > 0
     self.driver.find_element(By.CSS_SELECTOR, ".fa-facebook").click()
     self.driver.find_element(By.CSS_SELECTOR, ".fa-instagram").click()
     self.driver.find_element(By.CSS_SELECTOR, ".fa-twitter").click()
-  
