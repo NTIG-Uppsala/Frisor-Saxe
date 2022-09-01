@@ -1,6 +1,6 @@
 # Frisor-Saxe
 
-![Tests](https://github.com/NTIG-Uppsala/Frisor-Saxe/actions/workflows/python-app.yml/badge.svg)
+![Tests](https://github.com/NTIG-Uppsala/Frisor-Saxe/actions/workflows/tests.yml/badge.svg)
 
 ## Projektet
 
