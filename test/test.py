@@ -10,9 +10,11 @@ from selenium.webdriver.common.by import By
 
 service = Service(executable_path=ChromeDriverManager().install())
 options = webdriver.ChromeOptions()
-options.add_argument('--remote-debugging-port=9222')
+options.add_argument('--headless')
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
-driver = webdriver.Chrome(service=service, options=options)
+driver = webdriver.Chrome("chromedriver.exe", options=options)
 
 def test_find_text_on_page(driver): # Kollar att viktigt innehåll finns på hemsidan
     driver.get("https://ntig-uppsala.github.io/Frisor-Saxe/")
