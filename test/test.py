@@ -15,14 +15,7 @@ options.add_argument('--disable-dev-shm-usage')
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
 driver = webdriver.Chrome(service=service, options=options)
 
-def test_find_text_on_page(): # Kollar att viktigt innehåll finns på hemsidan
-    service = Service(executable_path=ChromeDriverManager().install())
-    options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
-    options.add_argument('--no-sandbox')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    driver = webdriver.Chrome(service=service, options=options)
+def test_find_text_on_page(driver): # Kollar att viktigt innehåll finns på hemsidan
     driver.get("https://ntig-uppsala.github.io/Frisor-Saxe/")
     pageText = driver.find_element(By.TAG_NAME, "body").text
     controlTexts = [
@@ -48,7 +41,7 @@ def test_click_links_on_page(driver): # Klickar på länkarna för att så om do
     driver.find_element(By.CSS_SELECTOR, ".fa-instagram").click()
     driver.find_element(By.CSS_SELECTOR, ".fa-twitter").click()
 
-test_find_text_on_page()
+test_find_text_on_page(driver)
 test_click_links_on_page(driver)
     
 driver.quit()
