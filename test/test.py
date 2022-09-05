@@ -38,6 +38,7 @@ def test_find_text_on_page(driver): # Kollar att viktigt innehåll finns på hem
 
 def test_click_links_on_page(driver): # Klickar på länkarna för att så om dom öppnar en hemsida (Lägg till jämförelse med URL!!!)
     driver.find_element(By.CSS_SELECTOR, ".fa-facebook").click()
+    assert driver.find_element(By.CSS_SELECTOR, ".fa-facebook").assertTrue()
     driver.find_element(By.CSS_SELECTOR, ".fa-instagram").click()
     driver.find_element(By.CSS_SELECTOR, ".fa-twitter").click()
 
