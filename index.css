@@ -15,12 +15,12 @@ header {
     font-size: 100px;
 }
 
-.open {
+.info {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     color: black;
-    width: 50%;
-    margin-left: 26%;
 }
  
 h1 {
@@ -32,16 +32,7 @@ h2 {
     font-family: "Times New Roman";
 }
 
-.tele-mail {
-    display: flex;
-    justify-content: space-evenly;
-    color: black;
-    width: 50%;
-    margin-left: 28.5%;
-    margin-top: 1%;
-}
-
-.medier {
+.medias {
     display: flex;
     justify-content: center;
     color: black;
