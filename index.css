@@ -1,0 +1,65 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: white;
+}
+
+header {
+    text-align: center;
+    color: black;
+    font-family: "Arial";
+    font-weight: bold;
+    font-size: 100px;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+}
+ 
+h1 {
+    font-family: "Arial";
+    font-weight: bold;
+}
+
+h2 {
+    font-family: "Times New Roman";
+}
+
+.medias {
+    display: flex;
+    justify-content: center;
+    color: black;
+    width:100%;
+    margin-top: 36%;
+}
+
+.fa {
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 40px;
+    width: 20px;
+  }  
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+  }
+  
