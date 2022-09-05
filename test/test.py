@@ -30,13 +30,13 @@ def test_find_text_on_page(driver): # Kollar att viktigt innehåll finns på hem
         "Telefonnummer",
         "0630-555-555",
         "E-post",
-        "info@ntig-uppsala.github.io",
+        "info@ntig-uppsala.github.io"
     ]
 
     for text in controlTexts:
         assert text in pageText
 
-def test_click_links_on_page(driver): # Klickar på länkarna för att så om dom öppnar en hemsida
+def test_click_links_on_page(driver): # Klickar på länkarna för att så om dom öppnar en hemsida (Lägg till jämförelse med URL!!!)
     driver.find_element(By.CSS_SELECTOR, ".fa-facebook").click()
     driver.find_element(By.CSS_SELECTOR, ".fa-instagram").click()
     driver.find_element(By.CSS_SELECTOR, ".fa-twitter").click()
