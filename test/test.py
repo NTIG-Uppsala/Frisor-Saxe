@@ -45,22 +45,19 @@ def test_find_text_on_page(driver):
 def test_click_links_on_page(driver):
     # Facebook
     driver.find_element(By.CSS_SELECTOR, ".fa-facebook").click()
-    current_title = driver.find_element(
-        By.CSS_SELECTOR, ".fa-facebook").get_attribute("href")
+    current_title = driver.find_element(By.CSS_SELECTOR, ".fa-facebook").get_attribute("href")
     assert current_title == "https://facebook.com/ntiuppsala"
     print("Facebook passed!")
 
     # Instagram
     driver.find_element(By.CSS_SELECTOR, ".fa-instagram").click()
-    current_title = driver.find_element(
-        By.CSS_SELECTOR, ".fa-instagram").get_attribute("href")
+    current_title = driver.find_element(By.CSS_SELECTOR, ".fa-instagram").get_attribute("href")
     assert current_title == "https://instagram.com/ntiuppsala"
     print("Instagram passed!")
 
     # Twitter
     driver.find_element(By.CSS_SELECTOR, ".fa-twitter").click()
-    current_title = driver.find_element(
-        By.CSS_SELECTOR, ".fa-twitter").get_attribute("href")
+    current_title = driver.find_element(By.CSS_SELECTOR, ".fa-twitter").get_attribute("href")
     assert current_title == "https://twitter.com/ntiuppsala"
     print("Twitter passed!")
 
