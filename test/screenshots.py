@@ -22,6 +22,7 @@ def test_screenshot(driver, res):
     x,y = res
     driver.set_window_position(0, 0)
     driver.set_window_size(x, y)
+    driver.save_screenshot("test/screenshots/screenshot" + str(x) + "x" + str(y) + ".png")
 
 for res in resolutions:
     test_screenshot(driver, res)
