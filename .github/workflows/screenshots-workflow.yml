@@ -1,0 +1,24 @@
+name: screenshots ci actions
+on:
+  push:
+    branches:
+    - main # Trigger flow when something pushed to master branch
+
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: install puppeteer-headful
+      uses: mujo-code/puppeteer-headful@master # Required for headful puppeteer
+      env:
+        CI: 'true'
+    - name: screenshots-ci-action
+      uses: flameddd/screenshots-ci-action@master
+      with:
+        url: https://ntig-uppsala.github.io/Frisor-Saxe/
+        devices: iPhone 6,iPhone 6 landscape,Nexus 7,Pad Pro,Galaxy S III landscape,iPad Pro landscape
+    - uses: actions/upload-artifact@v2 # Uplaod screenshots to Actions Artifacts via actions/upload-artifact@v2
+      with:
+        path: screenshots
+        name: Download-screenshots
