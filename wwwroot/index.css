@@ -36,17 +36,17 @@ h2 {
     display: flex;
     position: fixed;
     justify-content: center;
+    text-align: center;
     color: black;
     width:100%;
     bottom: 0;
+    font-size: 50px;
 }
 
 .fa {
-    text-align: center;
     text-decoration: none;
-    padding: 10px;
-    font-size: 40px;
-    width: 20px;
+    padding: 25px;
+    width: 60px;
   }  
 
 .fa-facebook {
