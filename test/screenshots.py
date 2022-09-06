@@ -9,10 +9,10 @@ from selenium.webdriver import Firefox
 
 service = Service(executable_path=ChromeDriverManager().install())
 options = webdriver.ChromeOptions()
-#options.add_argument('--headless')
-#options.add_argument('--no-sandbox')
-#options.add_argument('--disable-dev-shm-usage')
-#options.add_experimental_option('excludeSwitches', ['enable-logging'])
+options.add_argument('--headless')
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
+options.add_experimental_option('excludeSwitches', ['enable-logging'])
 driver = webdriver.Chrome(service=service, options=options)
 
 resolutions = [[2560, 1440], [1920, 1080], [1440, 1080], [820, 1180], [390, 844]]
