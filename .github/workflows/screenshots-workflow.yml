@@ -17,7 +17,7 @@ jobs:
       uses: flameddd/screenshots-ci-action@master
       with:
         url: https://ntig-uppsala.github.io/Frisor-Saxe/
-        devices: iPhone 6,iPhone 6 landscape,Nexus 7,Pad Pro,Galaxy S III landscape,iPad Pro landscape
+        devices: iPhone 6,iPhone 6 landscape,Nexus 7,Pad Pro,Galaxy S III landscape,iPad Pro landscape,iPhone 12 Pro
     - uses: actions/upload-artifact@v2 # Uplaod screenshots to Actions Artifacts via actions/upload-artifact@v2
       with:
         path: screenshots
