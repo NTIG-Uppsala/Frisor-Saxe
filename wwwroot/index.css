@@ -47,7 +47,18 @@ h2 {
     text-decoration: none;
     padding: 25px;
     width: 60px;
-  }  
+} 
+
+  @media screen and (max-width: 500px) {
+    .medias {
+        font-size: 30px;
+    }
+
+    .fa {
+        padding: 10px;
+        width: 35px;
+    }
+}
 
 .fa-facebook {
     background: #3B5998;
