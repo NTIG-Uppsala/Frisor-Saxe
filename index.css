@@ -34,10 +34,11 @@ h2 {
 
 .medias {
     display: flex;
+    position: fixed;
     justify-content: center;
     color: black;
     width:100%;
-    margin-top: 36%;
+    bottom: 0;
 }
 
 .fa {
