@@ -15,7 +15,7 @@ options.add_argument('--disable-dev-shm-usage')
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
 driver = webdriver.Chrome(service=service, options=options)
 
-resolutions = [[2560, 1440], [1920, 1080], [1440, 1080], [820, 1180], [390, 844]]
+resolutions = [[2560, -1440], [1920, 1080], [1440, 1080], [820, 1180], [390, 844]]
 
 def test_screenshot(driver, res):
     driver.get("https://ntig-uppsala.github.io/Frisor-Saxe/")
