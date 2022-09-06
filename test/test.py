@@ -61,7 +61,6 @@ def test_click_links_on_page(driver):
     assert current_title == "https://twitter.com/ntiuppsala"
     print("Twitter passed!")
 
-
 test_find_text_on_page(driver)
 test_click_links_on_page(driver)
 
