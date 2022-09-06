@@ -6,6 +6,7 @@
 body {
     background-color: white;
     font-family: 'Roboto', sans-serif;
+    height: 100%;
 }
 
 header {
@@ -29,13 +30,12 @@ h1 {
 
 .medias {
     display: flex;
-    position: fixed;
     justify-content: center;
+    align-items: flex-end;
     text-align: center;
     color: black;
     width:100%;
     font-size: 50px;
-    bottom: 0;
 }
 
 .fa {
