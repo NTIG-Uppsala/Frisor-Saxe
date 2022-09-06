@@ -16,11 +16,11 @@ options.add_experimental_option('excludeSwitches', ['enable-logging'])
 driver = webdriver.Chrome(service=service, options=options)
 
 resolutions = [
-    [2560, 1440], 
-    [1920, 1080],
-    [1440, 1080],
-    [820, 1180],
-    [390, 844],
+    [2560, 1440], # 2k desktop
+    [1920, 1080], # desktop
+    [1440, 1080], # laptop
+    [820, 1180], # iPad Air
+    [390, 844], # iPhone 12 Pro
     ]
 
 def test_screenshot(driver, res):
