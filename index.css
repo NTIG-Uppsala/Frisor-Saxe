@@ -28,6 +28,28 @@ h1 {
     font-weight: bold;
 }
 
+.images {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#bild1 {
+    width: 273px;
+    height: 182px;
+} 
+
+#bild2 {
+    width: 342px;
+    height: 228px;
+} 
+
+#bild3 {
+    width: 216px;
+    height: 324px;
+} 
+
 .medias {
     display: flex;
     justify-content: center;
@@ -88,4 +110,5 @@ h1 {
     background: #125688;
     color: white;
   }
-  
+
+
