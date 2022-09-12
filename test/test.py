@@ -59,6 +59,27 @@ class TestClass(unittest.TestCase):
             print(f"{social} passed!")
 
 
+
+    def test_screenshot(self):
+        self.driver.get("https://ntig-uppsala.github.io/Frisor-Saxe/")
+    
+        resolutions = [
+            [2560, 1440], # 2k desktop
+            [1920, 1080], # desktop
+            [1440, 1080], # laptop
+            [820, 1180], # iPad Air
+            [390, 844], # iPhone 12 Pro
+        ]
+
+        for res in resolutions:
+            x,y = res
+
+            self.driver.set_window_position(0, 0)
+            self.driver.set_window_size(x, y)
+            self.driver.save_screenshot("test/screenshots/screenshot" + str(x) + "x" + str(y) + ".png")
+            
+            print("saved screenshot with resolution", x, y)
+
 if __name__ == '__main__':
     if len(sys.argv) > 1:
         TestClass.website_url = sys.argv.pop() # Change url to passed in argument

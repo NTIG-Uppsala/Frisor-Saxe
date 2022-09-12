@@ -41,8 +41,8 @@ jobs:
         cd root/
         python -m http.server & 
 
-    - name: Test with screenshots
-      run: python test/screenshots.py http://localhost:8000
+    - name: Run unit tests
+      run: python test/test.py http://localhost:8000
 
   deploy:
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
