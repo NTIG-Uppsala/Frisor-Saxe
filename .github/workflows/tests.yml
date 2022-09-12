@@ -38,7 +38,7 @@ jobs:
     #   run: python test/test.py
     - name: start live server # Start a live-server for testing the webpage content
       run: |
-        cd src/
+        cd root/
         python -m http.server & 
 
     - name: Test with screenshots
