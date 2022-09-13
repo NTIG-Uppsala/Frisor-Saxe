@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+td,
+th {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header-image {
+    position: absolute;
+    z-index: -1;
+    filter: brightness(.4);
+    object-fit: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* z-index: 2; */
+}
+
+.nav-logo h1 {
+    color: white;
+    font-family: 'Pacifico', cursive;
+    font-size: 40px;
+    padding: 15px;
+}
+
+.header-logo h1 {
+    color: white;
+    font-family: 'Pacifico', cursive;
+    font-size: 80px;
+}
+
+.button {
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 5px;
+    transition-duration: 0.2s;
+}
+
+.button:hover {
+    background-color: aqua;
+    -webkit-box-shadow: 0px 0px 50px 28px rgba(0, 0, 0, 0.11);
+    box-shadow: 0px 0px 50px 28px rgba(0, 0, 0, 0.11);
+}
+
+nav {
+    display: flex;
+    z-index: 999;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.25);
+    height: 75px;
+    width: 100%;
+}
+
+.navigation>ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+.navigation>ul>li {
+    color: white;
+    margin-left: 15px;
+    margin-right: 50px;
+}
+
+.navigation>ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+.navigation>ul>li {
+    margin-left: 15px;
+    margin-right: 50px;
+}
+
+.navigation>ul>li>a {
+    font-size: 25px;
+    letter-spacing: 0.235px;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+
+}
+
+.navigation>ul>li>a:hover {
+    font-weight: 500;
+    border-bottom: 1px solid white;
+    transition: 0.5s;
+}
+
+.open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: white;
+}
+
+.products {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: white;
+    margin-top: 50px;
+}
+
+.main {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+table {
+    margin-top: 10px;
+}
+
+table tr td {
+    padding: 10px;
+}
+
+tr,
+td {
+    font-size: 25px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    margin-top: auto;
+    min-height: 10vh;
+    width: 100%;
+    /* padding: 15px; */
+
+    background-color: black;
+    color: whitesmoke;
+}
+
+footer .category {
+    padding: 50px;
+    max-width: 250px;
+}
+
+footer a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: whitesmoke;
+    text-decoration: underline;
+}
+
+#social-links .category-content {
+    display: flex;
+    flex-direction: row;
+}
+
+#social-links div {
+    padding-top: 20px;
+    padding-right: 40px;
+}
+
+#social-links div a {
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 35px;
+    transition: 0.2s;
+}
+
+#social-links div a:hover {
+    color: #d7d7d7;
+}
+
+footer a,
+footer p {
+    font-weight: 200;
+}
+
+th,
+td {
+    white-space: nowrap;
+}
+
+/* https://stackoverflow.com/questions/70696930/what-are-the-best-dimensions-for-responsive-web-designs */
+@media only screen and (max-width: 900px) {
+    nav {
+        flex-direction: column;
+        height: 150px;
+        justify-content: space-around;
+    }
+
+    footer {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    footer .category {
+        width: 50%;
+    }
+
+    .nav-logo h1 {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: nowrap;
+        justify-content: center;
+
+    }
+
+    footer .category {
+        width: 75vw;
+    }
+
+
+    .header-content h1 {
+        font-size: 40px;
+    }
+}
+
+@media only screen and (max-width: 500px) {}
