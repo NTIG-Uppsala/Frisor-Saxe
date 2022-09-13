@@ -6,7 +6,14 @@
     margin: 0;
 }
 
-p, a, h1, h2, h3, h4, td, th {
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+td,
+th {
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -53,8 +60,8 @@ p, a, h1, h2, h3, h4, td, th {
 
 .button:hover {
     background-color: aqua;
-    -webkit-box-shadow: 0px 0px 50px 28px rgba(0,0,0,0.11); 
-    box-shadow: 0px 0px 50px 28px rgba(0,0,0,0.11);
+    -webkit-box-shadow: 0px 0px 50px 28px rgba(0, 0, 0, 0.11);
+    box-shadow: 0px 0px 50px 28px rgba(0, 0, 0, 0.11);
 }
 
 nav {
@@ -67,15 +74,43 @@ nav {
     height: 75px;
     width: 100%;
 }
-.navigation > ul {
+
+.navigation>ul {
     display: flex;
     flex-direction: row;
     list-style: none;
 }
-.navigation >  ul > li {
+
+.navigation>ul>li {
     color: white;
     margin-left: 15px;
     margin-right: 50px;
+}
+
+.navigation>ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+.navigation>ul>li {
+    margin-left: 15px;
+    margin-right: 50px;
+}
+
+.navigation>ul>li>a {
+    font-size: 25px;
+    letter-spacing: 0.235px;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+
+}
+
+.navigation>ul>li>a:hover {
+    font-weight: 500;
+    border-bottom: 1px solid white;
+    transition: 0.5s;
 }
 
 .open {
@@ -110,11 +145,12 @@ table tr td {
     padding: 10px;
 }
 
-tr, td {
+tr,
+td {
     font-size: 25px;
 }
 
-footer  {
+footer {
     display: flex;
     justify-content: space-evenly;
     /* align-items: center; */
@@ -147,7 +183,7 @@ footer a:hover {
     flex-direction: row;
 }
 
-#social-links  div {
+#social-links div {
     padding-top: 20px;
     padding-right: 40px;
 }
@@ -163,19 +199,35 @@ footer a:hover {
     color: #d7d7d7;
 }
 
-footer a, footer p {
+footer a,
+footer p {
     font-weight: 200;
+}
+
+th,
+td {
+    white-space: nowrap;
 }
 
 /* https://stackoverflow.com/questions/70696930/what-are-the-best-dimensions-for-responsive-web-designs */
 @media only screen and (max-width: 900px) {
+    nav {
+        flex-direction: column;
+        height: 150px;
+        justify-content: space-around;
+    }
+
     footer {
         flex-direction: row;
         flex-wrap: wrap;
-        
     }
+
     footer .category {
         width: 50%;
+    }
+
+    .nav-logo h1 {
+        font-size: 20px;
     }
 }
 
@@ -185,19 +237,17 @@ footer a, footer p {
         align-items: center;
         flex-wrap: nowrap;
         justify-content: center;
-    
+
     }
+
     footer .category {
         width: 75vw;
     }
-}
 
-@media only screen and (max-width: 500px) {
-    .nav-logo h1 {
-        font-size: 20px;
-    }
 
     .header-content h1 {
         font-size: 40px;
     }
 }
+
+@media only screen and (max-width: 500px) {}
