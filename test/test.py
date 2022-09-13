@@ -9,6 +9,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 
 class TestClass(unittest.TestCase):
+    website_image_path = Path(__file__).resolve().parents[1] / Path('root/assets/images/')
     website_url = ""
 
     # Setup selenium options and drivers
@@ -92,42 +93,40 @@ class TestClass(unittest.TestCase):
             
 
     def test_for_large_images(self):
-        # Get path for image folder
-        image_path = Path(__file__).resolve().parents[1] / Path('root/assets/images/')
-        
         # Assert check for images larger than 1Mb
-        for image in image_path.glob('**/*.*'):
+        for image in self.website_image_path.glob('**/*.*'):
+            # Get the file size property
             image_size = Path(image).stat().st_size
             print("Image path: {} \t image size: {}".format(image, image_size))
+            # Assert if the file is greater than 500kb
             self.assertGreater(5e5, image_size)
     
     def test_for_images_on_page(self):
         self.driver.get(self.website_url)
-        # Gets page image folder path
-        image_path = Path(__file__).resolve().parents[1] / Path('root/assets/images/')
-        
+
         # get all elements with img tag
         image_elements = self.driver.find_elements(By.TAG_NAME, 'img')
         website_image_paths = []
 
-        for i in image_elements:
-            if i.get_attribute('src') is not None:
-                # get src and resolve it as path
-                _path = Path(i.get_attribute('src'))
-                # sourceImage = os.path.basename(os.path.normpath(_path))
-                website_image_paths.append({Path(_path.name)})
-            elif i.value_of_css_property("background-image") is not None:
-                _path = Path(i.value_of_css_property("background-image"))
-                website_image_paths.append({Path(_path.name)})
-            else:
+        for image in image_elements:
+            _path = ""
+            if image.get_attribute('src') is not None: # if the img has a src attribute with the image
+                # get src and resolve it as Pathlib Path
+                _path = Path(image.get_attribute('src'))
+            elif image.value_of_css_property("background-image") is not None: # if the img has a background-image css property
+                # get src and resolve it as Pathlib Path
+                _path = Path(image.value_of_css_property("background-image"))
+            else: # assert False (Just a fail)
                 self.assertTrue(False)
+                continue
+            
+            # append paths filename to paths list
+            website_image_paths.append(_path.name)
 
         # assert if all images are present on screen
+        for image in self.website_image_path.glob('**/*.jpg'):
+            self.assertIn(image.name, website_image_paths)
 
-        # print([image in website_image_paths for image in image_path.glob('**/*.jpg')])
-        # print("website_image paths", website_image_paths)
-        # print("glob", list(image_path.glob('**/*.jpg')))
-        self.assertTrue(all(image in website_image_paths for image in list(image_path.glob('**/*.jpg')) ))
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
