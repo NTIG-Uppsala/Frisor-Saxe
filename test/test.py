@@ -125,6 +125,7 @@ class TestClass(unittest.TestCase):
 
         # assert if all images are present on screen
         for image in self.website_image_path.glob('**/*.jpg'):
+            print("Currently chcking if {} is in {}".format(image.name, website_image_paths))
             self.assertIn(image.name, website_image_paths)
 
 
