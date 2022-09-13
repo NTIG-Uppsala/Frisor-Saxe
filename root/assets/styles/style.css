@@ -117,37 +117,6 @@ footer  {
     color: whitesmoke;
 }
 
-/* https://stackoverflow.com/questions/70696930/what-are-the-best-dimensions-for-responsive-web-designs */
-@media only screen and (max-width: 900px) {
-    footer {
-        flex-direction: row;
-        flex-wrap: wrap;
-        
-    }
-    footer .category {
-        width: 50%;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    footer {
-        flex-direction: column;
-        align-items: center;
-        flex-wrap: nowrap;
-        justify-content: center;
-    
-    }
-    footer .category {
-        width: 75vw;
-    }
-}
-
-@media only screen and (max-width: 500px) {
-    .nav-logo h1 {
-        font-size: 20px;
-    }
-}
-
 footer .category {
     padding: 50px;
     max-width: 250px;
@@ -183,6 +152,42 @@ footer a:hover {
 #social-links div a:hover {
     color: #d7d7d7;
 }
+
 footer a, footer p {
     font-weight: 200;
+}
+
+/* https://stackoverflow.com/questions/70696930/what-are-the-best-dimensions-for-responsive-web-designs */
+@media only screen and (max-width: 900px) {
+    footer {
+        flex-direction: row;
+        flex-wrap: wrap;
+        
+    }
+    footer .category {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: nowrap;
+        justify-content: center;
+    
+    }
+    footer .category {
+        width: 75vw;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .nav-logo h1 {
+        font-size: 20px;
+    }
+
+    .header-content h1 {
+        font-size: 40px;
+    }
 }
