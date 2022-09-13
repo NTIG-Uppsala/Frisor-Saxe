@@ -14,20 +14,20 @@ p, a, h1, h2, h3, h4, td, th {
     background-image: url("../images/bild1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
-    width: 100%;
     position: absolute;
     z-index: -1;
     filter: brightness(.4);
+    height: 100vh;
+    width: 100%;
 }
 
 .header-content {
-    height: 100vh;
     display: flex;
     flex-direction: column;
     position: relative;
     justify-content: center;
     align-items: center;
+    height: 100vh;
     /* z-index: 2; */
 }
 
@@ -61,15 +61,13 @@ p, a, h1, h2, h3, h4, td, th {
 nav {
     display: flex;
     z-index: 999;
-    height: 75px;
     position: fixed;
     justify-content: space-between;
     align-items: center;
-
+    background-color: rgba(0, 0, 0, 0.25);
+    height: 75px;
     padding-left: 25px;
     padding-right: 25px;
-
-    background-color: rgba(0, 0, 0, 0.25);
     width: 100%;
 }
 .navigation > ul {
@@ -78,11 +76,9 @@ nav {
     list-style: none;
 }
 .navigation >  ul > li {
+    color: white;
     margin-left: 15px;
     margin-right: 50px;
-
-    color: white;
-
 }
 
 .open {
@@ -115,7 +111,6 @@ footer  {
     display: flex;
     justify-content: space-evenly;
     /* align-items: center; */
-    
     margin-top: auto;
     min-height: 10vh;
     padding: 15px;
@@ -133,13 +128,13 @@ footer a {
     color: whitesmoke;
     text-decoration: none;
 }
+
 footer a:hover {
     color: whitesmoke;
     text-decoration: underline;
 }
 
-#social-links .category-content
-{
+#social-links .category-content {
     display: flex;
     flex-direction: row;
 }
@@ -150,9 +145,9 @@ footer a:hover {
 }
 
 #social-links div a {
-    font-size: 35px;
     text-decoration: none;
     color: whitesmoke;
+    font-size: 35px;
     transition: 0.2s;
 }
 
