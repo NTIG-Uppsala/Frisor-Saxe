@@ -11,7 +11,7 @@ p, a, h1, h2, h3, h4, td, th {
 }
 
 .main-page {
-    background-image: url("bild1.jpg");
+    background-image: url("../images/bild1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
@@ -128,7 +128,17 @@ footer .category {
     padding: 50px;
     max-width: 250px;
 }
-.category-content
+
+footer a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+footer a:hover {
+    color: whitesmoke;
+    text-decoration: underline;
+}
+
+#social-links .category-content
 {
     display: flex;
     flex-direction: row;
@@ -148,4 +158,7 @@ footer .category {
 
 #social-links div a:hover {
     color: #d7d7d7;
+}
+footer a, footer p {
+    font-weight: 200;
 }
