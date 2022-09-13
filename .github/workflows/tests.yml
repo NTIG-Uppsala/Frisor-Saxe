@@ -5,7 +5,7 @@ name: Tests
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   # pull_request:
   #   branches: [ "main" ]
 
@@ -14,52 +14,50 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-        - name: Checkout Repo
-          uses: actions/checkout@v2
-        
-        - name: Validate HTML & css
-          uses: NTIG-Uppsala/html5validator-action@master
-          with:
-            root: root/
-            css: true
-  test:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
 
+      - name: Validate HTML & css
+        uses: NTIG-Uppsala/html5validator-action@master
+        with:
+          root: root/
+          css: true
+  test:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.10"
-        
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install flake8
-        if [ -f test/test_requirements.txt ]; then pip install -r test/test_requirements.txt; fi
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
 
-    - name: Lint with flake8
-      run: |
-        # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8
+          if [ -f test/test_requirements.txt ]; then pip install -r test/test_requirements.txt; fi
 
-    # - name: Test with pytest
-    #   run: python test/test.py
-    - name: start live server # Start a live-server for testing the webpage content
-      run: |
-        cd root/
-        python -m http.server & 
+      - name: Lint with flake8
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-    - name: Run unit tests
-      run: python test/test.py http://localhost:8000
+      # - name: Test with pytest
+      #   run: python test/test.py
+      - name: start live server # Start a live-server for testing the webpage content
+        run: |
+          cd root/
+          python -m http.server &
 
-    - uses: actions/upload-artifact@v2 # Uplaod screenshots to Actions Artifacts via actions/upload-artifact@v2
-      with:
-        path: test/screenshots/
-        name: Download-screenshots
+      - name: Run unit tests & save screenshots
+        run: python test/test.py http://localhost:8000
+        uses: actions/upload-artifact@v2 # Uplaod screenshots to Actions Artifacts via actions/upload-artifact@v2
+        with:
+          path: test/screenshots/
+          name: Download-screenshots
 
   deploy:
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
@@ -78,22 +76,3 @@ jobs:
         uses: NTIG-Uppsala/github-pages-deploy-action@v4
         with:
           folder: root # The folder the action should deploy.
-
-  # screenshots:
-  #   runs-on: ubuntu-latest
-    
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: install puppeteer-headful
-  #     uses: mujo-code/puppeteer-headful@master # Required for headful puppeteer
-  #     env:
-  #       CI: 'true'
-  #   - name: screenshots-ci-action
-  #     uses: flameddd/screenshots-ci-action@master
-  #     with:
-  #       url: https://ntig-uppsala.github.io/Frisor-Saxe/
-  #       devices: iPhone 6,iPhone 6 landscape,iPad Pro,iPad Pro landscape,Galaxy S8,Galaxy S8 landscape,iPhone 12 Pro,iPhone 12 Pro landscape
-  #   - uses: actions/upload-artifact@v2 # Uplaod screenshots to Actions Artifacts via actions/upload-artifact@v2
-  #     with:
-  #       path: screenshots
-  #       name: Download-screenshots
