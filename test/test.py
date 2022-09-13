@@ -113,9 +113,6 @@ class TestClass(unittest.TestCase):
             if image.get_attribute('src') is not None: # if the img has a src attribute with the image
                 # get src and resolve it as Pathlib Path
                 _path = Path(image.get_attribute('src'))
-            elif image.value_of_css_property("background-image") is not None: # if the img has a background-image css property
-                # get src and resolve it as Pathlib Path
-                _path = Path(image.value_of_css_property("background-image"))
             else: # assert False (Just a fail)
                 self.assertTrue(False)
                 continue
