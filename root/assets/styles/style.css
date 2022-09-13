@@ -87,6 +87,16 @@ nav {
     background-color: white;
 }
 
+.products {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: white;
+    margin-top: 50px;
+}
+
 .main {
     margin-top: 50px;
     margin-bottom: 50px;
