@@ -5,6 +5,7 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 
 class TestClass(unittest.TestCase):
@@ -22,24 +23,28 @@ class TestClass(unittest.TestCase):
     # Checks for important info on webpage
     def test_find_text_on_page(self):
         self.driver.get(self.website_url)
-        pageText = self.driver.find_element(By.TAG_NAME, "body").text
-        controlTexts = [
+        page_text = self.driver.find_element(By.TAG_NAME, "body").text
+        control_texts = [
             "Frisör Saxé",
             "Öppettider",
-            "Mån-Fre: 10-16",
-            "Lördag: 12-15",
-            "Söndag: Stängt!",
-            "Adress",
+            "Mån-Fre",
+            "10 - 16",
+            "Lördag",
+            "12 - 15",
+            "Söndag",
+            "Stängt",
+            "Info",
+            "Hej! Vi är en grupp frisörer och vi klipper folk dagligen",
+            "Kontakt",
+            "0630-555-555",
+            "info@ntig-uppsala.github.io",
+            "Hitta oss!",
             "Fjällgatan 32H",
             "981 39, Kiruna",
-            "Telefonnummer",
-            "0630-555-555",
-            "E-post",
-            "info@ntig-uppsala.github.io"
         ]
 
-        for text in controlTexts:
-            self.assertIn(text, pageText)
+        for text in control_texts:
+            self.assertIn(text, page_text)
             # assert text in pageText
         print("All text content found!")
 
@@ -53,11 +58,12 @@ class TestClass(unittest.TestCase):
         for social in socials:
             # Check if link and icon is on page
             icon_element =  self.driver.find_element(By.CLASS_NAME, f"fa-{social}")
-            icon_element.click()
+            print(f"{social} element found")
+            ActionChains(icon_element).move_to_element(icon_element).click()
             icon_href = icon_element.get_attribute("href")
 
             self.assertEqual(icon_href, f"https://{social}.com/ntiuppsala")
-            print(f"{social} passed!")
+            print(f"{social} successfully clicked")
 
 
 
@@ -78,8 +84,12 @@ class TestClass(unittest.TestCase):
             self.driver.set_window_position(0, 0)
             self.driver.set_window_size(x, y)
             self.driver.save_screenshot("test/screenshots/screenshot" + str(x) + "x" + str(y) + ".png")
-            
             print("saved screenshot with resolution", x, y)
+
+            self.driver.set_window_size(y, x)
+            self.driver.save_screenshot("test/screenshots/screenshot" + str(y) + "x" + str(x) + "landscape.png")
+            print("saved screenshot with resolution", y, x)
+            
 
     def test_for_large_images(self):
         # Get path for image folder
@@ -93,20 +103,31 @@ class TestClass(unittest.TestCase):
     
     def test_for_images_on_page(self):
         self.driver.get(self.website_url)
+        # Gets page image folder path
         image_path = Path(__file__).resolve().parents[1] / Path('root/assets/images/')
         
+        # get all elements with img tag
         image_elements = self.driver.find_elements(By.TAG_NAME, 'img')
-        image_paths = []
+        website_image_paths = []
+
         for i in image_elements:
             if i.get_attribute('src') is not None:
-                image_paths.append(i.get_attribute('src'))
+                # get src and resolve it as path
+                _path = Path(i.get_attribute('src'))
+                # sourceImage = os.path.basename(os.path.normpath(_path))
+                website_image_paths.append({Path(_path.name)})
             elif i.value_of_css_property("background-image") is not None:
-                image_paths.append(i.value_of_css_property("background-image"))
+                _path = Path(i.value_of_css_property("background-image"))
+                website_image_paths.append({Path(_path.name)})
             else:
                 self.assertTrue(False)
 
-        for image in image_path.glob('**/*.jpg'):
-            self.assertIn(image, "".join(image_paths))
+        # assert if all images are present on screen
+
+        # print([image in website_image_paths for image in image_path.glob('**/*.jpg')])
+        # print("website_image paths", website_image_paths)
+        # print("glob", list(image_path.glob('**/*.jpg')))
+        self.assertTrue(all(image in website_image_paths for image in list(image_path.glob('**/*.jpg')) ))
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
