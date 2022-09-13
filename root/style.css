@@ -114,7 +114,7 @@ tr, td {
 footer  {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    /* align-items: center; */
     
     margin-top: auto;
     min-height: 10vh;
@@ -126,4 +126,26 @@ footer  {
 
 footer .category {
     padding: 50px;
+    max-width: 250px;
+}
+.category-content
+{
+    display: flex;
+    flex-direction: row;
+}
+
+#social-links  div {
+    padding-top: 20px;
+    padding-right: 40px;
+}
+
+#social-links div a {
+    font-size: 35px;
+    text-decoration: none;
+    color: whitesmoke;
+    transition: 0.2s;
+}
+
+#social-links div a:hover {
+    color: #d7d7d7;
 }
