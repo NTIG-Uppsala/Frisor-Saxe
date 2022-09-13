@@ -1,5 +1,6 @@
 import unittest
 import sys
+from pathlib import Path
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
@@ -79,6 +80,16 @@ class TestClass(unittest.TestCase):
             self.driver.save_screenshot("test/screenshots/screenshot" + str(x) + "x" + str(y) + ".png")
             
             print("saved screenshot with resolution", x, y)
+
+    def test_for_large_images(self):
+        # Get path for image folder
+        image_path = Path(__file__).resolve().parents[1] / Path('root/assets/images/')
+        
+        # Assert check for images larger than 1Mb
+        for image in image_path.glob('**/*.*'):
+            image_size = Path(image).stat().st_size
+            print("Image path: {} \t image size: {}".format(image, image_size))
+            self.assertGreater(5e5, image_size)
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
