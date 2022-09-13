@@ -62,7 +62,7 @@ class TestClass(unittest.TestCase):
 
 
     def test_screenshot(self):
-        self.driver.get("https://ntig-uppsala.github.io/Frisor-Saxe/")
+        self.driver.get(self.website_url)
     
         resolutions = [
             [2560, 1440], # 2k desktop
@@ -90,6 +90,23 @@ class TestClass(unittest.TestCase):
             image_size = Path(image).stat().st_size
             print("Image path: {} \t image size: {}".format(image, image_size))
             self.assertGreater(5e5, image_size)
+    
+    def test_for_images_on_page(self):
+        self.driver.get(self.website_url)
+        image_path = Path(__file__).resolve().parents[1] / Path('root/assets/images/')
+        
+        image_elements = self.driver.find_elements(By.TAG_NAME, 'img')
+        image_paths = []
+        for i in image_elements:
+            if i.get_attribute('src') is not None:
+                image_paths.append(i.get_attribute('src'))
+            elif i.value_of_css_property("background-image") is not None:
+                image_paths.append(i.value_of_css_property("background-image"))
+            else:
+                self.assertTrue(False)
+
+        for image in image_path.glob('**/*.jpg'):
+            self.assertIn(image, "".join(image_paths))
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
