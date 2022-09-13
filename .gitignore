@@ -1,4 +1,5 @@
 venv
 *.png
+**/*/screenshots/
 **/*/__pycache__/
 */.pytest*/
