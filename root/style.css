@@ -83,10 +83,27 @@ nav {
 }
 
 .open {
-    display: block;
+    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     flex-direction: column;
     background-color: white;
+}
+
+.main {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+table {
+    margin-top: 10px;
+}
+
+table tr td {
+    padding: 10px;
+}
+
+tr, td {
+    font-size: 25px;
 }
