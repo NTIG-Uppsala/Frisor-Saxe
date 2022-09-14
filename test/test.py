@@ -93,34 +93,52 @@ class TestClass(unittest.TestCase):
 
     def test_screenshot(self):
         self.driver.get(self.website_url)
+        self.driver.set_window_position(0, 0)
 
         resolutions = [
-            [2560, 1440],  # 2k desktop
-            [1920, 1080],  # desktop
-            [1440, 1080],  # laptop
-            [820, 1180],  # iPad Air
-            [390, 844],  # iPhone 12 Pro
+            [2560, 1440, "2k_desktop"],  # 2k desktop
+            [1920, 1080, "desktop"],  # desktop
+            [1440, 1080, "laptop"],  # laptop
+            [820, 1180, "iPad_air"],  # iPad Air
+            [390, 844, "iPhone_12_Pro"],  # iPhone 12 Pro
         ]
 
-        # Check if screenshots folder exists
-        # example path: 'C:\\Users\\..\\Frisor-Saxe\\test\\test.py\\screenshots'
-        if not Path(Path(__file__).resolve().parent / Path("screenshots")).exists():
-            # if not, create it
-            Path(Path(__file__).resolve().parent / Path("screenshots")).mkdir()
-
+        page_sections = [
+            "header",
+            "openhours",
+            "products",
+            "contact"
+        ]
+        
         for res in resolutions:
-            x, y = res
+            x, y, device_name = res
+            
+            for section in page_sections:
+                self.driver.set_window_size(x, y)
+                image_path = Path(__file__).resolve().parent / Path(f'screenshots/{device_name}')
+                # Check if screenshots folder exists
+                # example path: 'C:\\Users\\..\\Frisor-Saxe\\test\\test.py\\screenshots\\device_name'
+                if not Path(image_path).exists():
+                # if not, create it
+                    Path(image_path).mkdir(parents=True)
 
-            self.driver.set_window_position(0, 0)
-            self.driver.set_window_size(x, y)
-            self.driver.save_screenshot(
-                "test/screenshots/screenshot" + str(x) + "x" + str(y) + ".png")
-            print("saved screenshot with resolution", x, y)
+                try:
+                    screenshot_path = str(image_path) + f"/{device_name}_{section}.png"
+                    screenshot_path_landscape = str(image_path) + f"/{device_name}_{section}_landscape.png"
 
-            self.driver.set_window_size(y, x)
-            self.driver.save_screenshot(
-                "test/screenshots/screenshot" + str(y) + "x" + str(x) + "landscape.png")
-            print("saved screenshot with resolution", y, x)
+                    self.driver.set_window_size(x, y)
+                    ele = self.driver.find_element(By.ID, section)
+                    ele.screenshot(screenshot_path)
+                    print("saved screenshot with", device_name, "at", section)
+
+                    self.driver.set_window_size(y, x)
+                    ele = self.driver.find_element(By.ID, section)
+                    ele.screenshot(screenshot_path_landscape)
+                    print("saved screenshot with", device_name, "landscape mode at", section)
+                except Exception as err:
+                    print(err)
+                    print("Could not save screenshot of", section, "with", device_name) 
+                
 
     def test_for_large_images(self):
         # Assert check for images larger than 1Mb
