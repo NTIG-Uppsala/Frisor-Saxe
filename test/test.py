@@ -51,7 +51,7 @@ class TestClass(unittest.TestCase):
             "Färgning",
             "560 kr",
             "Skägg",
-            "150 kr",+
+            "150 kr",
             "Toppning",
             "200 kr",
             "Extensions kort",
@@ -109,22 +109,25 @@ class TestClass(unittest.TestCase):
             "products",
             "contact"
         ]
-        
+
         for res in resolutions:
             x, y, device_name = res
-            
+
             for section in page_sections:
                 self.driver.set_window_size(x, y)
-                image_path = Path(__file__).resolve().parent / Path(f'screenshots/{device_name}')
+                image_path = Path(__file__).resolve().parent / \
+                    Path(f'screenshots/{device_name}')
                 # Check if screenshots folder exists
                 # example path: 'C:\\Users\\..\\Frisor-Saxe\\test\\test.py\\screenshots\\device_name'
                 if not Path(image_path).exists():
-                # if not, create it
+                    # if not, create it
                     Path(image_path).mkdir(parents=True)
 
                 try:
-                    screenshot_path = str(image_path) + f"/{device_name}_{section}.png"
-                    screenshot_path_landscape = str(image_path) + f"/{device_name}_{section}_landscape.png"
+                    screenshot_path = str(image_path) + \
+                        f"/{device_name}_{section}.png"
+                    screenshot_path_landscape = str(
+                        image_path) + f"/{device_name}_{section}_landscape.png"
 
                     self.driver.set_window_size(x, y)
                     ele = self.driver.find_element(By.ID, section)
@@ -134,11 +137,12 @@ class TestClass(unittest.TestCase):
                     self.driver.set_window_size(y, x)
                     ele = self.driver.find_element(By.ID, section)
                     ele.screenshot(screenshot_path_landscape)
-                    print("saved screenshot with", device_name, "landscape mode at", section)
+                    print("saved screenshot with", device_name,
+                          "landscape mode at", section)
                 except Exception as err:
                     print(err)
-                    print("Could not save screenshot of", section, "with", device_name) 
-                
+                    print("Could not save screenshot of",
+                          section, "with", device_name)
 
     def test_for_large_images(self):
         # Assert check for images larger than 1Mb
