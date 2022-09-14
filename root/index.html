@@ -21,13 +21,17 @@
         <div class="navigation">
             <ul>
                 <li><a href="#openhours">Öppettider</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#products">Produkter</a></li>
+                <li><a href="#contact">Kontakt</a></li>
             </ul>
         </div>
     </nav>
     <header id="header">
-        <img src="assets/images/bild1.jpg" class="header-image" alt="Background image of webpage">
+        <div id="background-images">
+            <img src="assets/images/bild1.jpg" class="header-image" alt="Background image of webpage">
+            <img src="assets/images/bild2.jpg" class="header-image" alt="Bild 3">
+            <img src="assets/images/bild3.jpg" class="header-image" alt="Bild 3">
+        </div>
         <div class="header-content header-logo">
             <h1>Frisör Saxé</h1>
             <a href="#" class="button">Kontakta oss</a>
@@ -35,6 +39,7 @@
     </header>
 
     <div class="main">
+
         <div id="openhours">
             <h1>Öppettider</h1>
             <div>
@@ -118,8 +123,7 @@
                     </tr>
                 </table>
             </div>
-            <img src="assets/images/bild2.jpg" alt="Bild 2" width="0" height="0">
-            <img src="assets/images/bild3.jpg" alt="Bild 3" width="0" height="0">
+            
         </div>
     </div>
 
@@ -162,5 +166,26 @@
 
     </footer>
 </body>
+<script>
+    const images = document.querySelectorAll("#background-images img"); 
+    let i = 0;
+
+    setInterval(function(){ 
+
+        if(i == 0) {
+            images[i].style.display = 'block';
+        } else if(i == images.length ) {
+            images[i - 1].style.display = 'none';
+            images[0].style.display = 'block';
+            i = 0;
+        } else {
+            images[i - 1].style.display = 'none';
+            images[i].style.display = 'block';
+        }
+        
+        i++;
+
+    }, 5000);
+</script>
 
 </html>
