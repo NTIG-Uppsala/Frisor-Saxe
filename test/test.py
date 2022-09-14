@@ -51,7 +51,7 @@ class TestClass(unittest.TestCase):
             "Färgning",
             "560 kr",
             "Skägg",
-            "150 kr",
+            "150 kr",+
             "Toppning",
             "200 kr",
             "Extensions kort",
@@ -108,16 +108,17 @@ class TestClass(unittest.TestCase):
             # if not, create it
             Path(Path(__file__).resolve().parent / Path("screenshots")).mkdir()
 
+        
+
         for res in resolutions:
             x, y = res
 
             self.driver.set_window_position(0, 0)
-            self.driver.set_window_size(x, y)
-            self.driver.save_screenshot(
-                "test/screenshots/screenshot" + str(x) + "x" + str(y) + ".png")
+            self.driver.set_window_size(x, 2990)
+            self.driver.find_element(By.TAG_NAME, "body").screenshot("test/screenshots/screenshot" + str(x) + "x" + str(y) + ".png") 
             print("saved screenshot with resolution", x, y)
 
-            self.driver.set_window_size(y, x)
+            self.driver.set_window_size(y, 2990)
             self.driver.save_screenshot(
                 "test/screenshots/screenshot" + str(y) + "x" + str(x) + "landscape.png")
             print("saved screenshot with resolution", y, x)
