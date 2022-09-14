@@ -51,7 +51,7 @@ class TestClass(unittest.TestCase):
             "Färgning",
             "560 kr",
             "Skägg",
-            "150 kr",
+            "150 kr",+
             "Toppning",
             "200 kr",
             "Extensions kort",
