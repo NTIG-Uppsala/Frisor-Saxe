@@ -23,7 +23,7 @@ th {
     z-index: -1;
     filter: brightness(.4);
     object-fit: cover;
-    height: 100vh;
+    height: 100%;
     width: 100%;
 }
 
@@ -33,7 +33,7 @@ th {
     position: relative;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     /* z-index: 2; */
 }
 
