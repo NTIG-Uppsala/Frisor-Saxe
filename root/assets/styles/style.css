@@ -77,9 +77,9 @@ nav {
     width: 100%;
 }
 
-.main>div {
+/* .main>div {
     scroll-margin-top: calc(75px + 2.5em);
-}
+} */
 
 .navigation>ul {
     display: flex;
@@ -245,9 +245,9 @@ td {
 
     }
 
-    .main>div {
+    /* .main>div {
         scroll-margin-top: calc(150px + 2.5);
-    }
+    } */
 
 }
 
@@ -267,9 +267,9 @@ td {
         height: 175px;
     }
 
-    .main>div + footer {
+    /* .main>div + footer {
         scroll-margin-top: calc(175px + 2.5em);
-    }
+    } */
         
 
     .navigation>ul {
