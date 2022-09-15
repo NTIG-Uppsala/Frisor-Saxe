@@ -77,6 +77,10 @@ nav {
     width: 100%;
 }
 
+.main>div {
+    scroll-margin-top: calc(75px + 2.5em);
+}
+
 .navigation>ul {
     display: flex;
     flex-direction: row;
@@ -199,6 +203,8 @@ footer a:hover {
     color: #d7d7d7;
 }
 
+
+
 footer a,
 footer p {
     font-weight: 200;
@@ -239,6 +245,10 @@ td {
 
     }
 
+    .main>div {
+        scroll-margin-top: calc(150px + 2.5);
+    }
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -256,6 +266,11 @@ td {
     nav {
         height: 175px;
     }
+
+    .main>div + footer {
+        scroll-margin-top: calc(175px + 2.5em);
+    }
+        
 
     .navigation>ul {
         display: flex;
@@ -276,4 +291,6 @@ td {
         justify-content: center;
         align-items: center;
     }
+
+    
 }
