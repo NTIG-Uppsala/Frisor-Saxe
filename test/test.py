@@ -98,12 +98,15 @@ class TestClass(unittest.TestCase):
             print(f"{social} successfully clicked")
 
     def test_screenshot(self):
+        # reference: https://www.browserstack.com/guide/ideal-screen-sizes-for-responsive-design
         resolutions = [
-            [390, 844, "iPhone_12_Pro"],  # iPhone 12 Pro
-            [2560, 1440, "2k_desktop"],  # 2k desktop
-            [1920, 1080, "desktop"],  # desktop
-            [1440, 1080, "laptop"],  # laptop
-            [820, 1180, "iPad_air"],  # iPad Air
+            [1920, 1080 , "1920x1080"],
+            [2560, 1440, "2560x1440"],  # 2k desktop
+            [1366, 768, "1366x768"],
+            [360, 640 , "360x640"],  
+            [820, 1180, "820x1180"], 
+            [414, 896, "414x896"], 
+            [1536, 864, "1536x864"],  
         ]
 
         page_sections = [
@@ -120,7 +123,7 @@ class TestClass(unittest.TestCase):
             
             for section in page_sections:
                 image_path = Path(__file__).resolve().parent / Path(f'screenshots/{device_name}')
-                screenshot_path = str(image_path) + f"/{device_name}_{section}.png"
+                screenshot_path = str(image_path) + f"/{section}_{device_name}.png"
 
                 # Check if screenshots folder exists
                 # example path: 'C:\\Users\\..\\Frisor-Saxe\\test\\test.py\\screenshots\\device_name'
