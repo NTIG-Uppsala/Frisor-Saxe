@@ -1,5 +1,6 @@
 import unittest
 import sys
+import time
 from pathlib import Path
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
@@ -7,6 +8,9 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
+
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class TestClass(unittest.TestCase):
@@ -18,9 +22,11 @@ class TestClass(unittest.TestCase):
     def setUp(self):
         service = Service(executable_path=ChromeDriverManager().install())
         options = webdriver.ChromeOptions()
-        options.add_argument('--headless')
+        # options.add_argument('--headless')
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         self.driver = webdriver.Chrome(service=service, options=options)
+
+        self.addCleanup(self.driver.quit) # Closes browser instance when tests are done
 
     # Checks for important info on webpage
 
@@ -92,15 +98,12 @@ class TestClass(unittest.TestCase):
             print(f"{social} successfully clicked")
 
     def test_screenshot(self):
-        self.driver.get(self.website_url)
-        self.driver.set_window_position(0, 0)
-
         resolutions = [
+            [390, 844, "iPhone_12_Pro"],  # iPhone 12 Pro
             [2560, 1440, "2k_desktop"],  # 2k desktop
             [1920, 1080, "desktop"],  # desktop
             [1440, 1080, "laptop"],  # laptop
             [820, 1180, "iPad_air"],  # iPad Air
-            [390, 844, "iPhone_12_Pro"],  # iPhone 12 Pro
         ]
 
         page_sections = [
@@ -109,40 +112,40 @@ class TestClass(unittest.TestCase):
             "products",
             "contact"
         ]
-
         for res in resolutions:
             x, y, device_name = res
 
+            self.driver.set_window_position(0, 0)
+            self.driver.set_window_size(width=x, height=y)
+            
             for section in page_sections:
-                self.driver.set_window_size(x, y)
-                image_path = Path(__file__).resolve().parent / \
-                    Path(f'screenshots/{device_name}')
+                image_path = Path(__file__).resolve().parent / Path(f'screenshots/{device_name}')
+                screenshot_path = str(image_path) + f"/{device_name}_{section}.png"
+
                 # Check if screenshots folder exists
                 # example path: 'C:\\Users\\..\\Frisor-Saxe\\test\\test.py\\screenshots\\device_name'
                 if not Path(image_path).exists():
                     # if not, create it
                     Path(image_path).mkdir(parents=True)
 
+                self.driver.get(self.website_url + f"#{section}") # open the page
+                time.sleep(5) # sleep for 5 seconds to let the page load
+                
                 try:
-                    screenshot_path = str(image_path) + \
-                        f"/{device_name}_{section}.png"
-                    screenshot_path_landscape = str(
-                        image_path) + f"/{device_name}_{section}_landscape.png"
-
-                    self.driver.set_window_size(x, y)
-                    ele = self.driver.find_element(By.ID, section)
-                    ele.screenshot(screenshot_path)
+                    current_section_element = self.driver.find_element(By.ID, section) # find the section
+                    ActionChains(current_section_element).move_to_element(current_section_element) # Move to the section
+                    WebDriverWait(self.driver, 20).until(EC.visibility_of((current_section_element))) # Wait for the section to be visible
+                    current_section_element.screenshot(screenshot_path) # Take screenshot of section
                     print("saved screenshot with", device_name, "at", section)
-
-                    self.driver.set_window_size(y, x)
-                    ele = self.driver.find_element(By.ID, section)
-                    ele.screenshot(screenshot_path_landscape)
-                    print("saved screenshot with", device_name,
-                          "landscape mode at", section)
                 except Exception as err:
+                    # Catch any errors and print them and continue
                     print(err)
-                    print("Could not save screenshot of",
-                          section, "with", device_name)
+                    print("Could not save screenshot of", section, "with", device_name)
+        
+        # assert the correct amount of images
+        expected_images = len(resolutions) * len(page_sections)
+        actual_images = len(list(Path(__file__).resolve().parent.glob('screenshots/**/*.png')))
+        self.assertEqual(expected_images, actual_images)
 
     def test_for_large_images(self):
         # Assert check for images larger than 1Mb
