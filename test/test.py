@@ -51,7 +51,7 @@ class TestClass(unittest.TestCase):
             "Långt hår",
             "600 kr",
             "Kort hår",
-            "300 kr",
+            "500 kr",
             "Färgning",
             "560 kr",
             "Skägg",
@@ -64,12 +64,12 @@ class TestClass(unittest.TestCase):
             "500 kr",
             "Extensions lång",
             "400 kr",
-            "Barn 0-13",
+            "Klippning barn 0-13",
             "150 kr",
             "Långt hår stamkund",
-            "150 kr",
+            "300 kr",
             "Kort hår stamkund",
-            "500 kr",
+            "250 kr",
         ]
 
         for text in control_texts:
