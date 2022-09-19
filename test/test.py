@@ -1,3 +1,4 @@
+from re import S
 import unittest
 import sys
 import time
@@ -36,46 +37,70 @@ class TestClass(unittest.TestCase):
         control_texts = [
             "Frisör Saxé",
             "Öppettider",
-            "Mån-Fre",
-            "10 - 16",
-            "Lördag",
-            "12 - 15",
-            "Söndag",
-            "Stängt",
+            "Produkter",
             "Kontakt",
             "0630-555-555",
             "info@ntig-uppsala.github.io",
             "Hitta oss",
             "Fjällgatan 32H",
-            "981 39, Kiruna",
-            "Långt hår",
-            "600 kr",
-            "Kort hår",
-            "500 kr",
-            "Färgning",
-            "560 kr",
-            "Skägg",
-            "150 kr",
-            "Toppning",
-            "200 kr",
-            "Extensions kort",
-            "300 kr",
-            "Extensions normal",
-            "500 kr",
-            "Extensions lång",
-            "400 kr",
-            "Klippning barn 0-13",
-            "150 kr",
-            "Långt hår stamkund",
-            "300 kr",
-            "Kort hår stamkund",
-            "250 kr",
+            "981 39, Kiruna"
         ]
 
         for text in control_texts:
             self.assertIn(text, page_text)
             # assert text in pageText
         print("All text content found!")
+
+    def check_table_content(self, table_id, expected_table_content): 
+        # loacte table element
+        table_element = self.driver.find_element(By.ID, table_id) 
+        
+        # get all tr elements
+        table_row_elements = table_element.find_elements(By.TAG_NAME, "tr") 
+        
+        # combine tr elements text to one string
+        table_row_text = " ".join([table_row.text for table_row in table_row_elements]) 
+
+        for product in expected_table_content:
+            # combine list of expected row content to one string
+            product_joined = " ".join(product)
+            
+            # assert content on page
+            self.assertIn(product_joined, table_row_text)
+
+    # test for products on page
+    def test_check_for_products(self):
+        self.driver.get(self.website_url)
+        
+        # List of products
+        products = [
+            ["Långt hår", "600 kr"],
+            ["Kort hår", "500 kr"],
+            ["Färgning", "560 kr"],
+            ["Skägg", "150 kr"],
+            ["Toppning", "200 kr"],
+            ["Extensions kort","300 kr"],
+            ["Extensions normal","400 kr"],
+            ["Extensions lång","500 kr"],
+            ["Klippning barn 0-13","150 kr"],
+            ["Långt hår stamkund","300 kr"],
+            ["Kort hår stamkund","250 kr"]
+        ]
+
+        self.check_table_content("products", products)
+                
+    # Test for open hours
+    def test_check_for_open_hours(self):
+        self.driver.get(self.website_url)
+        
+        # List of open hours
+        open_hours = [
+            ["Mån-Fre", "10 - 16"],
+            ["Lördag", "12 - 15"],
+            ["Söndag", "Stängt"]
+        ]
+
+        self.check_table_content("openhours", open_hours)
 
     def test_check_for_empty_links(self):
         self.driver.get(self.website_url)
@@ -118,58 +143,58 @@ class TestClass(unittest.TestCase):
             self.assertEqual(icon_href, f"https://{social}.com/ntiuppsala")
             print(f"{social} successfully clicked")
 
-    def test_screenshot(self):
-        # reference: https://www.browserstack.com/guide/ideal-screen-sizes-for-responsive-design
-        resolutions = [
-            [1920, 1080 , "1920x1080"],
-            [2560, 1440, "2560x1440"],
-            [1366, 768, "1366x768"],
-            [360, 640 , "360x640"],  
-            [820, 1180, "820x1180"], 
-            [414, 896, "414x896"], 
-            [1536, 864, "1536x864"],  
-        ]
+    # def test_screenshot(self):
+    #     # reference: https://www.browserstack.com/guide/ideal-screen-sizes-for-responsive-design
+    #     resolutions = [
+    #         [1920, 1080 , "1920x1080"],
+    #         [2560, 1440, "2560x1440"],
+    #         [1366, 768, "1366x768"],
+    #         [360, 640 , "360x640"],  
+    #         [820, 1180, "820x1180"], 
+    #         [414, 896, "414x896"], 
+    #         [1536, 864, "1536x864"],  
+    #     ]
 
-        page_sections = [
-            "header",
-            "openhours",
-            "products",
-            "contact"
-        ]
-        for res in resolutions:
-            x, y, device_name = res
+    #     page_sections = [
+    #         "header",
+    #         "openhours",
+    #         "products",
+    #         "contact"
+    #     ]
+    #     for res in resolutions:
+    #         x, y, device_name = res
 
-            self.driver.set_window_position(0, 0)
-            self.driver.set_window_size(width=x, height=y)
+    #         self.driver.set_window_position(0, 0)
+    #         self.driver.set_window_size(width=x, height=y)
             
-            for section in page_sections:
-                image_path = Path(__file__).resolve().parent / Path(f'screenshots/{device_name}')
-                screenshot_path = str(image_path) + f"/{section}_{device_name}.png"
+    #         for section in page_sections:
+    #             image_path = Path(__file__).resolve().parent / Path(f'screenshots/{device_name}')
+    #             screenshot_path = str(image_path) + f"/{section}_{device_name}.png"
 
-                # Check if screenshots folder exists
-                # example path: 'C:\\Users\\..\\Frisor-Saxe\\test\\test.py\\screenshots\\device_name'
-                if not Path(image_path).exists():
-                    # if not, create it
-                    Path(image_path).mkdir(parents=True)
+    #             # Check if screenshots folder exists
+    #             # example path: 'C:\\Users\\..\\Frisor-Saxe\\test\\test.py\\screenshots\\device_name'
+    #             if not Path(image_path).exists():
+    #                 # if not, create it
+    #                 Path(image_path).mkdir(parents=True)
 
-                self.driver.get(self.website_url + f"#{section}") # open the page
-                time.sleep(5) # sleep for 5 seconds to let the page load
+    #             self.driver.get(self.website_url + f"#{section}") # open the page
+    #             time.sleep(5) # sleep for 5 seconds to let the page load
                 
-                try:
-                    current_section_element = self.driver.find_element(By.ID, section) # find the section
-                    ActionChains(current_section_element).move_to_element(current_section_element) # Move to the section
-                    WebDriverWait(self.driver, 20).until(EC.visibility_of((current_section_element))) # Wait for the section to be visible
-                    current_section_element.screenshot(screenshot_path) # Take screenshot of section
-                    print("saved screenshot with", device_name, "at", section)
-                except Exception as err:
-                    # Catch any errors and print them and continue
-                    print(err)
-                    print("Could not save screenshot of", section, "with", device_name)
+    #             try:
+    #                 current_section_element = self.driver.find_element(By.ID, section) # find the section
+    #                 ActionChains(current_section_element).move_to_element(current_section_element) # Move to the section
+    #                 WebDriverWait(self.driver, 20).until(EC.visibility_of((current_section_element))) # Wait for the section to be visible
+    #                 current_section_element.screenshot(screenshot_path) # Take screenshot of section
+    #                 print("saved screenshot with", device_name, "at", section)
+    #             except Exception as err:
+    #                 # Catch any errors and print them and continue
+    #                 print(err)
+    #                 print("Could not save screenshot of", section, "with", device_name)
         
-        # assert the correct amount of images
-        expected_images = len(resolutions) * len(page_sections)
-        actual_images = len(list(Path(__file__).resolve().parent.glob('screenshots/**/*.png')))
-        self.assertEqual(expected_images, actual_images)
+    #     # assert the correct amount of images
+    #     expected_images = len(resolutions) * len(page_sections)
+    #     actual_images = len(list(Path(__file__).resolve().parent.glob('screenshots/**/*.png')))
+    #     self.assertEqual(expected_images, actual_images)
 
     def test_for_large_images(self):
         # Assert check for images larger than 1Mb
