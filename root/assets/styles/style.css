@@ -38,11 +38,12 @@ th {
     /* z-index: 2; */
 }
 
-.nav-logo h1 {
+.nav-logo h1 a {
     color: white;
     font-family: 'Pacifico', cursive;
     font-size: 40px;
     padding: 15px;
+    text-decoration: none;
 }
 
 .header-logo h1 {
@@ -235,7 +236,7 @@ footer table {
 }
 
 /* https://stackoverflow.com/questions/70696930/what-are-the-best-dimensions-for-responsive-web-designs */
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
     nav {
         flex-direction: column;
         height: 150px;
@@ -281,34 +282,34 @@ footer table {
     .header-content h1 {
         font-size: 40px;
     }
-
-
     .nav-logo {
         display: none;
     }
 
     nav {
-        height: 175px;
+        height: 100px;
     }
-
-
 
     .main>div {
-        scroll-margin-top: calc(175px + 2.5em);
+        scroll-margin-top: calc(100px + 2.5em);
     }
-        
+
+    #contact {
+        scroll-margin-top: calc(99px);
+    }   
 
     .navigation>ul {
         display: flex;
-        flex-direction: column;
         justify-content: center;
 
     }
 
     .navigation>ul>li {
-        margin: auto;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin: 0 10px;
+    }
+
+    .navigation>ul>li>a {
+        font-size: 20px;
     }
 
     footer {
@@ -317,6 +318,4 @@ footer table {
         justify-content: center;
         align-items: center;
     }
-
-    
 }
