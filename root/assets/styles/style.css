@@ -72,7 +72,7 @@ nav {
     position: fixed;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 0, 0, 1);
     height: 75px;
     width: 100%;
 }
@@ -269,9 +269,9 @@ footer table {
 
     }
 
-    /* .main>div {
-        scroll-margin-top: calc(150px + 2.5);
-    } */
+    .main>div {
+        scroll-margin-top: calc(150px + 2.5em);
+    }
 
 }
 
@@ -291,9 +291,11 @@ footer table {
         height: 175px;
     }
 
-    /* .main>div + footer {
+
+
+    .main>div {
         scroll-margin-top: calc(175px + 2.5em);
-    } */
+    }
         
 
     .navigation>ul {
