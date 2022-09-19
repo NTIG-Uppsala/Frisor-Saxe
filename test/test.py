@@ -42,12 +42,10 @@ class TestClass(unittest.TestCase):
             "12 - 15",
             "Söndag",
             "Stängt",
-            "Info",
-            "Hej! Vi är en grupp frisörer och vi klipper folk dagligen",
             "Kontakt",
             "0630-555-555",
             "info@ntig-uppsala.github.io",
-            "Hitta oss!",
+            "Hitta oss",
             "Fjällgatan 32H",
             "981 39, Kiruna",
             "Långt hår",
@@ -79,7 +77,30 @@ class TestClass(unittest.TestCase):
             # assert text in pageText
         print("All text content found!")
 
-    def test_click_links_on_page(self):
+    def test_check_for_empty_links(self):
+        self.driver.get(self.website_url)
+        links = self.driver.find_elements(By.TAG_NAME, "a")
+
+        for link in links:
+            self.assertEqual(link.get_attribute("href"),"#")
+
+    def test_menu(self):
+        self.drvier.get(self.website_url)
+
+        navigation = self.driver.find_element(By.TAG_NAME, "nav")
+        links = navigation.find_elements(By.TAG_NAME, "a")
+        required_links = [
+            "#header",
+            "#openhours",
+            "#products",
+            "#contact"
+        ]
+
+        for link in links:
+            self.assertIn(link.get_attribute("href"), required_links)
+
+
+    def test_for_icons_on_page(self):
         self.driver.get(self.website_url)
 
         # List of social medias
