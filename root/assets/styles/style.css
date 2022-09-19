@@ -214,6 +214,26 @@ td {
     white-space: nowrap;
 }
 
+footer th, footer td {
+    font-size: 15px;
+}
+
+footer table tr td {
+    padding: 2px;
+}
+
+footer table td:first-child {
+    text-align: left;
+}
+footer table td:last-child {
+    text-align: right;
+}
+
+footer table {
+    color: whitesmoke;
+    font-weight: 400;
+}
+
 /* https://stackoverflow.com/questions/70696930/what-are-the-best-dimensions-for-responsive-web-designs */
 @media only screen and (max-width: 900px) {
     nav {
@@ -237,6 +257,10 @@ td {
 
     table {
         width: 75vw;
+    }
+
+    footer table {
+        width: auto;
     }
 
     td {
