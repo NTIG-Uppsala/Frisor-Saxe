@@ -82,10 +82,10 @@ class TestClass(unittest.TestCase):
         links = self.driver.find_elements(By.TAG_NAME, "a")
 
         for link in links:
-            self.assertEqual(link.get_attribute("href"),"#")
+            self.assertNotEqual(link.get_attribute("href").split("/")[-1], "#")
 
-    def test_menu(self):
-        self.drvier.get(self.website_url)
+    def test_navigation_links(self):
+        self.driver.get(self.website_url)
 
         navigation = self.driver.find_element(By.TAG_NAME, "nav")
         links = navigation.find_elements(By.TAG_NAME, "a")
@@ -95,10 +95,10 @@ class TestClass(unittest.TestCase):
             "#products",
             "#contact"
         ]
-
-        for link in links:
-            self.assertIn(link.get_attribute("href"), required_links)
-
+    
+        # check if all required links are in the navigation
+        for link in required_links:
+            self.assertIn(link, [link.get_attribute("href").split('/')[-1] for link in links])
 
     def test_for_icons_on_page(self):
         self.driver.get(self.website_url)
@@ -122,7 +122,7 @@ class TestClass(unittest.TestCase):
         # reference: https://www.browserstack.com/guide/ideal-screen-sizes-for-responsive-design
         resolutions = [
             [1920, 1080 , "1920x1080"],
-            [2560, 1440, "2560x1440"],  # 2k desktop
+            [2560, 1440, "2560x1440"],
             [1366, 768, "1366x768"],
             [360, 640 , "360x640"],  
             [820, 1180, "820x1180"], 
@@ -178,7 +178,7 @@ class TestClass(unittest.TestCase):
             image_size = Path(image).stat().st_size
             print("Image path: {} \t image size: {}".format(image, image_size))
             # Assert if the file is greater than 500kb
-            self.assertGreater(5e5, image_size)
+            self.assertGreater(500_000, image_size)
 
     def test_for_images_on_page(self):
         self.driver.get(self.website_url)
