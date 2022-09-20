@@ -53,7 +53,7 @@ jobs:
           python -m http.server &
 
       - name: Run unit tests & save screenshots
-        run: python test/test.py http://localhost:8000
+        run: python test/test.py http://localhost:8000/
       - uses: actions/upload-artifact@v2 # Uplaod screenshots to Actions Artifacts via actions/upload-artifact@v2
         with:
           path: test/screenshots/
