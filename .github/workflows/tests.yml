@@ -67,8 +67,15 @@ jobs:
 
       - name: installing chromium
         run: |
-          wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
-          apt-get update && apt-get -y install google-chrome-stable
+          wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+          sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+          sudo apt-get update 
+          sudo apt-get install -y google-chrome-stable
+        # run: |
+        #   wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
+        #   apt-get update && apt-get -y install google-chrome-stable
+
+      
 
       - name: Starting live server
         run: npx serve root/ &
@@ -83,7 +90,7 @@ jobs:
         uses: actions/upload-artifact@v2 # Uplaod screenshots to Actions Artifacts via actions/upload-artifact@v2
         with:
           path: screenshots/
-          name: page screenshots
+          name: Page screenshots
 
   deploy:
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
