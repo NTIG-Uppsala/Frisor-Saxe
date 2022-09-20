@@ -16,7 +16,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class TestGlobal(unittest.TestCase):
     """
-        This class is used to test stuff that need to be on all webpages
+        This class is used to test features that need to be on all webpages
     """
     
     website_image_path = Path(__file__).resolve().parents[1] / Path('root/assets/images/')
@@ -33,29 +33,32 @@ class TestGlobal(unittest.TestCase):
 
         self.pages = [
             'index.html', 
-            'personal.html', 
+            # 'personal.html', 
             'hitta-hit.html'
         ]
     
     def test_check_for_empty_links(self):
-        self.driver.get(self.website_url)
-        links = self.driver.find_elements(By.TAG_NAME, "a")
+        
+        for page in self.pages:
+            self.driver.get(self.website_url + page)
+            print("Testing on page: {}".format(page))
 
-        for link in links:
-            self.assertNotEqual(link.get_attribute("href").split("/")[-1], "#")
+            links = self.driver.find_elements(By.TAG_NAME, "a")
+            
+            for link in links:
+                self.assertNotEqual(link.get_attribute("href").split("/")[-1], "#")
 
     def test_navigation_links(self):
         for page in self.pages:
             
             self.driver.get(self.website_url + page)
+            print("Testing on page: {}".format(page))
 
             navigation = self.driver.find_element(By.TAG_NAME, "nav")
             links = navigation.find_elements(By.TAG_NAME, "a")
             required_links = [
-                "#header",
-                "#openhours",
-                "#products",
-                "#contact"
+                "index.html",
+                "hitta-hit.html"
             ]
         
             # check if all required links are in the navigation
@@ -66,6 +69,7 @@ class TestGlobal(unittest.TestCase):
         for page in self.pages:
 
             self.driver.get(self.website_url + page)
+            print("Testing on page: {}".format(page))
 
             # List of social medias
             socials = ['facebook', 'instagram', 'twitter']
@@ -95,6 +99,7 @@ class TestGlobal(unittest.TestCase):
         for page in self.pages:
             
             self.driver.get(self.website_url + page)
+            print("Testing on page: {}".format(page))
 
             # get all elements with img tag
             image_elements = self.driver.find_elements(By.TAG_NAME, 'img')
@@ -150,11 +155,11 @@ class TestFindUs( unittest.TestCase):
     # Check for map
     def test_check_map(self):
         self.driver.get(self.website_url)
-        map_url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1228.0965925349935!2d20.232261859374567!3d67.86606003621222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x45d0ba6368d7c9a3%3A0xe3887ef038c559b0!2sFj%C3%A4llgatan%2032%2C%20981%2039%20Kiruna!5e0!3m2!1sen!2sse!4v1663658499040!5m2!1sen!2sse"
+        map_url = "google.com/maps/embed?pb=!1m18!1m12!1m3!1d1228.0965925349935!2d20.232261859374567!3d67.86606003621222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x45d0ba6368d7c09a3%3A0xe3887ef038c559b0!2sFj%C3%A4llgatan%2032%2C%20981%2039%20Kiruna!5e0!3m2!1sen!2sse!4v1663658499040!5m2!1sen!2sse"
         map_element = self.driver.find_element(By.ID, "map")
         
         self.assertTrue(map_element.is_displayed())
-        self.assertEqual(map_url, map_element.get_attribute("src"))
+        self.assertIn(map_url, map_element.get_attribute("src"))
 
     # Check content
     def test_find_text_on_page(self):
