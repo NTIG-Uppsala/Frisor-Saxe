@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/NTIG-Uppsala/Frisor-Saxe/issues"
   },
-  "homepage": "https://github.com/NTIG-Uppsala/Frisor-Saxe#readme"
+  "homepage": "https://github.com/NTIG-Uppsala/Frisor-Saxe#readme",
+  "dependencies": {
+    "puppeteer": "^18.0.3"
+  }
 }
