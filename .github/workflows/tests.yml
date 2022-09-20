@@ -58,15 +58,25 @@ jobs:
         with:
           path: test/screenshots/
           name: Download-screenshots
-  # screenshot:
-  #   needs: [test]
-  #   runs-on: ubuntu-latest
-  #   - name: Run screenshot tests
+  screenshot:
+    needs: [test]
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
-  #   - uses: actions/upload-artifact@v2 # Uplaod screenshots to Actions Artifacts via actions/upload-artifact@v2
-  #     with:
-  #       path: test/screenshots/
-  #       name: Download-screenshots
+      - run: cd root && npx serve -y &
+      - run: npm ci
+      
+      - run: npm run takescreenshots
+
+      - uses: actions/upload-artifact@v2 # Uplaod screenshots to Actions Artifacts via actions/upload-artifact@v2
+        with:
+          path: screenshots/
+          name: page screenshots
 
   deploy:
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
