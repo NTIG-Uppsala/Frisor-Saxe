@@ -12,8 +12,166 @@
     />
 
     <title>Frisör Saxé | Vår Personal</title>
+    <style>
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+        }
+        .card {
+            background-color: black;
+        }
+
+        .card-text {
+            color: whitesmoke;
+        }
+    </style>
 </head>
 <body>
-    
+    <nav>
+        <div class="nav-logo">
+          <h1><a href="index.html">Frisör Saxé</a></h1>
+        </div>
+        <div class="navigation">
+          <ul>
+            <li><a href="index.html">Hem</a></li>
+            <li><a href="hitta-hit.html">Hitta Hit</a></li>
+          </ul>
+        </div>
+      </nav>
+      <header id="header">
+        <div id="background-images">
+          <img
+            src="assets/images/bild1.jpg"
+            class="header-image"
+            alt="En bild av vår frisörsalong"
+          />
+          <img
+            src="assets/images/bild2.jpg"
+            class="header-image"
+            alt="En blid på en kvinnas hår med smycken i"
+          />
+          <img
+            src="assets/images/bild3.jpg"
+            class="header-image"
+            alt="En bild på en frisör som klipper kundens hår"
+          />
+        </div>
+        <div class="header-content">
+            <div class="cards">
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-text">
+                        <p>Fredrik</p>
+                        <p>barberare</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-text">
+                        <p>Öjran</p>
+                        <p>barberare</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-text">
+                        <p>Anna</p>
+                        <p>hair stylist</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </header>
+
+      <footer id="contact">
+        <div class="category" id="social-links">
+          <h1>Frisör Saxé</h1>
+          <div class="category-content">
+            <div>
+              <a
+                href="https://facebook.com/ntiuppsala"
+                target="_blank"
+                class="fa fa-facebook"
+              ></a>
+            </div>
+            <div>
+              <a
+                href="https://instagram.com/ntiuppsala"
+                target="_blank"
+                class="fa fa-instagram"
+              ></a>
+            </div>
+            <div>
+              <a
+                href="https://twitter.com/ntiuppsala"
+                target="_blank"
+                class="fa fa-twitter"
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="category">
+          <h4 class="category-header">Öppettider</h4>
+          <div class="category-content">
+            <table>
+              <tr>
+                <td>Mån-Fre</td>
+                <td></td>
+                <td>10 - 16</td>
+              </tr>
+              <tr>
+                <td>Lördag</td>
+                <td></td>
+                <td>12 - 15</td>
+              </tr>
+              <tr>
+                <td>Söndag</td>
+                <td></td>
+                <td>Stängt</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="category">
+          <h4 class="category-header">Kontakt</h4>
+          <div class="category-content">
+            <a href="tel:0630-555-555">
+              <p>0630-555-555</p>
+            </a>
+            <a href="mailto:info@ntig-uppsala.github.io"
+              >info@ntig-uppsala.github.io</a
+            >
+          </div>
+        </div>
+        <div class="category">
+          <h4 class="category-header">Hitta oss</h4>
+          <div class="category-content">
+            <p>
+              Fjällgatan 32H <br />
+              981 39, Kiruna
+            </p>
+          </div>
+        </div>
+      </footer>
+      <script type="text/javascript">
+        const images = document.querySelectorAll("#background-images img");
+        let i = 0;
+  
+        setInterval(function () {
+          if (i == 0) {
+            images[i].style.display = "block";
+          } else if (i == images.length) {
+            images[i - 1].style.display = "none";
+            images[0].style.display = "block";
+            i = 0;
+          } else {
+            images[i - 1].style.display = "none";
+            images[i].style.display = "block";
+          }
+  
+          i++;
+        }, 5000);
+      </script>
 </body>
 </html>
