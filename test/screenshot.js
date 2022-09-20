@@ -10,6 +10,7 @@ async function runTest() {
     const browser = await puppeteer.launch({
         headless: true,
         timeout: 150 * 1000, // 2.5 min timeout per task
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
 
     const url_list = [
