@@ -58,12 +58,21 @@ jobs:
         with:
           path: test/screenshots/
           name: Download-screenshots
+  # screenshot:
+  #   needs: [test]
+  #   runs-on: ubuntu-latest
+  #   - name: Run screenshot tests
+
+  #   - uses: actions/upload-artifact@v2 # Uplaod screenshots to Actions Artifacts via actions/upload-artifact@v2
+  #     with:
+  #       path: test/screenshots/
+  #       name: Download-screenshots
 
   deploy:
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
 
-    needs: [test, validate]
+    needs: [test, validate, screenshot]
 
     permissions:
       contents: write
