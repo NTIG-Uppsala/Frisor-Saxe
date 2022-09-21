@@ -56,7 +56,6 @@ jobs:
         run: python test/test.py http://localhost:8000/
 
   screenshot:
-    needs: [test]
     runs-on: ubuntu-latest
     
     steps:
