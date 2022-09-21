@@ -34,7 +34,7 @@ async function runTest() {
     for (let i = 0; i < url_list.length; i++) {
         let page = await browser.newPage();
 
-        const url = `https://ntig-uppsala.github.io/Frisor-Saxe/${url_list[i]}`;
+        const url = `http://localhost:3000/${url_list[i]}`;
 
         await page.goto(url, {
             waitUntil: 'networkidle2'
