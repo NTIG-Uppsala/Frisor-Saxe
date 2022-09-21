@@ -16,6 +16,7 @@ async function runTest() {
     const url_list = [
         'index.html',
         'hitta-hit.html',
+        'personal.html',
     ];
 
     const resolutions = [
@@ -26,7 +27,7 @@ async function runTest() {
         {width: 820,  height: 1180 }, 
         {width: 414,  height: 896  }, 
         {width: 1536, height: 864  },  
-    ]
+    ];
 
 
     // Loop through every page
