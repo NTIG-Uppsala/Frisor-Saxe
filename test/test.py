@@ -157,9 +157,12 @@ class TestPersonnel(unittest.TestCase):
             "Hitta oss",
             "Fjällgatan 32H",
             "981 39, Kiruna",
-            "Fredrik barberare",
-            "Öjran barberare",
-            "Anna hair stylist",
+            "Fredrik",
+            "barberare",
+            "Öjran",
+            "barberare",
+            "Anna",
+            "hair stylist",
         ]
 
         for text in control_texts:
