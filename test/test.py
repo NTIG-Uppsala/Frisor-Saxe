@@ -35,7 +35,7 @@ class TestGlobal(unittest.TestCase):
 
         self.pages = [
             'index.html',
-            # 'personal.html',
+            'personal.html',
             'hitta-hit.html'
         ]
 
@@ -168,8 +168,32 @@ class TestPersonnel(unittest.TestCase):
         for text in control_texts:
             self.assertIn(text, page_text)
 
-    # Check content
-    # Check for social links
+    def test_for_images_on_page(self):
+        self.driver.get(self.website_url)
+
+        # get all elements with img tag
+        image_elements = self.driver.find_elements(By.TAG_NAME, 'img')
+        website_image_paths = []
+
+        for image in image_elements:
+            _path = ""
+            # if the img has a src attribute with the image
+            if image.get_attribute('src') is not None:
+                # get src and resolve it as Pathlib Path
+                _path = Path(image.get_attribute('src'))
+            else:  # assert False (Just a fail)
+                self.assertTrue(False)
+                continue
+
+            # append paths filename to paths list
+            website_image_paths.append(_path.name)
+
+        images = (p.resolve() for p in Path(self.website_image_path).glob("**/*") if p.suffix in {".png", ".jpg"})
+        # assert if all images are present on screen
+        for image in images:
+            print("Currently chcking if {} is in {}".format(
+                image.name, website_image_paths))
+            self.assertIn(image.name, website_image_paths)
 
 
 class TestFindUs(unittest.TestCase):
