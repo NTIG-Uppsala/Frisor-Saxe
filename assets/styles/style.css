@@ -129,9 +129,13 @@ nav {
     margin-top: 50px;
 }
 
-.main {
-    margin-top: 50px;
-    margin-bottom: 50px;
+#products {
+    background-color: whitesmoke;
+}
+
+.main > div {
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 table {

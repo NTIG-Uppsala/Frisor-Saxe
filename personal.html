@@ -12,8 +12,316 @@
     />
 
     <title>Frisör Saxé | Vår Personal</title>
+    <style>
+
+        .cards-background {
+          color: white;
+          background-color: black;
+          border-radius: 15px;
+        }
+
+        .cards-background h1 {
+          font-family: 'Pacifico', cursive;
+          font-size: 35px;
+          padding-top: 50px;
+          text-align: center;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            width: 850px;
+            padding: 50px;
+        }
+        .card {
+          height: 320px;
+          width: 250px;
+          border-radius: 15px;
+          display: flex;
+          flex-direction: column;
+          background: #202020;
+        }
+
+        .card-image {
+          border-radius: 15px 15px 0 0;
+          height: 200px;
+          width: 100%;
+          object-fit: cover;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .card-image img {
+          width: 100%;
+          height: auto;  
+        }
+
+        .card-text {
+          padding: 10px;
+          color: white;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .card-text .text-name {
+          font-family: 'Pacifico', cursive;
+          font-size: 25px;
+          margin-bottom: 5px;
+        }
+
+        .card-text .text-title {
+          font-size: 20px;
+        }
+
+        @media only screen and (max-width: 1100px) {
+          .cards {
+            width: 700px;
+          }
+          .card {
+            height: 250px;
+            width: 200px;
+          }
+
+          .card-image {
+            height: 150px;
+          }
+
+          .card-text .text-name {
+
+            font-size: 22px;
+          }
+
+          .card-text .text-title {
+            font-size: 17px;
+          }
+
+        }
+
+        @media only screen and (max-width: 900px) {
+          .cards {
+            width: 550px;
+          }
+          .card {
+            height: 200px;
+            width: 150px;
+          }
+
+          .card-image {
+            height: 100px;
+          }
+
+          .card-text .text-name {
+
+            font-size: 18px;
+          }
+
+          .card-text .text-title {
+            font-size: 15px;
+          }
+
+        }
+
+        @media only screen and (max-width: 700px) {
+
+          .cards-background h1 {
+            font-size: 28px;
+          }
+          .cards {
+            width: 400px;
+          }
+          .card {
+            height: 150px;
+            width: 100px;
+          }
+
+          .card-image {
+            height: 50px;
+          }
+
+        }
+
+        @media only screen and (max-width: 600px) {
+          .cards-background {
+            margin-top: 100px;
+          }
+
+          .cards-background h1 {
+            font-size: 30px;
+            padding: 10px 0;
+            margin-top: 0;
+          }
+
+          .cards {
+            width: 280px;
+            padding: 10px;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .card-image {
+            height: 80px;
+          }
+
+          .card {
+            width: 120px;
+            height: 150px;
+            margin-bottom: 20px;
+          }
+        }
+
+
+    </style>
 </head>
 <body>
-    
+    <nav>
+        <div class="nav-logo">
+          <h1><a href="index.html">Frisör Saxé</a></h1>
+        </div>
+        <div class="navigation">
+          <ul>
+            <li><a href="index.html">Hem</a></li>
+            <li><a href="hitta-hit.html">Hitta Hit</a></li>
+          </ul>
+        </div>
+      </nav>
+      <header id="header">
+        <div id="background-images">
+          <img
+            src="assets/images/bild1.jpg"
+            class="header-image"
+            alt="En bild av vår frisörsalong"
+          />
+          <img
+            src="assets/images/bild2.jpg"
+            class="header-image"
+            alt="En blid på en kvinnas hår med smycken i"
+          />
+          <img
+            src="assets/images/bild3.jpg"
+            class="header-image"
+            alt="En bild på en frisör som klipper kundens hår"
+          />
+        </div>
+        <div class="header-content">
+          <div class="cards-background">
+          <h1>Vi jobbar här</h1>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-image"><img src="assets/images/fredrik_ortqvist.png" alt="bild på fredrik ortqvist, barberare hos frisör Saxé"></div>
+                    <div class="card-text">
+                        <p class="text-name">Fredrik</p>
+                        <p class="text-title">barberare</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image"><img src="assets/images/orjan_johansson.png" alt="bild på örjan, barberare hos frisör Saxé"></div>
+                    <div class="card-text">
+                        <p class="text-name">Öjran</p>
+                        <p class="text-title">barberare</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image"><img src="assets/images/anna_pettersson.png" alt="bild på anna, hair stylist hos frisör Saxé"></div>
+                    <div class="card-text">
+                        <p class="text-name">Anna</p>
+                        <p class="text-title">hair stylist</p>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <footer id="contact">
+        <div class="category" id="social-links">
+          <h1>Frisör Saxé</h1>
+          <div class="category-content">
+            <div>
+              <a
+                href="https://facebook.com/ntiuppsala"
+                target="_blank"
+                class="fa fa-facebook"
+              ></a>
+            </div>
+            <div>
+              <a
+                href="https://instagram.com/ntiuppsala"
+                target="_blank"
+                class="fa fa-instagram"
+              ></a>
+            </div>
+            <div>
+              <a
+                href="https://twitter.com/ntiuppsala"
+                target="_blank"
+                class="fa fa-twitter"
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="category">
+          <h4 class="category-header">Öppettider</h4>
+          <div class="category-content">
+            <table>
+              <tr>
+                <td>Mån-Fre</td>
+                <td></td>
+                <td>10 - 16</td>
+              </tr>
+              <tr>
+                <td>Lördag</td>
+                <td></td>
+                <td>12 - 15</td>
+              </tr>
+              <tr>
+                <td>Söndag</td>
+                <td></td>
+                <td>Stängt</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="category">
+          <h4 class="category-header">Kontakt</h4>
+          <div class="category-content">
+            <a href="tel:0630-555-555">
+              <p>0630-555-555</p>
+            </a>
+            <a href="mailto:info@ntig-uppsala.github.io"
+              >info@ntig-uppsala.github.io</a
+            >
+          </div>
+        </div>
+        <div class="category">
+          <h4 class="category-header">Hitta oss</h4>
+          <div class="category-content">
+            <p>
+              Fjällgatan 32H <br />
+              981 39, Kiruna
+            </p>
+          </div>
+        </div>
+      </footer>
+      <script type="text/javascript">
+        const images = document.querySelectorAll("#background-images img");
+        let i = 0;
+  
+        setInterval(function () {
+          if (i == 0) {
+            images[i].style.display = "block";
+          } else if (i == images.length) {
+            images[i - 1].style.display = "none";
+            images[0].style.display = "block";
+            i = 0;
+          } else {
+            images[i - 1].style.display = "none";
+            images[i].style.display = "block";
+          }
+  
+          i++;
+        }, 5000);
+      </script>
 </body>
 </html>
