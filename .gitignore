@@ -1,5 +1,6 @@
 venv
-**/*/screenshots/
+*/**/screenshots/
+screenshots/
 **/*/__pycache__/
 */.pytest*/
 *node_modules/
