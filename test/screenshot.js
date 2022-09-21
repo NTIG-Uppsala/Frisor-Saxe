@@ -36,31 +36,26 @@ async function runTest() {
 
         const url = `https://ntig-uppsala.github.io/Frisor-Saxe/${url_list[i]}`;
 
+        await page.goto(url, {
+            waitUntil: 'networkidle2'
+        });
+
         // Loop through every resolution
         for (let index = 0; index < resolutions.length; index++) {
             const current_resolution = resolutions[index];
-
-            await page.goto(url, {
-                waitUntil: 'networkidle2'
-            });
     
             // set viewport width and height
             await page.setViewport({ 
                 width: current_resolution.width, 
                 height: current_resolution.height 
             });
-    
-            await page.waitForTimeout(500);
         
-            await page.screenshot({ path: `screenshots/${url_list[i]}_${current_resolution.width}x${current_resolution.height }.png`, fullPage: true });            
+            await page.screenshot({ path: `screenshots/${url_list[i]}_${current_resolution.width}x${current_resolution.height }.png`, fullPage: true });
         }
-
-
 
     }
 
     browser.close(); 
-
     
 }
 
