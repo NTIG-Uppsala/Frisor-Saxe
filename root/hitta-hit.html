@@ -48,18 +48,18 @@
         <div class="header-content header-logo">
             <div class="card" id="adress">
                 <div class="card-content">
-                    <div id="info">
-                        <h1>Hitta hit</h1>
-                        <p>
-                            Fjällgatan 32H <br />
-                            981 39, Kiruna
-                        </p>
-                    </div>
                     <noscript>
                       <a href="https://goo.gl/maps/5Mza68P4ChzDwdzZ7">
-                        <img src="assets/images/map.png" style="max-width: 100%; max-height: 100%;" alt="En karta till Frisör Saxé"/>
+                        <img src="assets/images/map.png" style="object-fit:cover; max-width: 100%; max-height: 100%; width: 475px; height: 450px;" alt="En karta till Frisör Saxé"/>
                       </a>
                     </noscript>
+                    <div id="info">
+                      <h1>Hitta hit</h1>
+                      <p>
+                          Fjällgatan 32H <br />
+                          981 39, Kiruna
+                      </p>
+                  </div>
                 </div>
             </div>
         </div>
@@ -148,8 +148,9 @@
                   referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         `;
-
-        document.querySelector(".card-content").innerHTML += iframe_data
+        let card_element = document.querySelector(".card-content")
+        card_element.innerHTML = iframe_data + card_element.innerHTML;
+        document.querySelector(".card-content").style
 
         const images = document.querySelectorAll("#background-images img");
         let i = 0;
