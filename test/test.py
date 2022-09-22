@@ -266,8 +266,6 @@ class TestPages(unittest.TestCase):
         images = (p.resolve() for p in Path(self.website_image_path).glob("**/*") if p.suffix in {".png", ".jpg"})
         # assert if all images are present on screen
         for image in images:
-            if image == "map.png":
-                continue
             print("Currently chcking if {} is in {}".format(image.name, website_image_paths))
             self.assertIn(image.name, website_image_paths)
 
