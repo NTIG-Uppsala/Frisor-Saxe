@@ -31,6 +31,7 @@
 
 .card-content iframe {
     width: 50%;
+    border-radius: 25px;
 }
 
 @media only screen and (max-width: 768px) {
