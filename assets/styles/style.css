@@ -304,11 +304,14 @@ footer table {
     #contact {
         scroll-margin-top: calc(99px);
     }   
+    
+    .navigation {
+        width: 90%;
+    }
 
     .navigation>ul {
         display: flex;
-        justify-content: center;
-
+        justify-content: space-around;
     }
 
     .navigation>ul>li {
