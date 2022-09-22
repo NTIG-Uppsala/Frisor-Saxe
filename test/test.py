@@ -7,6 +7,9 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 class TestGlobal(unittest.TestCase):
     """
         This class is used to test features that needs to be on all webpages
@@ -30,6 +33,27 @@ class TestGlobal(unittest.TestCase):
             'personal.html',
             'hitta-hit.html'
         ]
+
+    # def test_validate_code_on_page(self):
+    #     validators = [
+    #         "https://validator.w3.org/",
+    #         "https://jigsaw.w3.org/css-validator/",
+    #         ]
+    #     for validator in validators:
+    #         self.driver.get(validator)
+    #         wait = WebDriverWait(self.driver, 10)
+    #         wait.until(EC.visibility_of_element_located((By.ID, "uri")))
+    #         for page in self.pages:
+    #             self.driver.save_screenshot("test.png")
+    #             input_element = self.driver.find_element(By.ID, "uri")
+    #             self.driver.find_element(By.ID, 'uri').clear()
+    #             input_element.send_keys(self.website_url + page)
+    #             self.driver.save_screenshot("test_after.png")
+    #             # self.driver.find_element(By.ID, "uri").send_keys(self.website_url + page)
+    #             self.driver.find_elements(By.CLASS_NAME, "submit")[0].click()
+    #             print("loop test pass")
+
+
 
     def test_find_text_on_page(self):
         for page in self.pages:
