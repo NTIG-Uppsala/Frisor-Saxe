@@ -263,7 +263,7 @@ class TestPages(unittest.TestCase):
             # append paths filename to paths list
             website_image_paths.append(_path.name)
 
-        images = (p.resolve() for p in Path(self.website_image_path).glob("**/*") if p.suffix in {".png", ".jpg"})
+        images = (p.resolve() for p in Path(self.website_image_path).glob("**/*.*") if p.suffix in {".png", ".jpg"})
         # assert if all images are present on screen
         for image in images:
             print("Currently chcking if {} is in {}".format(image.name, website_image_paths))
