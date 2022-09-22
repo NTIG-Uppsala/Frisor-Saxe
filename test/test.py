@@ -1,17 +1,11 @@
-from re import S
 import unittest
 import sys
-import time
 from pathlib import Path
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
-
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 class TestGlobal(unittest.TestCase):
     """
@@ -53,7 +47,8 @@ class TestGlobal(unittest.TestCase):
                 "info@ntig-uppsala.github.io",
                 "Hitta oss",
                 "Fjällgatan 32H",
-                "981 39, Kiruna"
+                "981 39, Kiruna",
+                "Karta till oss",
             ]
 
             for text in control_texts:
