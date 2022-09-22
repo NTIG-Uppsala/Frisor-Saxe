@@ -80,7 +80,8 @@ class TestGlobal(unittest.TestCase):
             links = navigation.find_elements(By.TAG_NAME, "a")
             required_links = [
                 "index.html",
-                "hitta-hit.html"
+                "hitta-hit.html",
+                "personal.html"
             ]
 
             # check if all required links are in the navigation
