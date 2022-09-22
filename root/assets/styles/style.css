@@ -213,9 +213,10 @@ footer a:hover {
 
 
 
-footer a,
 footer p {
     font-weight: 200;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 td {
@@ -304,7 +305,7 @@ footer table {
     #contact {
         scroll-margin-top: calc(99px);
     }   
-    
+
     .navigation {
         width: 90%;
     }
