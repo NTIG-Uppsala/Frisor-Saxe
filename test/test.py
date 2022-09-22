@@ -1,5 +1,6 @@
 import unittest
 import sys
+import requests
 from pathlib import Path
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
@@ -9,6 +10,8 @@ from selenium.webdriver.common.by import By
 
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
+
 
 class TestGlobal(unittest.TestCase):
     """
@@ -144,25 +147,17 @@ class TestGlobal(unittest.TestCase):
 
             # get all elements with img tag
             image_elements = self.driver.find_elements(By.TAG_NAME, 'img')
-            website_image_paths = []
 
             for image in image_elements:
-                _path = ""
-                # if the img has a src attribute with the image
+                image_source = image.get_attribute('src')
+
+                # if the img has a src attribute with a image
                 if image.get_attribute('src') is not None:
-                    # get src and resolve it as Pathlib Path
-                    _path = Path(image.get_attribute('src'))
+                    # Assert that the image source is fetchable from the server ( < 400 )
+                    self.assertLess(requests.get(image_source).status_code, 400)
                 else:  # assert False (Just a fail)
                     self.assertTrue(False)
                     continue
-
-                # append paths filename to paths list
-                website_image_paths.append(_path.name)
-
-            # assert if all images are present on screen
-            for image in self.website_image_path.glob('**/*.jpg'):
-                print("Currently chcking if {} is in {}".format(image.name, website_image_paths))
-                self.assertIn(image.name, website_image_paths)
 
 class TestPages(unittest.TestCase):
     website_image_path = Path(__file__).resolve().parents[1] / Path('root/assets/images/')
@@ -243,32 +238,6 @@ class TestPages(unittest.TestCase):
     """
         PERSONNEL TESTS
     """
-    def test_for_images_on_page(self):
-        self.driver.get(self.website_url + "personal.html")
-
-        # get all elements with img tag
-        image_elements = self.driver.find_elements(By.TAG_NAME, 'img')
-        website_image_paths = []
-
-        for image in image_elements:
-            _path = ""
-            # if the img has a src attribute with the image
-            if image.get_attribute('src') is not None:
-                # get src and resolve it as Pathlib Path
-                _path = Path(image.get_attribute('src'))
-            else:  # assert False (Just a fail)
-                self.assertTrue(False)
-                continue
-
-            # append paths filename to paths list
-            website_image_paths.append(_path.name)
-
-        images = (p.resolve() for p in Path(self.website_image_path).glob("**/*.*") if p.suffix in {".png", ".jpg"})
-        # assert if all images are present on screen
-        for image in images:
-            print("Currently chcking if {} is in {}".format(image.name, website_image_paths))
-            self.assertIn(image.name, website_image_paths)
-
     def test_find_personnel_on_page(self):
         self.driver.get(self.website_url + "personal.html")
 
