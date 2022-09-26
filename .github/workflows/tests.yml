@@ -10,6 +10,7 @@ on:
   #   branches: [ "main" ]
 
 jobs:
+
   validate:
     runs-on: ubuntu-latest
 
@@ -22,6 +23,7 @@ jobs:
         with:
           root: root/
           css: true
+
   test:
     runs-on: ubuntu-latest
 
