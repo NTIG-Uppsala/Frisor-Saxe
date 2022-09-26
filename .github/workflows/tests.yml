@@ -34,10 +34,11 @@ jobs:
           css: true
 
   on-failure:
-    - uses: actions/upload-artifact@v3
-      with:
-        name: log
-        path: log.log
+    steps:
+      - uses: actions/upload-artifact@v3
+        with:
+          name: log
+          path: log.log
 
   # Runs tests
   test:
