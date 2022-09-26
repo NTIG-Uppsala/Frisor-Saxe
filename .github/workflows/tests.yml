@@ -32,12 +32,12 @@ jobs:
           root: root/
           log_level: DEBUG
           css: true
-          
-       on-failure:
-        - uses: actions/upload-artifact@v3
-          with:
-            name: log
-            path: log.log
+
+    on-failure:
+      - uses: actions/upload-artifact@v3
+        with:
+          name: log
+          path: log.log
 
   # Runs tests
   test:
