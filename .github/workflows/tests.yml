@@ -34,6 +34,8 @@ jobs:
           css: true
 
   on-failure:
+    runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/upload-artifact@v3
         with:
