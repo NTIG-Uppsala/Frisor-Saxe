@@ -115,8 +115,14 @@ jobs:
           path: screenshots/
           name: Page screenshots
 
+  printBranch:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ github.ref_name }}
+
   # Deploys page with GitHub Pages
   deploy:
+    if: github.ref_name == 'main'
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
 
