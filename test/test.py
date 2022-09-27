@@ -245,7 +245,7 @@ class TestPages(unittest.TestCase):
 
         personnel_text = [
             "Fredrik barberare",
-            "Öjran barberare",
+            "Örjan barberare",
             "Anna hair stylist"
         ]
 
