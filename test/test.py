@@ -236,7 +236,7 @@ class TestPages(unittest.TestCase):
             ["Skägg", "150 kr"],
             ["Toppning", "200 kr"],
             ["Hårförlängning kort", "300 kr"],
-            ["Hårförlängning normal", "400 kr"],
+            ["Hårförlängning mellan", "400 kr"],
             ["Hårförlängning lång", "500 kr"],
             ["Barn 0-13", "150 kr"],
             ["Långt hår stamkund", "300 kr"],
