@@ -32,12 +32,8 @@ jobs:
           root: root/
           log_level: DEBUG
           css: true
-
-  on-failure:
-    runs-on: ubuntu-latest
-    
-    steps:
       - uses: actions/upload-artifact@v3
+        if: ${{ always() }}
         with:
           name: log
           path: log.log
