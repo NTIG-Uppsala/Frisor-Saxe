@@ -225,9 +225,9 @@ class TestPages(unittest.TestCase):
 
         # List of services
         products = [
-            "Stamkund",
-            "Klippning",
-            "Övrigt", 
+            ["Stamkund"],
+            ["Klippning"],
+            ["Övrigt"], 
             ["Långt hår", "600 kr"],
             ["Kort hår", "500 kr"],
             ["Färgning", "560 kr"],
