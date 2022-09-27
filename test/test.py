@@ -221,13 +221,15 @@ class TestPages(unittest.TestCase):
     def test_check_for_products(self):
         self.driver.get(self.website_url)
 
-        self.assertIn("Prislista", self.driver.find_element(By.TAG_NAME, "body").text)
+        
+        # List of categories
+        priceCategories = ["Prislista", "Stamkund", "Klippning", "Övrigt"]
+
+        for categories in priceCategories:
+            self.assertIn(categories, self.driver.find_element(By.TAG_NAME, "body").text)
 
         # List of services
         products = [
-            ["Stamkund"],
-            ["Klippning"],
-            ["Övrigt"], 
             ["Långt hår", "600 kr"],
             ["Kort hår", "500 kr"],
             ["Färgning", "560 kr"],
