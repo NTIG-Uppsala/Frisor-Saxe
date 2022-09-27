@@ -217,14 +217,17 @@ class TestPages(unittest.TestCase):
         self.check_element_content("openhours", open_hours, "tr")
         # self.assertTrue(all(result))
     
-    # test for products on page
+    # test for services on page
     def test_check_for_products(self):
         self.driver.get(self.website_url)
 
-        self.assertIn("Produkter", self.driver.find_element(By.TAG_NAME, "body").text)
+        self.assertIn("Prislista", self.driver.find_element(By.TAG_NAME, "body").text)
 
-        # List of products
+        # List of services
         products = [
+            "Stamkund",
+            "Klippning",
+            "Övrigt", 
             ["Långt hår", "600 kr"],
             ["Kort hår", "500 kr"],
             ["Färgning", "560 kr"],
@@ -233,7 +236,7 @@ class TestPages(unittest.TestCase):
             ["Hårförlängning kort", "300 kr"],
             ["Hårförlängning normal", "400 kr"],
             ["Hårförlängning lång", "500 kr"],
-            ["Klippning barn 0-13", "150 kr"],
+            ["Barn 0-13", "150 kr"],
             ["Långt hår stamkund", "300 kr"],
             ["Kort hår stamkund", "250 kr"]
         ]
