@@ -224,9 +224,9 @@ class TestPages(unittest.TestCase):
             ["Färgning", "560 kr"],
             ["Skägg", "150 kr"],
             ["Toppning", "200 kr"],
-            ["Extensions kort", "300 kr"],
-            ["Extensions normal", "400 kr"],
-            ["Extensions lång", "500 kr"],
+            ["Hårförlängning kort", "300 kr"],
+            ["Hårförlängning normal", "400 kr"],
+            ["Hårförlängning lång", "500 kr"],
             ["Klippning barn 0-13", "150 kr"],
             ["Långt hår stamkund", "300 kr"],
             ["Kort hår stamkund", "250 kr"]
@@ -244,9 +244,9 @@ class TestPages(unittest.TestCase):
         self.assertIn("Vi jobbar här", self.driver.find_element(By.TAG_NAME, "body").text)
 
         personnel_text = [
-            "Fredrik barberare",
-            "Örjan barberare",
-            "Anna hair stylist"
+            "Fredrik Barberare",
+            "Örjan Barberare",
+            "Anna Hårstylist"
         ]
 
         self.driver.get(self.website_url + "personal.html")
