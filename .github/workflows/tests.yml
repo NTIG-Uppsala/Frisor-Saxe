@@ -3,14 +3,19 @@
 
 name: Tests
 
+# When to run this action
 on:
   push:
-    branches: ["main"]
-  # pull_request:
-  #   branches: [ "main" ]
+    branches:
+      - 'main'
+      - 'dev'
 
+  pull_request:
+    branches: [ "main" ]
+
+# What actions to run
 jobs:
-
+  # Validate code using online validator
   validate:
     runs-on: ubuntu-latest
 
@@ -19,16 +24,29 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Validate HTML & css
+        # Change validator to the one used on W3C's website (try to see if any of these work)
+        # uses: validator/validator@main
+        # uses: w3c/markup-validator@master
         uses: NTIG-Uppsala/html5validator-action@master
         with:
           root: root/
+          log_level: DEBUG
           css: true
+          extra: --show-warnings
+      - name: Create log artifact
+        uses: actions/upload-artifact@v3
+        if: ${{ always() }}
+        with:
+          name: log
+          path: log.log
 
+  # Runs tests
   test:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
+
       - name: Set up Python 3.10
         uses: actions/setup-python@v3
         with:
@@ -57,11 +75,13 @@ jobs:
       - name: Run unit tests & save screenshots
         run: python test/test.py http://localhost:8000/
 
+  # Runs screenshot tests
   screenshot:
     runs-on: ubuntu-latest
     
     steps:
       - uses: actions/checkout@v3
+
       - uses: actions/setup-node@v3
         with:
           node-version: 16
@@ -93,7 +113,14 @@ jobs:
           path: screenshots/
           name: Page screenshots
 
+  printBranch:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ github.ref_name }}
+
+  # Deploys page with GitHub Pages
   deploy:
+    if: github.ref_name == 'main'
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
 

@@ -214,7 +214,7 @@ class TestPages(unittest.TestCase):
     # test for products on page
     def test_check_for_products(self):
         self.driver.get(self.website_url)
-        
+
         self.assertIn("Produkter", self.driver.find_element(By.TAG_NAME, "body").text)
 
         # List of products
