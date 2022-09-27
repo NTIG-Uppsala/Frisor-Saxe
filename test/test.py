@@ -72,10 +72,10 @@ class TestGlobal(unittest.TestCase):
                 "Kontakt",
                 "0630-555-555",
                 "info@ntig-uppsala.github.io",
-                "Hitta oss",
+                "Hitta hit",
                 "Fjällgatan 32H",
                 "981 39, Kiruna",
-                "Karta till oss",
+                "Karta till oss"
             ]
 
             for text in control_texts:
@@ -100,14 +100,20 @@ class TestGlobal(unittest.TestCase):
 
             navigation = self.driver.find_element(By.TAG_NAME, "nav")
             links = navigation.find_elements(By.TAG_NAME, "a")
-            required_links = [
-                "index.html",
-                "hitta-hit.html",
-                "personal.html"
+
+            page_text = self.driver.find_element(By.TAG_NAME, "body").text
+
+            link_text = [
+                "Hem",
+                "Personal",
+                "Hitta hit"
             ]
 
+            for text in link_text:
+                self.assertIn(text, page_text)
+
             # check if all required links are in the navigation
-            for link in required_links:
+            for link in self.pages:
                 self.assertIn(link, [link.get_attribute("href").split('/')[-1] for link in links])
 
     def test_for_icons_on_page(self):
