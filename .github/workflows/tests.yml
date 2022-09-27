@@ -32,8 +32,9 @@ jobs:
           root: root/
           log_level: DEBUG
           css: true
-          errors-only: false
-      - uses: actions/upload-artifact@v3
+          args: --show-warnings
+      - name: Create log artifact
+        uses: actions/upload-artifact@v3
         if: ${{ always() }}
         with:
           name: log
