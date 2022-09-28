@@ -12,13 +12,13 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-
 class TestGlobal(unittest.TestCase):
     """
         This class is used to test features that needs to be on all webpages
     """
 
-    website_image_path = Path(__file__).resolve().parents[1] / Path('root/assets/images/')
+    website_image_path = Path(__file__).resolve(
+    ).parents[1] / Path('root/assets/images/')
     website_url = ""
 
     def setUp(self):
@@ -56,8 +56,6 @@ class TestGlobal(unittest.TestCase):
     #             self.driver.find_elements(By.CLASS_NAME, "submit")[0].click()
     #             print("loop test pass")
 
-
-
     def test_find_text_on_page(self):
         for page in self.pages:
 
@@ -90,7 +88,8 @@ class TestGlobal(unittest.TestCase):
             links = self.driver.find_elements(By.TAG_NAME, "a")
 
             for link in links:
-                self.assertNotEqual(link.get_attribute("href").split("/")[-1], "#")
+                self.assertNotEqual(link.get_attribute(
+                    "href").split("/")[-1], "#")
 
     def test_navigation_links(self):
         for page in self.pages:
@@ -114,7 +113,8 @@ class TestGlobal(unittest.TestCase):
 
             # check if all required links are in the navigation
             for link in self.pages:
-                self.assertIn(link, [link.get_attribute("href").split('/')[-1] for link in links])
+                self.assertIn(link, [link.get_attribute(
+                    "href").split('/')[-1] for link in links])
 
     def test_for_icons_on_page(self):
         for page in self.pages:
@@ -128,9 +128,11 @@ class TestGlobal(unittest.TestCase):
             # Loop over list
             for social in socials:
                 # Check if link and icon is on page
-                icon_element = self.driver.find_element(By.CLASS_NAME, f"fa-{social}")
+                icon_element = self.driver.find_element(
+                    By.CLASS_NAME, f"fa-{social}")
                 print(f"{social} element found")
-                ActionChains(icon_element).move_to_element(icon_element).click()
+                ActionChains(icon_element).move_to_element(
+                    icon_element).click()
                 icon_href = icon_element.get_attribute("href")
 
                 self.assertEqual(icon_href, f"https://{social}.com/ntiuppsala")
@@ -160,13 +162,16 @@ class TestGlobal(unittest.TestCase):
                 # if the img has a src attribute with a image
                 if image.get_attribute('src') is not None:
                     # Assert that the image source is fetchable from the server ( < 400 )
-                    self.assertLess(requests.get(image_source).status_code, 400)
+                    self.assertLess(requests.get(
+                        image_source).status_code, 400)
                 else:  # assert False (Just a fail)
                     self.assertTrue(False)
                     continue
 
+
 class TestPages(unittest.TestCase):
-    website_image_path = Path(__file__).resolve().parents[1] / Path('root/assets/images/')
+    website_image_path = Path(__file__).resolve(
+    ).parents[1] / Path('root/assets/images/')
     website_url = ""
 
     def setUp(self):
@@ -187,7 +192,8 @@ class TestPages(unittest.TestCase):
         row_elements = group_element.find_elements(By.TAG_NAME, element)
 
         # combine elements text to one string
-        row_text = " ".join([row.text for row in row_elements]).replace("\n", " ")
+        row_text = " ".join(
+            [row.text for row in row_elements]).replace("\n", " ")
 
         for product in expected_table_content:
             # combine list of expected row content to one string
@@ -197,15 +203,16 @@ class TestPages(unittest.TestCase):
             # yield product_joined in row_text
             self.assertIn(product_joined, row_text)
 
-
     """
         INDEX TESTS
     """
     # Test for open hours
+
     def test_check_for_open_hours(self):
         self.driver.get(self.website_url)
 
-        self.assertIn("Aukijat", self.driver.find_element(By.TAG_NAME, "body").text)
+        self.assertIn("Aukijat", self.driver.find_element(
+            By.TAG_NAME, "body").text)
 
         # List of open hours
         open_hours = [
@@ -216,17 +223,18 @@ class TestPages(unittest.TestCase):
 
         self.check_element_content("openhours", open_hours, "tr")
         # self.assertTrue(all(result))
-    
+
     # test for services on page
     def test_check_for_products(self):
         self.driver.get(self.website_url)
 
-        
         # List of categories
-        priceCategories = ["Hinta lista", "Vakio-asiakas", "Leikkaus", "Sekalaista"]
+        priceCategories = ["Hinta lista",
+                           "Vakio-asiakas", "Leikkaus", "Sekalaista"]
 
         for categories in priceCategories:
-            self.assertIn(categories, self.driver.find_element(By.TAG_NAME, "body").text)
+            self.assertIn(categories, self.driver.find_element(
+                By.TAG_NAME, "body").text)
 
         # List of services
         products = [
@@ -249,10 +257,12 @@ class TestPages(unittest.TestCase):
     """
         PERSONNEL TESTS
     """
+
     def test_find_personnel_on_page(self):
         self.driver.get(self.website_url + "personal-fi.html")
 
-        self.assertIn("Vi jobbar här", self.driver.find_element(By.TAG_NAME, "body").text)
+        self.assertIn("Vi jobbar här", self.driver.find_element(
+            By.TAG_NAME, "body").text)
 
         personnel_text = [
             "Fredrik Parturi",
@@ -262,7 +272,8 @@ class TestPages(unittest.TestCase):
 
         self.driver.get(self.website_url + "personal-fi.html")
 
-        page_text = self.driver.find_element(By.TAG_NAME, "body").text.replace("\n", " ")
+        page_text = self.driver.find_element(
+            By.TAG_NAME, "body").text.replace("\n", " ")
 
         for text in personnel_text:
             self.assertIn(text, page_text)
@@ -271,6 +282,7 @@ class TestPages(unittest.TestCase):
         FIND US TESTS
     """
     # Check for map
+
     def test_check_map(self):
         self.driver.get(self.website_url + "hitta-hit-fi.html")
         map_url = "google.com/maps/embed?pb=!1m18!1m12!1m3!1d1228.0965925349935!2d20.232261859374567!3d67.86606003621222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x45d0ba6368d7c09a3%3A0xe3887ef038c559b0!2sFj%C3%A4llgatan%2032%2C%20981%2039%20Kiruna!5e0!3m2!1sen!2sse!4v1663658499040!5m2!1sen!2sse"
