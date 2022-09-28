@@ -72,10 +72,10 @@ class TestGlobal(unittest.TestCase):
                 "Kontakt",
                 "0630-555-555",
                 "info@ntig-uppsala.github.io",
-                "Hitta oss",
+                "Hitta hit",
                 "Fjällgatan 32H",
                 "981 39, Kiruna",
-                "Karta till oss",
+                "Karta till oss"
             ]
 
             for text in control_texts:
@@ -100,14 +100,20 @@ class TestGlobal(unittest.TestCase):
 
             navigation = self.driver.find_element(By.TAG_NAME, "nav")
             links = navigation.find_elements(By.TAG_NAME, "a")
-            required_links = [
-                "index.html",
-                "hitta-hit.html",
-                "personal.html"
+
+            page_text = self.driver.find_element(By.TAG_NAME, "body").text
+
+            link_text = [
+                "Hem",
+                "Personal",
+                "Hitta hit"
             ]
 
+            for text in link_text:
+                self.assertIn(text, page_text)
+
             # check if all required links are in the navigation
-            for link in required_links:
+            for link in self.pages:
                 self.assertIn(link, [link.get_attribute("href").split('/')[-1] for link in links])
 
     def test_for_icons_on_page(self):
@@ -211,23 +217,28 @@ class TestPages(unittest.TestCase):
         self.check_element_content("openhours", open_hours, "tr")
         # self.assertTrue(all(result))
     
-    # test for products on page
+    # test for services on page
     def test_check_for_products(self):
         self.driver.get(self.website_url)
 
-        self.assertIn("Produkter", self.driver.find_element(By.TAG_NAME, "body").text)
+        
+        # List of categories
+        priceCategories = ["Prislista", "Stamkund", "Klippning", "Övrigt"]
 
-        # List of products
+        for categories in priceCategories:
+            self.assertIn(categories, self.driver.find_element(By.TAG_NAME, "body").text)
+
+        # List of services
         products = [
             ["Långt hår", "600 kr"],
             ["Kort hår", "500 kr"],
             ["Färgning", "560 kr"],
             ["Skägg", "150 kr"],
             ["Toppning", "200 kr"],
-            ["Extensions kort", "300 kr"],
-            ["Extensions normal", "400 kr"],
-            ["Extensions lång", "500 kr"],
-            ["Klippning barn 0-13", "150 kr"],
+            ["Hårförlängning kort", "300 kr"],
+            ["Hårförlängning mellan", "400 kr"],
+            ["Hårförlängning lång", "500 kr"],
+            ["Barn 0-13", "150 kr"],
             ["Långt hår stamkund", "300 kr"],
             ["Kort hår stamkund", "250 kr"]
         ]
@@ -244,9 +255,9 @@ class TestPages(unittest.TestCase):
         self.assertIn("Vi jobbar här", self.driver.find_element(By.TAG_NAME, "body").text)
 
         personnel_text = [
-            "Fredrik barberare",
-            "Öjran barberare",
-            "Anna hair stylist"
+            "Fredrik Barberare",
+            "Örjan Barberare",
+            "Anna Hårstylist"
         ]
 
         self.driver.get(self.website_url + "personal.html")
