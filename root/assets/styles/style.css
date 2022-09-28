@@ -253,22 +253,6 @@ footer table {
     font-weight: 400;
 }
 
-#sv {
-  display: block;
-}
-
-#fi {
-  display: none;
-}
-
-input[type="checkbox"]:checked ~ #fi {
-  display: block;
-}
-
-input[type="checkbox"]:checked ~ #sv {
-  display: none;
-}
-
 /* https://stackoverflow.com/questions/70696930/what-are-the-best-dimensions-for-responsive-web-designs */
 @media only screen and (max-width: 1000px) {
     nav {
