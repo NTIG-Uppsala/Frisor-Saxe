@@ -14,195 +14,393 @@
 </head>
 
 <body>
-  <nav>
-    <div class="nav-logo">
-      <h2><a href="index.html">Frisör Saxé</a></h2>
-    </div>
-    <div class="navigation">
-      <ul>
-        <li><a href="index.html">Hem</a></li>
-        <li><a href="personal.html">Personal</a></li>
-        <li><a href="hitta-hit.html">Hitta hit</a></li>
-      </ul>
-    </div>
-  </nav>
-  <header id="header">
-    <div id="background-images">
-      <img src="assets/images/bild1.jpg" class="header-image" alt="En bild av vår frisörsalong">
-      <img src="assets/images/bild2.jpg" class="header-image" alt="En bild på en kvinnas hår med smycken i">
-      <img src="assets/images/bild3.jpg" class="header-image" alt="En bild på en frisör som klipper kundens hår">
-    </div>
-    <div class="header-content header-logo">
-      <h1>Frisör Saxé</h1>
-    </div>
-  </header>
 
-  <div class="main">
-    <div id="openhours">
-      <h1>Öppettider</h1>
-      <div>
-        <table class="Openhours">
-          <tr>
-            <th>Mån-Fre</th>
-            <td></td>
-            <td>10 - 16</td>
-          </tr>
-          <tr>
-            <th>Lördag</th>
-            <td></td>
-            <td>12 - 15</td>
-          </tr>
-          <tr>
-            <th>Söndag</th>
-            <td></td>
-            <td>Stängt</td>
-          </tr>
-        </table>
+  <input type="checkbox" id="myCheck" onclick="changeLanguage();"></input>
+
+  <!-- Swedish translation -->
+
+  <div id="sv">
+    <nav>
+      <div class="nav-logo">
+        <h2><a href="index.html">Frisör Saxé</a></h2>
+      </div>
+      <div class="navigation">
+        <ul>
+          <li><a href="index.html">Hem</a></li>
+          <li><a href="personal.html">Personal</a></li>
+          <li><a href="hitta-hit.html">Hitta hit</a></li>
+        </ul>
+      </div>
+    </nav>
+    <header id="header">
+      <div id="background-images">
+        <img src="assets/images/bild1.jpg" class="header-image" alt="En bild av vår frisörsalong">
+        <img src="assets/images/bild2.jpg" class="header-image" alt="En bild på en kvinnas hår med smycken i">
+        <img src="assets/images/bild3.jpg" class="header-image" alt="En bild på en frisör som klipper kundens hår">
+      </div>
+      <div class="header-content header-logo">
+        <h1>Frisör Saxé</h1>
+      </div>
+    </header>
+
+    <div class="main">
+      <div id="openhours">
+        <h1>Öppettider</h1>
+        <div>
+          <table class="Openhours">
+            <tr>
+              <th>Mån-Fre</th>
+              <td></td>
+              <td>10 - 16</td>
+            </tr>
+            <tr>
+              <th>Lördag</th>
+              <td></td>
+              <td>12 - 15</td>
+            </tr>
+            <tr>
+              <th>Söndag</th>
+              <td></td>
+              <td>Stängt</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div id="products">
+        <h1>Prislista</h1>
+        <div>
+          <h2 class="pricingTitle">Stamkund</h2>
+          <table class="price">
+            <tr>
+              <th>Kort hår stamkund</th>
+              <td></td>
+              <td>250 kr</td>
+            </tr>
+            <tr>
+              <th>Långt hår stamkund</th>
+              <td></td>
+              <td>300 kr</td>
+            </tr>
+          </table>
+          <h2 class="pricingTitle">Klippning</h2>
+          <table class="price">
+            <tr>
+              <th>Barn 0-13</th>
+              <td></td>
+              <td>150 kr</td>
+            </tr>
+            <tr>
+              <th>Kort hår</th>
+              <td></td>
+              <td>500 kr</td>
+            </tr>
+            <tr>
+              <th>Långt hår</th>
+              <td></td>
+              <td>600 kr</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th>Skägg</th>
+              <td></td>
+              <td>150 kr</td>
+            </tr>
+            <tr>
+              <th>Toppning</th>
+              <td></td>
+              <td>200 kr</td>
+            </tr>
+          </table>
+          <h2 class="pricingTitle">Övrigt</h2>
+          <table class="price">
+            <tr>
+              <th>Hårförlängning kort</th>
+              <td></td>
+              <td>300 kr</td>
+            </tr>
+            <tr>
+              <th>Hårförlängning mellan</th>
+              <td></td>
+              <td>400 kr</td>
+            </tr>
+            <tr>
+              <th>Hårförlängning lång</th>
+              <td></td>
+              <td>500 kr</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th>Färgning</th>
+              <td></td>
+              <td>560 kr</td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
-    <div id="products">
-      <h1>Prislista</h1>
-      <div>
-        <h2 class="pricingTitle">Stamkund</h2>
-        <table class="price">
-          <tr>
-            <th>Kort hår stamkund</th>
-            <td></td>
-            <td>250 kr</td>
-          </tr>
-          <tr>
-            <th>Långt hår stamkund</th>
-            <td></td>
-            <td>300 kr</td>
-          </tr>
-        </table>
-        <h2 class="pricingTitle">Klippning</h2>
-        <table class="price">
-          <tr>
-            <th>Barn 0-13</th>
-            <td></td>
-            <td>150 kr</td>
-          </tr>
-          <tr>
-            <th>Kort hår</th>
-            <td></td>
-            <td>500 kr</td>
-          </tr>
-          <tr>
-            <th>Långt hår</th>
-            <td></td>
-            <td>600 kr</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <th>Skägg</th>
-            <td></td>
-            <td>150 kr</td>
-          </tr>
-          <tr>
-            <th>Toppning</th>
-            <td></td>
-            <td>200 kr</td>
-          </tr>
-        </table>
-        <h2 class="pricingTitle">Övrigt</h2>
-        <table class="price">
-          <tr>
-            <th>Hårförlängning kort</th>
-            <td></td>
-            <td>300 kr</td>
-          </tr>
-          <tr>
-            <th>Hårförlängning mellan</th>
-            <td></td>
-            <td>400 kr</td>
-          </tr>
-          <tr>
-            <th>Hårförlängning lång</th>
-            <td></td>
-            <td>500 kr</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <th>Färgning</th>
-            <td></td>
-            <td>560 kr</td>
-          </tr>
-        </table>
+    
+    <footer id="contact">
+      <div class="category" id="social-links">
+        <h1>Frisör Saxé</h1>
+        <div class="category-content">
+          <div>
+            <a href="https://facebook.com/ntiuppsala" target="_blank" class="fa fa-facebook"></a>
+          </div>
+          <div>
+            <a href="https://instagram.com/ntiuppsala" target="_blank" class="fa fa-instagram"></a>
+          </div>
+          <div>
+            <a href="https://twitter.com/ntiuppsala" target="_blank" class="fa fa-twitter"></a>
+          </div>
+        </div>
       </div>
-    </div>
+      <div class="category">
+        <h4 class="category-header">Öppettider</h4>
+        <div class="category-content">
+          <table>
+            <tr>
+              <td>Mån-Fre</td>
+              <td></td>
+              <td>10 - 16</td>
+            </tr>
+            <tr>
+              <td>Lördag</td>
+              <td></td>
+              <td>12 - 15</td>
+            </tr>
+            <tr>
+              <td>Söndag</td>
+              <td></td>
+              <td>Stängt</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="category">
+        <h4 class="category-header">Kontakt</h4>
+        <div class="category-content">
+          <a href="tel:0630-555-555">
+            0630-555-555
+          </a>
+          <br>
+          <a href="mailto:info@ntig-uppsala.github.io">
+            info@ntig-uppsala.github.io
+          </a>
+        </div>
+      </div>
+      <div class="category">
+        <h4 class="category-header">Hitta hit</h4>
+        <div class="category-content">
+          <a href="hitta-hit.html">Karta till oss</a>
+          <p>
+            Fjällgatan 32H <br>
+            981 39, Kiruna
+          </p>
+        </div>
+      </div>
+    </footer>
   </div>
-  
 
+  <!-- Finnish translation -->
 
-  <footer id="contact">
-    <div class="category" id="social-links">
-      <h1>Frisör Saxé</h1>
-      <div class="category-content">
+  <div id="fi">
+    <nav>
+      <div class="nav-logo">
+        <h2><a href="index.html">Frisör Saxé</a></h2>
+      </div>
+      <div class="navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="personal.html">Personal</a></li>
+          <li><a href="hitta-hit.html">Hitta hit</a></li>
+        </ul>
+      </div>
+    </nav>
+    <header id="header">
+      <div id="background-images">
+        <img src="assets/images/bild1.jpg" class="header-image" alt="En bild av vår frisörsalong">
+        <img src="assets/images/bild2.jpg" class="header-image" alt="En bild på en kvinnas hår med smycken i">
+        <img src="assets/images/bild3.jpg" class="header-image" alt="En bild på en frisör som klipper kundens hår">
+      </div>
+      <div class="header-content header-logo">
+        <h1>Frisör Saxé</h1>
+      </div>
+    </header>
+
+    <div class="main">
+      <div id="openhours">
+        <h1>Öppettider</h1>
         <div>
-          <a href="https://facebook.com/ntiuppsala" target="_blank" class="fa fa-facebook"></a>
+          <table class="Openhours">
+            <tr>
+              <th>Mån-Fre</th>
+              <td></td>
+              <td>10 - 16</td>
+            </tr>
+            <tr>
+              <th>Lördag</th>
+              <td></td>
+              <td>12 - 15</td>
+            </tr>
+            <tr>
+              <th>Söndag</th>
+              <td></td>
+              <td>Stängt</td>
+            </tr>
+          </table>
         </div>
+      </div>
+      <div id="products">
+        <h1>Prislista</h1>
         <div>
-          <a href="https://instagram.com/ntiuppsala" target="_blank" class="fa fa-instagram"></a>
+          <h2 class="pricingTitle">Stamkund</h2>
+          <table class="price">
+            <tr>
+              <th>Kort hår stamkund</th>
+              <td></td>
+              <td>250 kr</td>
+            </tr>
+            <tr>
+              <th>Långt hår stamkund</th>
+              <td></td>
+              <td>300 kr</td>
+            </tr>
+          </table>
+          <h2 class="pricingTitle">Klippning</h2>
+          <table class="price">
+            <tr>
+              <th>Barn 0-13</th>
+              <td></td>
+              <td>150 kr</td>
+            </tr>
+            <tr>
+              <th>Kort hår</th>
+              <td></td>
+              <td>500 kr</td>
+            </tr>
+            <tr>
+              <th>Långt hår</th>
+              <td></td>
+              <td>600 kr</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th>Skägg</th>
+              <td></td>
+              <td>150 kr</td>
+            </tr>
+            <tr>
+              <th>Toppning</th>
+              <td></td>
+              <td>200 kr</td>
+            </tr>
+          </table>
+          <h2 class="pricingTitle">Övrigt</h2>
+          <table class="price">
+            <tr>
+              <th>Hårförlängning kort</th>
+              <td></td>
+              <td>300 kr</td>
+            </tr>
+            <tr>
+              <th>Hårförlängning mellan</th>
+              <td></td>
+              <td>400 kr</td>
+            </tr>
+            <tr>
+              <th>Hårförlängning lång</th>
+              <td></td>
+              <td>500 kr</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th>Färgning</th>
+              <td></td>
+              <td>560 kr</td>
+            </tr>
+          </table>
         </div>
-        <div>
-          <a href="https://twitter.com/ntiuppsala" target="_blank" class="fa fa-twitter"></a>
+      </div>
+    </div>
+    
+    <footer id="contact">
+      <div class="category" id="social-links">
+        <h1>Frisör Saxé</h1>
+        <div class="category-content">
+          <div>
+            <a href="https://facebook.com/ntiuppsala" target="_blank" class="fa fa-facebook"></a>
+          </div>
+          <div>
+            <a href="https://instagram.com/ntiuppsala" target="_blank" class="fa fa-instagram"></a>
+          </div>
+          <div>
+            <a href="https://twitter.com/ntiuppsala" target="_blank" class="fa fa-twitter"></a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="category">
-      <h4 class="category-header">Öppettider</h4>
-      <div class="category-content">
-        <table>
-          <tr>
-            <td>Mån-Fre</td>
-            <td></td>
-            <td>10 - 16</td>
-          </tr>
-          <tr>
-            <td>Lördag</td>
-            <td></td>
-            <td>12 - 15</td>
-          </tr>
-          <tr>
-            <td>Söndag</td>
-            <td></td>
-            <td>Stängt</td>
-          </tr>
-        </table>
+      <div class="category">
+        <h4 class="category-header">Öppettider</h4>
+        <div class="category-content">
+          <table>
+            <tr>
+              <td>Mån-Fre</td>
+              <td></td>
+              <td>10 - 16</td>
+            </tr>
+            <tr>
+              <td>Lördag</td>
+              <td></td>
+              <td>12 - 15</td>
+            </tr>
+            <tr>
+              <td>Söndag</td>
+              <td></td>
+              <td>Stängt</td>
+            </tr>
+          </table>
+        </div>
       </div>
-    </div>
-    <div class="category">
-      <h4 class="category-header">Kontakt</h4>
-      <div class="category-content">
-        <a href="tel:0630-555-555">
-          0630-555-555
-        </a>
-        <br>
-        <a href="mailto:info@ntig-uppsala.github.io">
-          info@ntig-uppsala.github.io
-        </a>
+      <div class="category">
+        <h4 class="category-header">Kontakt</h4>
+        <div class="category-content">
+          <a href="tel:0630-555-555">
+            0630-555-555
+          </a>
+          <br>
+          <a href="mailto:info@ntig-uppsala.github.io">
+            info@ntig-uppsala.github.io
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="category">
-      <h4 class="category-header">Hitta hit</h4>
-      <div class="category-content">
-        <a href="hitta-hit.html">Karta till oss</a>
-        <p>
-          Fjällgatan 32H <br>
-          981 39, Kiruna
-        </p>
+      <div class="category">
+        <h4 class="category-header">Hitta hit</h4>
+        <div class="category-content">
+          <a href="hitta-hit.html">Karta till oss</a>
+          <p>
+            Fjällgatan 32H <br>
+            981 39, Kiruna
+          </p>
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
+
   <script>
     const images = document.querySelectorAll("#background-images img");
     let i = 0;
@@ -221,6 +419,7 @@
 
       i++;
     }, 5000);
+
   </script>
 </body>
 
