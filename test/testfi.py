@@ -209,7 +209,7 @@ class TestPages(unittest.TestCase):
     # Test for open hours
 
     def test_check_for_open_hours(self):
-        self.driver.get(self.website_url)
+        self.driver.get(self.website_url + "index-fi.html")
 
         self.assertIn("Aukijat", self.driver.find_element(
             By.TAG_NAME, "body").text)
