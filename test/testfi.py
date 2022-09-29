@@ -226,7 +226,7 @@ class TestPages(unittest.TestCase):
 
     # test for services on page
     def test_check_for_products(self):
-        self.driver.get(self.website_url)
+        self.driver.get(self.website_url + "index-fi.html")
 
         # List of categories
         priceCategories = ["Hinta lista",
