@@ -54,6 +54,10 @@ th {
     text-decoration: none;
 }
 
+.translateButton {
+  height: 20px;
+}
+
 .header-logo h1 {
     color: white;
     font-family: 'Pacifico', cursive;
