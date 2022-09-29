@@ -105,8 +105,7 @@ class TestGlobal(unittest.TestCase):
             link_text = [
                 "Hem",
                 "Personal",
-                "Hitta hit",
-                "Se/Fi"
+                "Hitta hit"
             ]
 
             for text in link_text:
