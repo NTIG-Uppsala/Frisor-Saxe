@@ -7,6 +7,10 @@
     scroll-behavior: smooth;
 }
 
+.fa-twitter{
+
+}
+
 body {
     background-color: black;
 }
@@ -144,6 +148,7 @@ nav {
 table {
     margin-top: 10px;
     width: 100%;
+    max-width: 90vw;
 }
 
 table tr td {
@@ -158,6 +163,7 @@ td {
 th {
     text-align: left;
     font-weight: 600;
+    overflow-wrap: anywhere;
 }
 
 td {
@@ -176,7 +182,7 @@ h1 {
 
 footer {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     /* align-items: center; */
     margin-top: auto;
     min-height: 10vh;
@@ -205,11 +211,12 @@ footer a:hover {
 #social-links .category-content {
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
 
 #social-links div {
     padding-top: 20px;
-    padding-right: 40px;
+    padding-right: 25px;
 }
 
 #social-links div a {
@@ -257,8 +264,11 @@ footer table {
 @media only screen and (max-width: 1000px) {
     nav {
         flex-direction: column;
-        height: 150px;
         justify-content: space-around;
+    }
+
+    .nav-logo {
+      display: none;
     }
 
     footer {
@@ -273,11 +283,11 @@ footer table {
     .nav-logo h1 {
         font-size: 20px;
     }
-
+    /*
     table {
         width: 75vw;
     }
-
+    */
     footer table {
         width: auto;
     }
@@ -285,7 +295,6 @@ footer table {
     td {
         position: relative;
         top: 0;
-
     }
 
     .main>div {
@@ -295,17 +304,17 @@ footer table {
 }
 
 @media only screen and (max-width: 600px) {
-
-
     .header-content h1 {
         font-size: 40px;
     }
+    
     .nav-logo {
         display: none;
     }
 
     nav {
         height: 100px;
+        width: 100vw;
     }
 
     .main>div {
@@ -320,9 +329,14 @@ footer table {
         width: 90%;
     }
 
+    nav * {
+      overflow-wrap: normal;
+      flex-wrap: wrap;
+    }
+
     .navigation>ul {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
     .navigation>ul>li {
@@ -330,8 +344,14 @@ footer table {
     }
 
     .navigation>ul>li>a {
-        font-size: 20px;
+        font-size: 15px;
     }
+
+    td,
+    th {
+      font-size: 14px;
+    }
+
 
     footer {
         flex-direction: column;
