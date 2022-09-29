@@ -105,7 +105,8 @@ class TestGlobal(unittest.TestCase):
             link_text = [
                 "Koti",
                 "Henkilökunta",
-                "Etsi täältä"
+                "Etsi täältä",
+                "Se/Fi"
             ]
 
             for text in link_text:
@@ -115,6 +116,9 @@ class TestGlobal(unittest.TestCase):
             for link in self.pages:
                 self.assertIn(link, [link.get_attribute(
                     "href").split('/')[-1] for link in links])
+
+            self.assertIn(f"{page[:-8]}.html", [link.get_attribute(
+                "href").split('/')[-1] for link in links])
 
     def test_for_icons_on_page(self):
         for page in self.pages:
