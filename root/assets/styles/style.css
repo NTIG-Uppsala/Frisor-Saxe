@@ -2,17 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
-    padding: 0;
-    margin: 0;
-    scroll-behavior: smooth;
-}
-
-.fa-twitter{
-
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
 }
 
 body {
-    background-color: black;
+  background-color: black;
 }
 
 p,
@@ -23,35 +19,35 @@ h3,
 h4,
 td,
 th {
-    font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .header-image {
-    position: absolute;
-    z-index: -1;
-    filter: brightness(.4);
-    object-fit: cover;
-    height: 100vh;
-    width: 100%;
-    background-color: black;
+  position: absolute;
+  z-index: -1;
+  filter: brightness(.4);
+  object-fit: cover;
+  height: 100vh;
+  width: 100%;
+  background-color: black;
 }
 
 .header-content {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    /* z-index: 2; */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* z-index: 2; */
 }
 
 .nav-logo h2 a {
-    color: white;
-    font-family: 'Pacifico', cursive;
-    font-size: 40px;
-    padding: 15px;
-    text-decoration: none;
+  color: white;
+  font-family: 'Pacifico', cursive;
+  font-size: 40px;
+  padding: 15px;
+  text-decoration: none;
 }
 
 .translateButton {
@@ -59,35 +55,35 @@ th {
 }
 
 .header-logo h1 {
-    color: white;
-    font-family: 'Pacifico', cursive;
-    font-size: 80px;
+  color: white;
+  font-family: 'Pacifico', cursive;
+  font-size: 80px;
 }
 
 .button {
-    background-color: white;
-    color: black;
-    text-decoration: none;
-    padding: 20px;
-    border-radius: 5px;
-    transition-duration: 0.2s;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  padding: 20px;
+  border-radius: 5px;
+  transition-duration: 0.2s;
 }
 
 .button:hover {
-    background-color: aqua;
-    -webkit-box-shadow: 0px 0px 50px 28px rgba(0, 0, 0, 0.11);
-    box-shadow: 0px 0px 50px 28px rgba(0, 0, 0, 0.11);
+  background-color: aqua;
+  -webkit-box-shadow: 0px 0px 50px 28px rgba(0, 0, 0, 0.11);
+  box-shadow: 0px 0px 50px 28px rgba(0, 0, 0, 0.11);
 }
 
 nav {
-    display: flex;
-    z-index: 999;
-    position: fixed;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 1);
-    height: 75px;
-    width: 100%;
+  display: flex;
+  z-index: 999;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 1);
+  height: 75px;
+  width: 100%;
 }
 
 /* .main>div {
@@ -95,83 +91,83 @@ nav {
 } */
 
 .navigation>ul {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
 }
 
 .navigation>ul>li {
-    color: white;
-    margin-left: 15px;
-    margin-right: 50px;
-    height: 25px;
+  color: white;
+  margin-left: 15px;
+  margin-right: 50px;
+  height: 25px;
 }
 
 .navigation>ul>li>a {
-    display: block;
-    font-size: 25px;
-    letter-spacing: 0.235px;
-    color: white;
-    text-decoration: none;
-    white-space: nowrap;
-    font-weight: 300;
+  display: block;
+  font-size: 25px;
+  letter-spacing: 0.235px;
+  color: white;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 300;
 }
 
 .navigation>ul>li>a:hover {
-    border-bottom: 1px solid white;
+  border-bottom: 1px solid white;
 }
 
 .open {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  background-color: white;
 }
 
 #openhours,
 #products {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  background-color: white;
 }
 
 #products {
-    background-color: whitesmoke;
+  background-color: whitesmoke;
 }
 
-.main > div {
-    padding-top: 50px;
-    padding-bottom: 50px;
+.main>div {
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 table {
-    margin-top: 10px;
-    width: 100%;
-    max-width: 90vw;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 90vw;
 }
 
 table tr td {
-    padding: 10px;
+  padding: 10px;
 }
 
 th,
 td {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 th {
-    text-align: left;
-    font-weight: 600;
-    overflow-wrap: anywhere;
+  text-align: left;
+  font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 td {
-    text-align: right;
+  text-align: right;
 }
 
 h1 {
@@ -185,182 +181,185 @@ h1 {
 }
 
 footer {
-    display: flex;
-    justify-content: space-between;
-    /* align-items: center; */
-    margin-top: auto;
-    min-height: 10vh;
-    width: 100%;
-    /* padding: 15px; */
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  margin-top: auto;
+  min-height: 10vh;
+  width: 100%;
+  /* padding: 15px; */
 
-    background-color: black;
-    color: whitesmoke;
+  background-color: black;
+  color: whitesmoke;
 }
 
 footer .category {
-    padding: 50px;
-    max-width: 250px;
+  padding: 50px;
+  max-width: 250px;
 }
 
 footer a {
-    color: whitesmoke;
-    text-decoration: none;
+  color: whitesmoke;
+  text-decoration: none;
 }
 
 footer a:hover {
-    color: whitesmoke;
-    text-decoration: underline;
+  color: whitesmoke;
+  text-decoration: underline;
 }
 
 #social-links .category-content {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 #social-links div {
-    padding-top: 20px;
-    padding-right: 25px;
+  padding-top: 20px;
+  padding-right: 25px;
 }
 
 #social-links div a {
-    text-decoration: none;
-    color: whitesmoke;
-    font-size: 35px;
-    transition: 0.2s;
+  text-decoration: none;
+  color: whitesmoke;
+  font-size: 35px;
+  transition: 0.2s;
 }
 
 #social-links div a:hover {
-    color: #d7d7d7;
+  color: #d7d7d7;
 }
 
 footer p {
-    font-weight: 200;
-    padding-top: 5px;
-    padding-bottom: 5px;
+  font-weight: 200;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 td {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
-footer th, footer td {
-    font-size: 15px;
+footer th,
+footer td {
+  font-size: 15px;
 }
 
 footer table tr td {
-    padding: 2px;
+  padding: 2px;
 }
 
 footer table td:first-child {
-    text-align: left;
+  text-align: left;
 }
+
 footer table td:last-child {
-    text-align: right;
+  text-align: right;
 }
 
 footer table {
-    color: whitesmoke;
-    font-weight: 400;
+  color: whitesmoke;
+  font-weight: 400;
 }
 
 /* https://stackoverflow.com/questions/70696930/what-are-the-best-dimensions-for-responsive-web-designs */
 @media only screen and (max-width: 1000px) {
-    nav {
-        flex-direction: column;
-        justify-content: space-around;
-    }
+  nav {
+    flex-direction: column;
+    justify-content: space-around;
+  }
 
-    .nav-logo {
-      display: none;
-    }
+  .nav-logo {
+    display: none;
+  }
 
-    footer {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
+  footer {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 
-    footer .category {
-        width: 50%;
-    }
+  footer .category {
+    width: 50%;
+  }
 
-    .nav-logo h1 {
-        font-size: 20px;
-    }
-    /*
+  .nav-logo h1 {
+    font-size: 20px;
+  }
+
+  /*
     table {
         width: 75vw;
     }
     */
-    footer table {
-        width: auto;
-    }
+  footer table {
+    width: auto;
+  }
 
-    td {
-        position: relative;
-        top: 0;
-    }
+  td {
+    position: relative;
+    top: 0;
+  }
 
-    .main>div {
-        scroll-margin-top: calc(150px + 2.5em);
-    }
+  .main>div {
+    scroll-margin-top: calc(150px + 2.5em);
+  }
 
 }
 
 @media only screen and (max-width: 600px) {
-    .header-content h1 {
-        font-size: 40px;
-    }
-    
-    .nav-logo {
-        display: none;
-    }
+  .header-content h1 {
+    font-size: 40px;
+  }
 
-    nav {
-        height: 100px;
-        width: 100vw;
-    }
+  .nav-logo {
+    display: none;
+  }
 
-    .main>div {
-        scroll-margin-top: calc(100px + 2.5em);
-    }
+  nav {
+    height: 100px;
+    width: 100vw;
+  }
 
-    #contact {
-        scroll-margin-top: calc(99px);
-    }   
+  .main>div {
+    scroll-margin-top: calc(100px + 2.5em);
+  }
 
-    .navigation {
-        width: 90%;
-    }
+  #contact {
+    scroll-margin-top: calc(99px);
+  }
 
-    nav * {
-      overflow-wrap: normal;
-      flex-wrap: wrap;
-    }
+  .navigation {
+    width: 90%;
+  }
 
-    .navigation>ul {
-        display: flex;
-        justify-content: space-between;
-    }
+  nav * {
+    overflow-wrap: normal;
+    flex-wrap: wrap;
+  }
 
-    .navigation>ul>li {
-        margin: 0 10px;
-    }
+  .navigation>ul {
+    display: flex;
+    justify-content: space-between;
+  }
 
-    .navigation>ul>li>a {
-        font-size: 15px;
-    }
+  .navigation>ul>li {
+    margin: 0 10px;
+  }
 
-    td,
-    th {
-      font-size: 14px;
-    }
+  .navigation>ul>li>a {
+    font-size: 15px;
+  }
+
+  td,
+  th {
+    font-size: 14px;
+  }
 
 
-    footer {
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: center;
-    }
+  footer {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
 }
