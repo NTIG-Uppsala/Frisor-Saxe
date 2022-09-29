@@ -76,6 +76,7 @@ jobs:
         run: python test/test.py http://localhost:8000/
 
       - name: Run unit test for Finnish website.
+        if: ${{ always() }}
         run: python test/testfi.py http://localhost:8000/
 
   # Runs screenshot tests
