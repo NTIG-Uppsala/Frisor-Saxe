@@ -218,7 +218,7 @@ class TestPages(unittest.TestCase):
         open_hours = [
             ["Ma-Pe", "10 - 16"],
             ["Lauantai", "12 - 15"],
-            ["Sunnuntai", "Stängt"]
+            ["Sunnuntai", "Suljettu"]
         ]
 
         self.check_element_content("openhours", open_hours, "tr")
