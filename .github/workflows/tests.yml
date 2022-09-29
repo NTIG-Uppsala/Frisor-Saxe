@@ -72,8 +72,12 @@ jobs:
           cd root/
           python -m http.server &
 
-      - name: Run unit tests & save screenshots
+      - name: Run unit test for Swedish website.
         run: python test/test.py http://localhost:8000/
+
+      - name: Run unit test for Finnish website.
+        if: ${{ always() }}
+        run: python test/testfi.py http://localhost:8000/
 
   # Runs screenshot tests
   screenshot:

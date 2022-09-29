@@ -32,9 +32,9 @@ class TestGlobal(unittest.TestCase):
         self.addCleanup(self.driver.quit)
 
         self.pages = [
-            'index.html',
-            'personal.html',
-            'hitta-hit.html'
+            'index-fi.html',
+            'personal-fi.html',
+            'hitta-hit-fi.html'
         ]
 
     # def test_validate_code_on_page(self):
@@ -66,14 +66,14 @@ class TestGlobal(unittest.TestCase):
             page_text = self.driver.find_element(By.TAG_NAME, "body").text
             control_texts = [
                 "Frisör Saxé",
-                "Öppettider",
-                "Kontakt",
+                "Aukijat",
+                "Ottaa yhteyttä",
                 "0630-555-555",
                 "info@ntig-uppsala.github.io",
-                "Hitta hit",
+                "Etsi täältä",
                 "Fjällgatan 32H",
                 "981 39, Kiruna",
-                "Karta till oss"
+                "Kartta meille"
             ]
 
             for text in control_texts:
@@ -103,9 +103,9 @@ class TestGlobal(unittest.TestCase):
             page_text = self.driver.find_element(By.TAG_NAME, "body").text
 
             link_text = [
-                "Hem",
-                "Personal",
-                "Hitta hit",
+                "Koti",
+                "Henkilökunta",
+                "Etsi täältä",
                 "Se/Fi"
             ]
 
@@ -117,7 +117,7 @@ class TestGlobal(unittest.TestCase):
                 self.assertIn(link, [link.get_attribute(
                     "href").split('/')[-1] for link in links])
 
-            self.assertIn(f"{page[:-5]}-fi.html", [link.get_attribute(
+            self.assertIn(f"{page[:-8]}.html", [link.get_attribute(
                 "href").split('/')[-1] for link in links])
 
     def test_for_icons_on_page(self):
@@ -213,16 +213,16 @@ class TestPages(unittest.TestCase):
     # Test for open hours
 
     def test_check_for_open_hours(self):
-        self.driver.get(self.website_url)
+        self.driver.get(self.website_url + "index-fi.html")
 
-        self.assertIn("Öppettider", self.driver.find_element(
+        self.assertIn("Aukijat", self.driver.find_element(
             By.TAG_NAME, "body").text)
 
         # List of open hours
         open_hours = [
-            ["Mån-Fre", "10 - 16"],
-            ["Lördag", "12 - 15"],
-            ["Söndag", "Stängt"]
+            ["Ma-Pe", "10 - 16"],
+            ["Lauantai", "12 - 15"],
+            ["Sunnuntai", "Suljettu"]
         ]
 
         self.check_element_content("openhours", open_hours, "tr")
@@ -230,10 +230,11 @@ class TestPages(unittest.TestCase):
 
     # test for services on page
     def test_check_for_products(self):
-        self.driver.get(self.website_url)
+        self.driver.get(self.website_url + "index-fi.html")
 
         # List of categories
-        priceCategories = ["Prislista", "Stamkund", "Klippning", "Övrigt"]
+        priceCategories = ["Hinta lista",
+                           "Vakio-asiakas", "Leikkaus", "Sekalaista"]
 
         for categories in priceCategories:
             self.assertIn(categories, self.driver.find_element(
@@ -241,17 +242,17 @@ class TestPages(unittest.TestCase):
 
         # List of services
         products = [
-            ["Långt hår", "600 kr"],
-            ["Kort hår", "500 kr"],
-            ["Färgning", "560 kr"],
-            ["Skägg", "150 kr"],
-            ["Toppning", "200 kr"],
-            ["Hårförlängning kort", "300 kr"],
-            ["Hårförlängning mellan", "400 kr"],
-            ["Hårförlängning lång", "500 kr"],
-            ["Barn 0-13", "150 kr"],
-            ["Långt hår stamkund", "300 kr"],
-            ["Kort hår stamkund", "250 kr"]
+            ["Pitkät hiukset", "600 kr"],
+            ["Lyhyet hiukset", "500 kr"],
+            ["Värjäys", "560 kr"],
+            ["Parta", "150 kr"],
+            ["Täyte", "200 kr"],
+            ["Hiustenpidennykset lyhyet", "300 kr"],
+            ["Hiustenpidennykset välillä", "400 kr"],
+            ["Hiustenpidennykset pitkät", "500 kr"],
+            ["Lapset 0-13", "150 kr"],
+            ["Pitkähiuksinen kanta-asiakas", "300 kr"],
+            ["Lyhyet hiukset kanta-asiakas", "250 kr"]
         ]
 
         self.check_element_content("products", products, "tr")
@@ -262,18 +263,18 @@ class TestPages(unittest.TestCase):
     """
 
     def test_find_personnel_on_page(self):
-        self.driver.get(self.website_url + "personal.html")
+        self.driver.get(self.website_url + "personal-fi.html")
 
-        self.assertIn("Vi jobbar här", self.driver.find_element(
+        self.assertIn("Työskentelemme täällä", self.driver.find_element(
             By.TAG_NAME, "body").text)
 
         personnel_text = [
-            "Fredrik Barberare",
-            "Örjan Barberare",
-            "Anna Hårstylist"
+            "Fredrik Parturi",
+            "Örjan Parturi",
+            "Anna Hiusmuotoilija"
         ]
 
-        self.driver.get(self.website_url + "personal.html")
+        self.driver.get(self.website_url + "personal-fi.html")
 
         page_text = self.driver.find_element(
             By.TAG_NAME, "body").text.replace("\n", " ")
@@ -287,7 +288,7 @@ class TestPages(unittest.TestCase):
     # Check for map
 
     def test_check_map(self):
-        self.driver.get(self.website_url + "hitta-hit.html")
+        self.driver.get(self.website_url + "hitta-hit-fi.html")
         map_url = "google.com/maps/embed?pb=!1m18!1m12!1m3!1d1228.0965925349935!2d20.232261859374567!3d67.86606003621222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x45d0ba6368d7c09a3%3A0xe3887ef038c559b0!2sFj%C3%A4llgatan%2032%2C%20981%2039%20Kiruna!5e0!3m2!1sen!2sse!4v1663658499040!5m2!1sen!2sse"
         map_element = self.driver.find_element(By.ID, "map")
 
