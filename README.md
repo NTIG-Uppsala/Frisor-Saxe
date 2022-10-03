@@ -19,3 +19,16 @@ I detta projekt ska en hemsida skapas för ett frisörföretag
 [Utvecklingsmiljöstandard](https://docs.google.com/document/d/1GZWlghX-j47cD8yNAAIj7s1mAKinmGaFx8jLktwkkUo/edit?usp=sharing)
 
 [DoD / Definition of Done](https://docs.google.com/document/d/1vAVoLG2gqG10fKKBfhncsP1Yi0CG5ap28cbXmeb1bU8/edit?usp=sharing)
+
+## Programming Languages
+* HTML
+* CSS
+* Python
+* JavaScript
+
+## Code Validation
+Code is automatically validated using a fork of Cyb3r-Jak3's HTML/CSS validator.
+
+## Coding Standards
+HTML/CSS: [W3Schools](https://www.w3schools.com/html/html5_syntax.asp)
+Python: [PEP8](https://peps.python.org/pep-0008/)
