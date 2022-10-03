@@ -264,8 +264,9 @@ class TestPages(unittest.TestCase):
     def test_find_personnel_on_page(self):
         self.driver.get(self.website_url + "personal-fi.html")
 
-        self.assertIn("Työskentelemme täällä", self.driver.find_element(
-            By.TAG_NAME, "body").text)
+        # Looks for "Personal" in current language
+        self.assertIn("Henkilökunta", self.driver.find_element(
+            By.TAG_NAME, "header").text)
 
         personnel_text = [
             "Fredrik Parturi",
@@ -293,6 +294,9 @@ class TestPages(unittest.TestCase):
 
         self.assertTrue(map_element.is_displayed())
         self.assertIn(map_url, map_element.get_attribute("src"))
+
+        self.assertIn("Etsi täältä", self.driver.find_element(
+            By.TAG_NAME, "header").text)
 
 
 if __name__ == '__main__':
