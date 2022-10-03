@@ -264,7 +264,8 @@ class TestPages(unittest.TestCase):
     def test_find_personnel_on_page(self):
         self.driver.get(self.website_url + "personal-fi.html")
 
-        self.assertIn("Työskentelemme täällä", self.driver.find_element(
+        # Looks for "Personal" in current language
+        self.assertIn("Henkilökunta", self.driver.find_element(
             By.TAG_NAME, "body").text)
 
         personnel_text = [
