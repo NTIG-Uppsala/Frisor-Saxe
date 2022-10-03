@@ -264,7 +264,7 @@ class TestPages(unittest.TestCase):
         self.driver.get(self.website_url + "personal.html")
 
         self.assertIn("Personal", self.driver.find_element(
-            By.TAG_NAME, "body").text)
+            By.TAG_NAME, "header").text)
 
         personnel_text = [
             "Fredrik Barberare",
@@ -292,6 +292,9 @@ class TestPages(unittest.TestCase):
 
         self.assertTrue(map_element.is_displayed())
         self.assertIn(map_url, map_element.get_attribute("src"))
+
+        self.assertIn("Hitta hit", self.driver.find_element(
+            By.TAG_NAME, "header").text)
 
 
 if __name__ == '__main__':
