@@ -295,7 +295,7 @@ class TestPages(unittest.TestCase):
         self.assertTrue(map_element.is_displayed())
         self.assertIn(map_url, map_element.get_attribute("src"))
 
-        self.assertIn("Hitta hit", self.driver.find_element(
+        self.assertIn("Etsi täältä", self.driver.find_element(
             By.TAG_NAME, "header").text)
 
 
