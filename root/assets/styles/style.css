@@ -58,7 +58,7 @@ th {
 #languageContent {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: #d6d6d6;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 12px 16px;
@@ -73,12 +73,20 @@ li input[type="checkbox"]:checked ~ #languageContent {
   display: block;
 }
 
-#languageMenu:hover ~ #languageContent {
+.flag {
+  height: 20px;
+}
+
+#languageContent a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
   display: block;
 }
 
-.translateButton {
-  height: 20px;
+#languageContent a:hover {
+  background-color: #747474;
+  color: #ffffff;
 }
 
 .header-logo h1 {
@@ -287,6 +295,15 @@ footer table td:last-child {
 footer table {
   color: whitesmoke;
   font-weight: 400;
+}
+
+@media only screen and (hover: hover) {
+  #languageMenu:hover ~ #languageContent {
+    display: block;
+  }
+  #languageContent:hover {
+    display: block;
+  }
 }
 
 /* https://stackoverflow.com/questions/70696930/what-are-the-best-dimensions-for-responsive-web-designs */
