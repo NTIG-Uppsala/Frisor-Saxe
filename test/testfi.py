@@ -21,21 +21,23 @@ class TestGlobal(unittest.TestCase):
     ).parents[1] / Path('root/assets/images/')
     website_url = ""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(self):
         service = Service(executable_path=ChromeDriverManager().install())
         options = webdriver.ChromeOptions()
         options.add_argument('--headless')
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         self.driver = webdriver.Chrome(service=service, options=options)
 
-        # Closes browser instance when tests are done
-        self.addCleanup(self.driver.quit)
-
         self.pages = [
             'index-fi.html',
             'personal-fi.html',
             'hitta-hit-fi.html'
         ]
+    
+    @classmethod
+    def tearDownClass(self):
+        self.driver.quit()
 
     # def test_validate_code_on_page(self):
     #     validators = [
@@ -193,15 +195,17 @@ class TestPages(unittest.TestCase):
     ).parents[1] / Path('root/assets/images/')
     website_url = ""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(self):
         service = Service(executable_path=ChromeDriverManager().install())
         options = webdriver.ChromeOptions()
         options.add_argument('--headless')
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         self.driver = webdriver.Chrome(service=service, options=options)
-
-        # Closes browser instance when tests are done
-        self.addCleanup(self.driver.quit)
+    
+    @classmethod
+    def tearDownClass(self):
+        self.driver.quit()
 
     def check_element_content(self, group_id, expected_table_content, element):
         # loacte table element
