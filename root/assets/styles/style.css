@@ -53,11 +53,20 @@ th {
 #languageMenu {
   position: relative;
   display: inline-block;
+  height: 20px;
+  width: 55px;
+}
+
+li {
+  position: relative;
 }
 
 #languageContent {
   display: none;
   position: absolute;
+  /*Offsets the dropdown to a reasonably good position*/
+  transform: translate(-69%);
+  top: 20px;
   background-color: #d6d6d6;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
