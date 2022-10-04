@@ -182,6 +182,16 @@ class TestGlobal(unittest.TestCase):
                 .click(languageMenu)\
                 .perform()
 
+            link_text = self.driver.find_element(By.ID, "languageContent").text
+
+            languages = [
+                "Svenska",
+                "Suomi"
+            ]
+
+            for language in languages:
+                self.assertIn(language, link_text)
+
             languageLinks = self.driver.find_elements(By.CLASS_NAME, "translateLink")
 
             self.assertIn(f"{page[:-5]}-fi.html", [link.get_attribute(
