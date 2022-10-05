@@ -240,7 +240,7 @@ class TestPages(unittest.TestCase):
         mainLinks = content.find_elements(By.TAG_NAME, "a")
 
         # Finds link to #products in #main
-        self.assertIn("#products", [link.get_attribute(
+        self.assertIn("index-fi.html#products", [link.get_attribute(
             "href").split('/')[-1] for link in mainLinks])
 
     # Test for open hours
