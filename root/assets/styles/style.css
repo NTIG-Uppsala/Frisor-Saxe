@@ -42,6 +42,12 @@ th {
   /* z-index: 2; */
 }
 
+#headerButton {
+  height: 50px;
+  width: 160px;
+  background-color: red;
+}
+
 .nav-logo h2 a {
   color: white;
   font-family: 'Pacifico', cursive;
@@ -97,7 +103,7 @@ li input[type="checkbox"]:checked ~ #languageContent {
   color: #ffffff;
 }
 
-.header-logo h1 {
+.header-logo {
   color: white;
   font-family: 'Pacifico', cursive;
   font-size: 80px;
