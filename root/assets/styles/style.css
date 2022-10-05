@@ -435,7 +435,7 @@ footer table {
 @media only screen and (orientation: portrait) {
   nav {
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: left;
   }
 
   .nav-logo {
@@ -444,6 +444,7 @@ footer table {
 
   #navMenu {
     display: block;
+    padding: 0 20px;
   }
 
   .navigation {
