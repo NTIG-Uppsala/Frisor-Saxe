@@ -34,7 +34,7 @@ class TestGlobal(unittest.TestCase):
             'personal.html',
             'hitta-hit.html'
         ]
-    
+
     @classmethod
     def tearDownClass(self):
         self.driver.quit()
@@ -118,10 +118,8 @@ class TestGlobal(unittest.TestCase):
                 self.assertIn(link, [link.get_attribute(
                     "href").split('/')[-1] for link in links])
 
+            # Finds link to services in header
             self.assertIn("index.html#products", [link.get_attribute(
-                "href").split('/')[-1] for link in links])
-
-            self.assertIn(f"{page[:-5]}-fi.html", [link.get_attribute(
                 "href").split('/')[-1] for link in links])
 
     def test_for_icons_on_page(self):
@@ -175,7 +173,7 @@ class TestGlobal(unittest.TestCase):
                 else:  # assert False (Just a fail)
                     self.assertTrue(False)
                     continue
-    
+
     def test_for_language_menu(self):
         for page in self.pages:
             self.driver.get(self.website_url + page)
@@ -197,10 +195,12 @@ class TestGlobal(unittest.TestCase):
             for language in languages:
                 self.assertIn(language, link_text)
 
-            languageLinks = self.driver.find_elements(By.CLASS_NAME, "translateLink")
+            languageLinks = self.driver.find_elements(
+                By.CLASS_NAME, "translateLink")
 
             self.assertIn(f"{page[:-5]}-fi.html", [link.get_attribute(
                 "href").split('/')[-1] for link in languageLinks])
+
 
 class TestPages(unittest.TestCase):
     website_image_path = Path(__file__).resolve(
@@ -214,7 +214,7 @@ class TestPages(unittest.TestCase):
         options.add_argument('--headless')
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         self.driver = webdriver.Chrome(service=service, options=options)
-    
+
     @classmethod
     def tearDownClass(self):
         self.driver.quit()
@@ -249,7 +249,9 @@ class TestPages(unittest.TestCase):
         content = self.driver.find_element(By.ID, "header")
         mainLinks = content.find_elements(By.TAG_NAME, "a")
 
-        self.assertIn("#products", [link.get_attribute("href").split('/')[-1] for link in mainLinks])
+        # Finds link to #products in #header
+        self.assertIn("#products", [link.get_attribute(
+            "href").split('/')[-1] for link in mainLinks])
 
     # Test for open hours
     def test_check_for_open_hours(self):

@@ -34,7 +34,7 @@ class TestGlobal(unittest.TestCase):
             'personal-fi.html',
             'hitta-hit-fi.html'
         ]
-    
+
     @classmethod
     def tearDownClass(self):
         self.driver.quit()
@@ -118,7 +118,8 @@ class TestGlobal(unittest.TestCase):
                 self.assertIn(link, [link.get_attribute(
                     "href").split('/')[-1] for link in links])
 
-            self.assertIn(f"{page[:-8]}.html", [link.get_attribute(
+            # Finds link to services in header
+            self.assertIn("index-fi.html#products", [link.get_attribute(
                 "href").split('/')[-1] for link in links])
 
     def test_for_icons_on_page(self):
@@ -184,7 +185,8 @@ class TestGlobal(unittest.TestCase):
                 .click(languageMenu)\
                 .perform()
 
-            languageLinks = self.driver.find_elements(By.CLASS_NAME, "translateLink")
+            languageLinks = self.driver.find_elements(
+                By.CLASS_NAME, "translateLink")
 
             self.assertIn(f"{page[:-8]}.html", [link.get_attribute(
                 "href").split('/')[-1] for link in languageLinks])
@@ -202,7 +204,7 @@ class TestPages(unittest.TestCase):
         options.add_argument('--headless')
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         self.driver = webdriver.Chrome(service=service, options=options)
-    
+
     @classmethod
     def tearDownClass(self):
         self.driver.quit()
@@ -229,8 +231,19 @@ class TestPages(unittest.TestCase):
     """
         INDEX TESTS
     """
-    # Test for open hours
 
+    # Test for button leading to services, along all links in index
+    def test_check_for_product_link_on_page(self):
+        self.driver.get(self.website_url + "index-fi.html")
+
+        content = self.driver.find_element(By.ID, "header")
+        mainLinks = content.find_elements(By.TAG_NAME, "a")
+
+        # Finds link to #products in #header
+        self.assertIn("#products", [link.get_attribute(
+            "href").split('/')[-1] for link in mainLinks])
+
+    # Test for open hours
     def test_check_for_open_hours(self):
         self.driver.get(self.website_url + "index-fi.html")
 
