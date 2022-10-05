@@ -118,9 +118,6 @@ class TestGlobal(unittest.TestCase):
                 self.assertIn(link, [link.get_attribute(
                     "href").split('/')[-1] for link in links])
 
-            self.assertIn("index.html#products", [link.get_attribute(
-                "href").split('/')[-1] for link in links])
-
             self.assertIn(f"{page[:-5]}-fi.html", [link.get_attribute(
                 "href").split('/')[-1] for link in links])
 
@@ -241,17 +238,8 @@ class TestPages(unittest.TestCase):
     """
         INDEX TESTS
     """
-
-    # Test for button leading to services, along all links in index
-    def test_check_for_product_link_on_page(self):
-        self.driver.get(self.website_url)
-
-        content = self.driver.find_element(By.ID, "header")
-        mainLinks = content.find_elements(By.TAG_NAME, "a")
-
-        self.assertIn("#products", [link.get_attribute("href").split('/')[-1] for link in mainLinks])
-
     # Test for open hours
+
     def test_check_for_open_hours(self):
         self.driver.get(self.website_url)
 
