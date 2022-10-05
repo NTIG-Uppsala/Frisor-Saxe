@@ -232,14 +232,14 @@ class TestPages(unittest.TestCase):
         INDEX TESTS
     """
 
-    # Test for button leading to services, along all links in index
+    # Test for button leading to services
     def test_check_for_product_link_on_page(self):
         self.driver.get(self.website_url + "index-fi.html")
 
-        content = self.driver.find_element(By.ID, "header")
+        content = self.driver.find_element(By.ID, "main")
         mainLinks = content.find_elements(By.TAG_NAME, "a")
 
-        # Finds link to #products in #header
+        # Finds link to #products in #main
         self.assertIn("#products", [link.get_attribute(
             "href").split('/')[-1] for link in mainLinks])
 
@@ -299,7 +299,7 @@ class TestPages(unittest.TestCase):
 
         # Looks for "Personal" in current language
         self.assertIn("Henkilökunta", self.driver.find_element(
-            By.TAG_NAME, "header").text)
+            By.TAG_NAME, "main").text)
 
         personnel_text = [
             "Fredrik Parturi",
@@ -329,7 +329,7 @@ class TestPages(unittest.TestCase):
         self.assertIn(map_url, map_element.get_attribute("src"))
 
         self.assertIn("Etsi täältä", self.driver.find_element(
-            By.TAG_NAME, "header").text)
+            By.TAG_NAME, "main").text)
 
 
 if __name__ == '__main__':

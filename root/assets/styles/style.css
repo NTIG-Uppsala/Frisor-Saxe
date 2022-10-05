@@ -22,7 +22,7 @@ th {
   font-family: 'Montserrat', sans-serif;
 }
 
-.header-image {
+.main-image {
   position: absolute;
   z-index: -1;
   filter: brightness(.4);
@@ -32,7 +32,7 @@ th {
   background-color: black;
 }
 
-.header-content {
+.main-content {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -42,7 +42,7 @@ th {
   /* z-index: 2; */
 }
 
-#headerButton {
+#mainButton {
   background-color: black;
   color: white;
   text-align: center;
@@ -53,7 +53,7 @@ th {
   font-size: 30px;
 }
 
-#headerButton:hover {
+#mainButton:hover {
   filter: drop-shadow(0 0 10px white);
   background-color: #222222;
 }
@@ -113,7 +113,7 @@ li input[type="checkbox"]:checked ~ #languageContent {
   color: #ffffff;
 }
 
-.header-logo {
+.main-logo {
   color: white;
   font-family: 'Pacifico', cursive;
   font-size: 80px;
@@ -383,7 +383,7 @@ footer table {
 }
 
 @media only screen and (max-width: 600px) {
-  .header-content h1 {
+  .main-content h1 {
     font-size: 40px;
   }
 
