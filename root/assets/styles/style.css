@@ -53,11 +53,6 @@ th {
   font-size: 30px;
 }
 
-#mainButton:hover {
-  filter: drop-shadow(0 0 10px white);
-  background-color: #222222;
-}
-
 .nav-logo h2 a {
   color: white;
   font-family: 'Pacifico', cursive;
@@ -333,8 +328,14 @@ footer table {
   #languageMenu:hover ~ #languageContent {
     display: block;
   }
+  
   #languageContent:hover {
     display: block;
+  }
+
+  #mainButton:hover {
+    filter: drop-shadow(0 0 10px white);
+    background-color: #222222;
   }
 }
 
