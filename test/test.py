@@ -21,21 +21,23 @@ class TestGlobal(unittest.TestCase):
     ).parents[1] / Path('root/assets/images/')
     website_url = ""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(self):
         service = Service(executable_path=ChromeDriverManager().install())
         options = webdriver.ChromeOptions()
         options.add_argument('--headless')
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         self.driver = webdriver.Chrome(service=service, options=options)
 
-        # Closes browser instance when tests are done
-        self.addCleanup(self.driver.quit)
-
         self.pages = [
             'index.html',
             'personal.html',
             'hitta-hit.html'
         ]
+    
+    @classmethod
+    def tearDownClass(self):
+        self.driver.quit()
 
     # def test_validate_code_on_page(self):
     #     validators = [
@@ -170,22 +172,49 @@ class TestGlobal(unittest.TestCase):
                 else:  # assert False (Just a fail)
                     self.assertTrue(False)
                     continue
+    
+    def test_for_language_menu(self):
+        for page in self.pages:
+            self.driver.get(self.website_url + page)
+            print(f"Testing on page: {page}")
 
+            languageMenu = self.driver.find_element(By.ID, "languageMenu")
+
+            ActionChains(self.driver)\
+                .click(languageMenu)\
+                .perform()
+
+            link_text = self.driver.find_element(By.ID, "languageContent").text
+
+            languages = [
+                "Svenska",
+                "Suomi"
+            ]
+
+            for language in languages:
+                self.assertIn(language, link_text)
+
+            languageLinks = self.driver.find_elements(By.CLASS_NAME, "translateLink")
+
+            self.assertIn(f"{page[:-5]}-fi.html", [link.get_attribute(
+                "href").split('/')[-1] for link in languageLinks])
 
 class TestPages(unittest.TestCase):
     website_image_path = Path(__file__).resolve(
     ).parents[1] / Path('root/assets/images/')
     website_url = ""
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(self):
         service = Service(executable_path=ChromeDriverManager().install())
         options = webdriver.ChromeOptions()
         options.add_argument('--headless')
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         self.driver = webdriver.Chrome(service=service, options=options)
-
-        # Closes browser instance when tests are done
-        self.addCleanup(self.driver.quit)
+    
+    @classmethod
+    def tearDownClass(self):
+        self.driver.quit()
 
     def check_element_content(self, group_id, expected_table_content, element):
         # loacte table element
