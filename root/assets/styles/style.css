@@ -61,6 +61,11 @@ th {
   text-decoration: none;
 }
 
+#navCheckbox,
+#navMenu {
+  display: none;
+}
+
 #languageMenu {
   position: relative;
   display: inline-block;
@@ -84,7 +89,7 @@ li {
   font-size: 25px;
 }
 
-#hiddenCheckbox {
+#languageCheckbox {
   display: none;
 }
 
@@ -138,6 +143,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   background-color: rgba(0, 0, 0, 1);
+  color: white;
   height: 75px;
   width: 100%;
 }
@@ -324,21 +330,6 @@ footer table {
   font-weight: 400;
 }
 
-@media only screen and (hover: hover) {
-  #languageMenu:hover ~ #languageContent {
-    display: block;
-  }
-  
-  #languageContent:hover {
-    display: block;
-  }
-
-  #mainButton:hover {
-    filter: drop-shadow(0 0 10px white);
-    background-color: #222222;
-  }
-}
-
 /* https://stackoverflow.com/questions/70696930/what-are-the-best-dimensions-for-responsive-web-designs */
 @media only screen and (max-width: 1000px) {
   nav {
@@ -393,7 +384,7 @@ footer table {
   }
 
   nav {
-    height: 100px;
+    height: 75px;
     width: 100vw;
   }
 
@@ -406,7 +397,7 @@ footer table {
   }
 
   .navigation {
-    width: 90%;
+    width: 100%;
   }
 
   nav * {
@@ -438,5 +429,112 @@ footer table {
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+  }
+}
+
+@media only screen and (orientation: portrait) {
+  nav {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .nav-logo {
+    display: block;
+  }
+
+  #navMenu {
+    display: block;
+  }
+
+  .navigation {
+    flex-direction: column;
+    display: none;
+    position: absolute;
+    top: 75px;
+    background-color: #d6d6d6;
+    height: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1000;
+    font-size: 25px;
+  }
+
+  #languageContent {
+    display: none;
+    position: absolute;
+    left: calc(50% - 70px);
+    background-color: #d6d6d6;
+    width: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1000;
+    font-size: 25px;
+  }
+
+  .navigation>ul {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .navigation>ul>li {
+    height: auto;
+    width: 100%;
+    margin: auto 15px;
+    align-content: center;
+    text-align: center;
+    color: black;
+  }
+
+  .navigation>ul>li>a {
+    font-size: 25px;
+    height: auto;
+    /* 16px padding left makes the language dropdown align nicely
+    with both the left edge of .navigation and the flag */
+    padding: 15px 16px;
+    color: black;
+  }
+
+  .navigation>ul>li>a:hover {
+    border-bottom: none;
+  }
+
+  .navigation a:hover {
+    background-color: #747474;
+    color: #ffffff;
+  }
+
+  #languagebuttonclass {
+    align-self:initial;
+    top: 5px;
+    left: 0;
+  }
+
+  nav input[type="checkbox"]:checked ~ .navigation {
+    display: flex;
+  }
+}
+
+@media only screen and (hover: hover) {
+  #languageMenu:hover ~ #languageContent {
+    display: block;
+  }
+  
+  #languageContent:hover {
+    display: block;
+  }
+
+  #mainButton:hover {
+    filter: drop-shadow(0 0 10px white);
+    background-color: #222222;
+  }
+
+  #navMenu:hover ~ .navigation {
+    display: flex;
+  }
+
+  .navigation:hover {
+    display: flex;
   }
 }
