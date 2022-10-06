@@ -70,8 +70,8 @@ class TestGlobal(unittest.TestCase):
                 "Frisör Saxé",
                 "Aukijat",
                 "Ottaa yhteyttä",
-                "0630-555-555",
-                "info@ntig-uppsala.github.io",
+                "0640-555-333",
+                "info.lulea@ntig-uppsala.github.io",
                 "Etsi täältä",
                 "Fjällgatan 32H",
                 "981 39, Kiruna",
@@ -101,7 +101,7 @@ class TestGlobal(unittest.TestCase):
 
             links = self.driver.find_elements(By.TAG_NAME, "a")
 
-            self.assertIn("mailto:info@ntig-uppsala.github.io?Subject=Sopia%20tapaaminen",
+            self.assertIn("mailto:info.lulea@ntig-uppsala.github.io?Subject=Sopia%20tapaaminen",
                           [link.get_attribute("href") for link in links])
 
     def test_navigation_links(self):
@@ -354,8 +354,8 @@ class TestPages(unittest.TestCase):
 
         page_text = self.driver.find_element(By.TAG_NAME, "main").text
         control_texts = [
-            "0630-555-555",
-            "info@ntig-uppsala.github.io",
+            "0640-555-333",
+            "info.lulea@ntig-uppsala.github.io",
             "Etsi täältä",
             "Fjällgatan 32H",
             "981 39, Kiruna",
