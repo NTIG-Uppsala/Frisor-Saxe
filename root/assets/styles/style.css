@@ -356,6 +356,52 @@ footer table {
   font-weight: 400;
 }
 
+/* Lokaler */
+
+#stuff {
+  height: 25vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-family: 'Pacifico', cursive;
+  font-size: 69px;
+  font-weight: bold;
+}
+
+#stuff2 {
+  min-height: 75vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+#stuff2 > a {
+  width: 700px;
+  height: 500px;
+  margin: 50px;
+  text-align: center;
+  border-radius: 25px;
+}
+
+#stuff2 > a > img {
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+}
+
+#stuff2 > a > img:hover {
+  height: 100%;
+  width: 100%;
+  filter: drop-shadow(0 0 25px white);
+}
+
+
 /* https://stackoverflow.com/questions/70696930/what-are-the-best-dimensions-for-responsive-web-designs */
 @media only screen and (max-width: 1000px) {
   nav {
