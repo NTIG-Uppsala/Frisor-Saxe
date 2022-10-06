@@ -348,7 +348,6 @@ class TestPages(unittest.TestCase):
 
         page_text = self.driver.find_element(By.TAG_NAME, "main").text
         control_texts = [
-            "Ottaa yhteyttä",
             "0630-555-555",
             "info@ntig-uppsala.github.io",
             "Etsi täältä",
