@@ -66,6 +66,17 @@ th {
   display: none;
 }
 
+#hamburgerClosed {
+  display: block;
+  font-size: 100px;
+}
+
+#hamburgerOpen {
+  display: none;
+  /* #hamburgerClosed is 56.4 pixels wide @ 100px font-size */
+  font-size: 56.4px;
+}
+
 #languageMenu {
   position: relative;
   display: inline-block;
@@ -514,6 +525,14 @@ footer table {
   nav input[type="checkbox"]:checked ~ .navigation {
     display: flex;
   }
+
+  nav input[type="checkbox"]:checked ~ label #hamburgerOpen {
+    display: block;
+  }
+
+  nav input[type="checkbox"]:checked ~ label #hamburgerClosed {
+    display: none;
+  }
 }
 
 @media only screen and (hover: hover) {
@@ -530,11 +549,11 @@ footer table {
     background-color: #222222;
   }
 
-  #navMenu:hover ~ .navigation {
+  /*#navMenu:hover ~ .navigation {
     display: flex;
   }
 
   .navigation:hover {
     display: flex;
-  }
+  }*/
 }
