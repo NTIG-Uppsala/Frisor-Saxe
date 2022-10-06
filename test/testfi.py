@@ -93,6 +93,17 @@ class TestGlobal(unittest.TestCase):
                 self.assertNotEqual(link.get_attribute(
                     "href").split("/")[-1], "#")
 
+    def test_for_booking_link(self):
+        for page in self.pages:
+
+            self.driver.get(self.website_url + page)
+            print("Testing on page: {}".format(page))
+
+            links = self.driver.find_elements(By.TAG_NAME, "a")
+
+            self.assertIn("mailto:info@ntig-uppsala.github.io?Subject=Sopia%20tapaaminen",
+                          [link.get_attribute("href") for link in links])
+
     def test_navigation_links(self):
         for page in self.pages:
 
@@ -330,6 +341,22 @@ class TestPages(unittest.TestCase):
 
         self.assertIn("Etsi täältä", self.driver.find_element(
             By.TAG_NAME, "main").text)
+
+    # Test for contact info outside of footer on hitta-hit.html
+    def test_find_contact_info_on_page(self):
+        self.driver.get(self.website_url + "hitta-hit-fi.html")
+
+        page_text = self.driver.find_element(By.TAG_NAME, "main").text
+        control_texts = [
+            "0630-555-555",
+            "info@ntig-uppsala.github.io",
+            "Etsi täältä",
+            "Fjällgatan 32H",
+            "981 39, Kiruna",
+        ]
+
+        for text in control_texts:
+            self.assertIn(text, page_text)
 
 
 if __name__ == '__main__':

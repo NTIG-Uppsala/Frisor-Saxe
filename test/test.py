@@ -93,6 +93,17 @@ class TestGlobal(unittest.TestCase):
                 self.assertNotEqual(link.get_attribute(
                     "href").split("/")[-1], "#")
 
+    def test_for_booking_link(self):
+        for page in self.pages:
+
+            self.driver.get(self.website_url + page)
+            print("Testing on page: {}".format(page))
+
+            links = self.driver.find_elements(By.TAG_NAME, "a")
+
+            self.assertIn("mailto:info@ntig-uppsala.github.io?Subject=Boka%20tid",
+                          [link.get_attribute("href") for link in links])
+
     def test_navigation_links(self):
         for page in self.pages:
 
@@ -326,8 +337,8 @@ class TestPages(unittest.TestCase):
     """
         FIND US TESTS
     """
-    # Check for map
 
+    # Check for map
     def test_check_map(self):
         self.driver.get(self.website_url + "hitta-hit.html")
         map_url = "google.com/maps/embed?pb=!1m18!1m12!1m3!1d1228.0965925349935!2d20.232261859374567!3d67.86606003621222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x45d0ba6368d7c09a3%3A0xe3887ef038c559b0!2sFj%C3%A4llgatan%2032%2C%20981%2039%20Kiruna!5e0!3m2!1sen!2sse!4v1663658499040!5m2!1sen!2sse"
@@ -338,6 +349,22 @@ class TestPages(unittest.TestCase):
 
         self.assertIn("Hitta hit", self.driver.find_element(
             By.TAG_NAME, "main").text)
+
+    # Test for contact info outside of footer on hitta-hit.html
+    def test_find_contact_info_on_page(self):
+        self.driver.get(self.website_url + "hitta-hit.html")
+
+        page_text = self.driver.find_element(By.TAG_NAME, "main").text
+        control_texts = [
+            "0630-555-555",
+            "info@ntig-uppsala.github.io",
+            "Hitta hit",
+            "Fjällgatan 32H",
+            "981 39, Kiruna",
+        ]
+
+        for text in control_texts:
+            self.assertIn(text, page_text)
 
 
 if __name__ == '__main__':
