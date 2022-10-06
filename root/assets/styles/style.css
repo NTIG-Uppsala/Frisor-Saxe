@@ -444,6 +444,11 @@ footer table {
     font-size: 20px;
   }
 
+  #bookingButton {
+    font-size: 20px;
+    padding: 15px 20px;
+  }
+
   td,
   th {
     font-size: 14px;
