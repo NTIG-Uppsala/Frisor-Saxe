@@ -117,6 +117,8 @@ class TestGlobal(unittest.TestCase):
 
             link_text = [
                 "Koti",
+                "Hinta lista",
+                "Paikoissa",
                 "Henkilökunta",
                 "Etsi täältä"
             ]
@@ -131,6 +133,10 @@ class TestGlobal(unittest.TestCase):
 
             # Finds link to services in header
             self.assertIn("index-fi.html#products", [link.get_attribute(
+                "href").split('/')[-1] for link in links])
+
+            # Finds link to places in header
+            self.assertIn("lokaler-fi.html", [link.get_attribute(
                 "href").split('/')[-1] for link in links])
 
     def test_for_icons_on_page(self):

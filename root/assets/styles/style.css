@@ -387,6 +387,10 @@ footer table {
   margin: 50px;
   text-align: center;
   border-radius: 25px;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-decoration: none;
 }
 
 #stuff2 > a > img {
