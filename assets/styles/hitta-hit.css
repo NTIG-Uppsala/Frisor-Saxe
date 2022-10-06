@@ -35,6 +35,15 @@
   border-radius: 25px;
 }
 
+.main-logo {
+  margin: 0px; 
+}
+
+#info a {
+  color: white;
+  font-size: 25px;
+}
+
 @media only screen and (max-width: 768px) {
   .card>.card-content {
     flex-direction: column-reverse;
